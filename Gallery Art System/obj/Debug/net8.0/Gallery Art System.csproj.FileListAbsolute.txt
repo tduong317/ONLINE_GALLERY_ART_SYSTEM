@@ -73,3 +73,4 @@ D:\ASP.net\Gallery Art System\Gallery Art System\obj\Debug\net8.0\Gallery Art Sy
 D:\ASP.net\Gallery Art System\Gallery Art System\obj\Debug\net8.0\Gallery Art System.genruntimeconfig.cache
 D:\ASP.net\Gallery Art System\Gallery Art System\obj\Debug\net8.0\ref\Gallery Art System.dll
 D:\ASP.net\Gallery Art System\Gallery Art System\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+D:\ASP.net\Gallery Art System\Gallery Art System\obj\Debug\net8.0\Gallery Art System.sourcelink.json
