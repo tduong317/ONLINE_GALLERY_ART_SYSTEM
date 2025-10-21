@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@model Gallery_Art_System.Models.Config
+<div class="container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <form asp-action="Edit" asp-controller="Config" method="post" enctype="multipart/form-data">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Config" asp-action="Edit"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="col">
+                <label asp-for="Image" class="form-label">Logo</label>
+                <!-- input text để elfinder ghi đường dẫn -->
+                <input asp-for="Image" class="form-label" id="Image" />
+                <button type="button" id="btnBrowse">Chọn ảnh</button>
+                <div class="mt-2">
+                    <img src="@Model.Image" id="PictureView" width="100px" />
+                </div>
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Mail</label>
+                <input class="form-control" asp-for="Mail" />
+            </div>
+            <div class="col">
+                <label class="form-label">Mail_Port</label>
+                <input class="form-control" asp-for="MailPort" />
+            </div>
+            <div class="col">
+                <label class="form-label">Mail_Infor</label>
+                <input class="form-control" asp-for="MailInfo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Contact</label>
+                <input class="form-control" asp-for="Contact" />
+            </div>
+            <div class="col">
+                <label class="form-label">Hotline</label>
+                <input class="form-control" asp-for="Hotline" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Title</label>
+                <textarea class="form-control" asp-for="Title"></textarea>
+            </div>
+            <div class="col">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" asp-for="Description"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">SocialLink1</label>
+                <input class="form-control" asp-for="SocialLink1" />
+            </div>
+            <div class="col">
+                <label class="form-label">SocialLink2</label>
+                <input class="form-control" asp-for="SocialLink2" />
+            </div>
+            <div class="col">
+                <label class="form-label">SocialLink3</label>
+                <input class="form-control" asp-for="SocialLink3" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">LinkVideo1</label>
+                <input class="form-control" asp-for="LinkVideo1" />
+            </div>
+            <div class="col">
+                <label class="form-label">LinkVideo2</label>
+                <input class="form-control" asp-for="LinkVideo2" />
+            </div>
+            <div class="col">
+                <label class="form-label">LinkVideo3</label>
+                <input class="form-control" asp-for="LinkVideo3" />
+            </div>
+        </div>
+        <br />
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Config" asp-action="Edit"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('#btnBrowse') != undefined) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            $('#Image').val('/' + files[0].path);
+                            $('#PictureView').attr('src', '/' + files[0].path);
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                })
+            }
+        });
+        CKEDITOR.replace('Description');
+        CKEDITOR.replace('Title');
+                $('form').submit(function (e) {
+            if (!confirm("Bạn có chắc chắn muốn cập nhật không?")) {
+                e.preventDefault();
+            }
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+

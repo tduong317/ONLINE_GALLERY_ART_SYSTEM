@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@model Gallery_Art_System.Models.Admin
+<div class="container">
+    <form asp-action="Edit" asp-controller="Admin" method="post" enctype="multipart/form-data">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Sửa Admin</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label">Username</label>
+            <input type="text" class="form-control" asp-for="UserName">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <!-- Nút gửi -->
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+

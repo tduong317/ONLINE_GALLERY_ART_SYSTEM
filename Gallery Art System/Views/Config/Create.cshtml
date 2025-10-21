@@ -1,0 +1,138 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@model Gallery_Art_System.Models.Config
+<div class="container">
+    <form asp-action="Create" asp-controller="Config" method="post" enctype="multipart/form-data">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Add Config</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Config" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Mail</label>
+                <input class="form-control" asp-for="Mail" />
+            </div>
+            <div class="col">
+                <label class="form-label">Mail_Port</label>
+                <input class="form-control" asp-for="MailPort" />
+            </div>
+            <div class="col">
+                <label class="form-label">Mail_Infor</label>
+                <input class="form-control" asp-for="MailInfo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Contact</label>
+                <input class="form-control" asp-for="Contact" />
+            </div>
+            <div class="col">
+                <label class="form-label">Hotline</label>
+                <input class="form-control" asp-for="Hotline" />
+            </div>       
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Title</label>
+                <textarea class="form-control" asp-for="Title"></textarea>
+            </div>
+            <div class="col">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" asp-for="Description"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">SocialLink1</label>
+                <input class="form-control" asp-for="SocialLink1" />
+            </div>
+            <div class="col">
+                <label class="form-label">SocialLink2</label>
+                <input class="form-control" asp-for="SocialLink2" />
+            </div>
+            <div class="col">
+                <label class="form-label">SocialLink3</label>
+                <input class="form-control" asp-for="SocialLink3" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">LinkVideo1</label>
+                <input class="form-control" asp-for="LinkVideo1" />
+            </div>
+            <div class="col">
+                <label class="form-label">LinkVideo2</label>
+                <input class="form-control" asp-for="LinkVideo2" />
+            </div>
+            <div class="col">
+                <label class="form-label">LinkVideo3</label>
+                <input class="form-control" asp-for="LinkVideo3" />
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('#btnBrowse') != undefined) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            var filePath = '/' + files[0].path;
+                            $('#File').val(filePath);
+
+                            // Kiểm tra phần mở rộng tệp
+                            var fileExtension = files[0].path.split('.').pop().toLowerCase();
+                            if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') {
+                                $('#fileUpload').attr('src', filePath);
+                                $('#fileInfo').html('');
+                            }
+                            else if (fileExtension === 'pdf' || fileExtension === 'docx') {
+                                $('#fileUpload').attr('src', '');
+                                $('#fileInfo').html('<a href="' + filePath + '" target="_blank">Tải xuống ' + files[0].name + '</a>');
+                            }
+                            else {
+                                $('#fileUpload').attr('src', '');
+                                $('#fileInfo').html('<span>Không hỗ trợ xem trước tệp này.</span>');
+                            }
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                })
+            }
+        });
+        CKEDITOR.replace('Description');
+        CKEDITOR.replace('Title');
+    </script>
+}
+
+
+

@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/css_admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="icon" href="https://c1.klipartz.com/pngpicture/80/60/sticker-png-earth-logo-world-world-war-i-globe-world-map-circle.png" type="image/gif" sizes="25x25">
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/theme.css" />
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="~/elfinder/css/elfinder.full.css" />
+    <link rel="stylesheet" href="~/elfinder/css/theme.min.css" />
+    <link rel="stylesheet" href="~/elfinder-material-theme/Material/css/theme-gray.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    @* @if (httpCTA.HttpContext.Session.GetString("username") == null)
+    {
+        <script>
+            window.location.href = '/logon';
+        </script>
+    } *@
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <h3 style="background: linear-gradient(40deg, #2096ff, #05ffa3); padding: 35px 0px ; color : white ; text-align : center">PHẦN MỀM QUẢN LÝ</h3>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-sm navbar-dark" style="background-color : #4CAF50">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <div class="dropdown text-align-right">
+                                <button class="dropbtn">Cấu hình</button>
+                                <div class="dropdown-content">
+                                    <a asp-controller="Config" asp-action="Edit">Cấu hình</a>                                  
+                                </div>
+                            </div>
+                            <div class="dropdown text-align-right">
+                                <button class="dropbtn">Liên hệ</button>
+                                <div class="dropdown-content">
+                                    <a asp-controller="Contact" asp-action="Index">Liên hệ</a>
+                                </div>
+                            </div>
+                            <div class="dropdown text-align-right">
+                                <button class="dropbtn">Tài khoản</button>
+                                <div class="dropdown-content">
+                                    <a asp-controller="User" asp-action="Index">Người dùng</a>
+                                    <a asp-controller="Admin" asp-action="Index">Admin</a>
+                                </div>
+                            </div>                         
+                        </ul>
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                            <a class="dangnhap" asp-area="" asp-controller="Admin" asp-action="AdminIndex">[ Trang quản trị ]</a>
+                            <a class="dangnhap" asp-area="" asp-controller="" asp-action="">[ Đổi mật khẩu ]</a>
+                            <a class="dangnhap" asp-controller="Logon" asp-action="Logout">[ Đăng xuất ]</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
