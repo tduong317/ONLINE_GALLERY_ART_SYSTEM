@@ -10,12 +10,12 @@
         <div class="mb-4 border-bottom pb-2 d-flex justify-content-between align-items-center">
             <h4 class="fw-bold text-primary mb-0">🖼️ Add Banner</h4>
             <div>
-                <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
-                    <i class='fas fa-arrow-left'></i> Back
-                </a>
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i> Save
                 </button>
+                <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
+                    <i class='fas fa-arrow-left'></i> Back
+                </a>           
             </div>
         </div>
 
@@ -46,12 +46,14 @@
 
         <!-- Bottom Buttons -->
         <div class="d-flex justify-content-end border-top pt-3 mt-4">
-            <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
-                <i class='fas fa-arrow-left'></i> Back
-            </a>
-            <button type="submit" class="btn btn-success">
-                <i class="fas fa-save"></i> Save
-            </button>
+            <div>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
+                    <i class='fas fa-arrow-left'></i> Back
+                </a>
+            </div>
         </div>
     </form>
 
