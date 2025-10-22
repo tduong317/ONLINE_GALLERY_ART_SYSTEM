@@ -1,0 +1,276 @@
+﻿@{
+    Layout = "AdminMaster";
+}
+@model Gallery_Art_System.Models.Page
+<style>
+    .hidePage {
+        display: none; /* Ẩn các phần tử có class "hidePage" */
+    }
+</style>
+
+<div class="container">
+    <h4><strong>QUẢN LÝ DANH MỤC TRANG</strong></h4>
+
+    <form asp-action="Create" asp-controller="Page" method="post" enctype="multipart/form-data">
+        <div class="table-title" style="margin-top:20px">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Page" asp-action="Index">Trở lại<i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" asp-for="Id">
+        </div>
+        <!-- Tên trang -->
+        <div class="form-group">
+            <label for="pageName" class="form-label">Tên trang:</label>
+            <input type="text" class="form-control" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <div class="mb-3">
+            <label for="pageType" class="form-label"><strong>Loại trang</strong></label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-layers"></i></span>
+                <select id="pageType" class="form-select">
+                    <option value="linkPage">Trang liên kết</option>
+                    <option value="ckeditorPage">Trang sử dụng CKEditor</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group" id="ckeditorContainer" style="display: none;">
+            <label for="contentEditor" class="form-label">Nội dung:</label>
+            <textarea id="contentEditor" asp-for="Detail" class="form-control"></textarea>
+        </div>
+
+        <!-- Trang nội dung -->
+        <div class="form-group hidePage" id="contentPageGroup">
+            <label for="pageInfoInput" class="form-label">Thông tin trang nội dung:</label>
+            <input type="text" class="form-control" asp-for="Content" id="pageInfoInput">
+            <span asp-validation-for="Content" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <!-- Kiểu liên kết -->
+        <div class="mb-3">
+            <label for="pageLink" class="form-label"><strong>Liên kết:</strong></label>
+            <div class="input-group">
+                <span class="input-group-text">🔗</span>
+                <select id="pageLink" class="form-select">
+                    <option value="inputLink">Nhập liên kết</option>
+                    <option value="moduleLink">Liên kết module</option>
+                </select>
+            </div>
+            <span asp-validation-for="Link" class="text-danger"></span>
+        </div>
+
+        <!-- Nhập liên kết -->
+        <div class="mb-3 hidePage" id="linkInputGroup">
+            <div class="input-group">
+                <span class="input-group-text">🌐</span>
+                <input type="text" class="form-control" asp-for="Link" id="pageInfoLink" placeholder="Nhập liên kết...">
+            </div>
+            <span asp-validation-for="Link" class="text-danger"></span>
+        </div>
+
+        <!-- Liên kết module -->
+        <div class="mb-3 hidePage" id="pageLinkModule">
+            <label for="moduleLinkSelect" class="form-label"><strong>Liên kết module:</strong></label>
+            <div class="input-group">
+                <span class="input-group-text">📂</span>
+                @* <select asp-for="Link" class="form-select" id="moduleLinkSelect" onchange="updateLinkInput(this)">
+                    <option value="">-- Tất cả --</option>
+                    @foreach (var ct in ViewBag.Cates)
+                    {
+                        string strurl = "/danh-muc/" + ct.Tag + "_" + ct.Id + ".html";
+                        <option value="@strurl">@ct.Name</option>
+                    }
+                </select> *@
+            </div>
+            <span asp-validation-for="Link" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <!-- Cột 1 -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Target" class="form-label">Kiểu hiển thị:</label>
+                    <select id="Target" class="form-select" asp-for="Target">
+                        <option value="_self">_self</option>
+                        <option value="_blank">_blank</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Cột 2 -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label"><b>Vị trí hiển thị</b></label>
+                    <select class="form-select" asp-for="Position">
+                        <option value="0">Menu trên</option>
+                        <option value="1">Menu giữa</option>
+                        <option value="2">Menu dưới</option>
+                        <option value="3">Giữa dưới</option>
+                    </select>
+                    <span asp-validation-for="Position" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Metadata -->
+        <div class="form-group">
+            <label class="form-label"><b>Title meta</b></label>
+            <input type="text" class="form-control" asp-for="Title">
+            <span asp-validation-for="Title" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><b>Description meta</b></label>
+            <textarea class="form-control" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><b>Keyword meta</b></label>
+            <input type="text" class="form-control" asp-for="Keyword">
+            <span asp-validation-for="Keyword" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <!-- Thứ tự -->
+        <div class="form-group">
+            <label class="form-label"><b>Thứ tự</b></label>
+            <input type="number" class="form-control" asp-for="Ord">
+            <span asp-validation-for="Ord" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <!-- Trạng thái -->
+        <div class="form-group">
+            <div class="mb-3 mt-3">
+                <label class="form-label">Kích hoạt</label>
+                <input type="checkbox" name="Status" value="true" />
+            </div>
+            <span asp-validation-for="Status" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
+        </div>
+
+        <!-- Nút gửi -->
+        <div class="table-title" style="margin-top:20px">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Page" asp-action="Index">Trở lại<i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        function updateLinkInput(selectElement) {
+            const selectedValue = selectElement.value;
+            const inputField = document.getElementById('pageInfoLink');
+
+            // Nếu chọn '-- Tất cả --', xóa giá trị trong input
+            if (selectedValue === "") {
+                inputField.value = "";
+            } else {
+                inputField.value = selectedValue;
+            }
+        }
+        $(document).ready(function () {
+            // Khởi tạo CKEditor khi cần thiết
+            let ckEditorInstance = null;
+
+            $('#pageType').change(function () {
+                const selectedValue = $(this).val();
+
+                if (selectedValue === 'ckeditorPage') {
+                    $('#ckeditorContainer').show(); // Hiển thị textarea
+                    if (!ckEditorInstance) {
+                        ckEditorInstance = CKEDITOR.replace('contentEditor'); // Khởi tạo CKEditor
+                    }
+                } else {
+                    $('#ckeditorContainer').hide(); // Ẩn textarea
+                    if (ckEditorInstance) {
+                        ckEditorInstance.destroy(); // Hủy CKEditor
+                        ckEditorInstance = null;
+                    }
+                }
+            });
+
+            const pageTypeSelect = document.getElementById('pageType');
+            const contentPageGroup = document.getElementById('contentPageGroup');
+            const pageLinkSelect = document.getElementById('pageLink');
+            const linkInputGroup = document.getElementById('linkInputGroup');
+            const pageLinkModule = document.getElementById('pageLinkModule');
+
+            function togglePageType() {
+                if (pageTypeSelect.value === 'infoPage') {
+                    contentPageGroup.style.display = 'block'; // Hiển thị phần nhập thông tin trang nội dung
+                } else {
+                    contentPageGroup.style.display = 'none'; // Ẩn phần nhập thông tin trang nội dung
+                }
+            }
+
+            // Hàm hiển thị/ẩn các nhóm phần tử dựa trên kiểu liên kết
+            function togglePageLink() {
+                if (pageLinkSelect.value === 'inputLink') {
+                    linkInputGroup.style.display = 'block'; // Hiển thị phần nhập liên kết
+                    pageLinkModule.style.display = 'none'; // Ẩn phần liên kết module
+                } else if (pageLinkSelect.value === 'moduleLink') {
+                    linkInputGroup.style.display = 'none'; // Ẩn phần nhập liên kết
+                    pageLinkModule.style.display = 'block'; // Hiển thị phần liên kết module
+                }
+            }
+
+            // Hiển thị ban đầu
+            togglePageType();
+            togglePageLink();
+
+            // Thêm sự kiện thay đổi kiểu trang và kiểu liên kết
+            pageTypeSelect.addEventListener('change', togglePageType);
+            pageLinkSelect.addEventListener('change', togglePageLink);
+
+            // Quản lý elFinder
+            if ($('#btnBrowse') != undefined) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            $('#Picture').val('/' + files[0].path);
+                            $('#PictureView').attr('src', '/' + files[0].path);
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                });
+            }
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

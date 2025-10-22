@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gallery_Art_System.Models
 {
     public partial class Page
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(500, ErrorMessage = "Name must be less than 500")]
         public string Name { get; set; } = null!;
         public string? Tag { get; set; }
         public string? Content { get; set; }
@@ -21,5 +26,7 @@ namespace Gallery_Art_System.Models
         public int Position { get; set; }
         public int Ord { get; set; }
         public bool Status { get; set; }
+        [NotMapped]
+        public List<Page> Children { get; set; } = new List<Page>();
     }
 }

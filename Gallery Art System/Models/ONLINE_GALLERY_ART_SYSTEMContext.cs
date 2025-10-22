@@ -32,6 +32,7 @@ namespace Gallery_Art_System.Models
         public virtual DbSet<Review> Reviews { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<Config> Configs { get; set; } = null!;
+        public virtual DbSet<Banner> Banners { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

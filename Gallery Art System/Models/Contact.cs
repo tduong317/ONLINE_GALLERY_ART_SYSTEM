@@ -11,5 +11,6 @@ namespace Gallery_Art_System.Models
         public string? Subject { get; set; }
         public string Message { get; set; } = null!;
         public DateTime? SentAt { get; set; }
+
     }
 }

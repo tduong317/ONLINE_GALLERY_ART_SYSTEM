@@ -521,6 +521,7 @@ wwwroot\elfinder\js\worker\quicklook.tiff.min.js
 wwwroot\elfinder\js\worker\quicklook.unzip.js
 wwwroot\elfinder\js\worker\quicklook.unzip.min.js
 wwwroot\favicon.ico
+wwwroot\files\467741106_615406131053411_5678388305646780995_n.png
 wwwroot\files\469038087_122185081544168215_3942261540789633529_n.jpg
 wwwroot\images\left-img.jpg
 wwwroot\js\site.js
