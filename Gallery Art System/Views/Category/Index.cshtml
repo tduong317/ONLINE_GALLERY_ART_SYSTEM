@@ -1,0 +1,103 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Category>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
+@{
+    Layout = "AdminMaster";
+}
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <h4>Category <b>Managemnet</b></h4>
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="category" asp-action="Create" class="btn btn-success" data-toggle="modal">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Category" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Category" asp-action="" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <!-- "Select All" checkbox -->
+                            <input type="checkbox" id="selectAll" />
+                            <label for="selectAll"></label>
+                        </span>
+                    </th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cate in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="custom-checkbox">
+                                <!-- Individual checkboxes -->
+                                <input type="checkbox" class="checkboxItem" id="checkbox_@cate.CategoryId" name="options[]" value="@cate.CategoryId" />
+                                <label for="checkbox_@cate.CategoryId"></label>
+                            </span>
+                        </td>
+                        <td>@cate.Name</td>
+                        <td>@cate.Description</td>
+                        <td>
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@cate.CategoryId" class="edit" data-toggle="modal">
+                                <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                            </a>
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@cate.CategoryId" class="delete" data-toggle="modal">
+                                <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">&#xE872;</i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Phân Trang -->
+        <div class="clearfix">
+            <ul class="pagination">
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
+            </ul>
+        </div>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="category" asp-action="Create" class="btn btn-success" data-toggle="modal">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Category" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Category" asp-action="" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

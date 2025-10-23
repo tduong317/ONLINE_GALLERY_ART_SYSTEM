@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@model Gallery_Art_System.Models.Contact
+<div class="container">
+    <form asp-action="Edit" asp-controller="Contact" method="post" enctype="multipart/form-data">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Edit Contact</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Contact" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" asp-for="MessageId" />
+        <div class="row">
+            <div class="col">
+                <label for="" class="form-label">Name</label>
+                <input type="text" class="form-control" asp-for="Name" required
+                       oninvalid="this.setCustomValidity('Vui lòng nhập tên')"
+                       oninput="this.setCustomValidity('')">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label for="" class="form-label">Email</label>
+                <input type="email" class="form-control" asp-for="Email" required
+                       oninvalid="this.setCustomValidity('Vui lòng email')"
+                       oninput="this.setCustomValidity('')">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="" class="form-label">Chủ đề</label>
+                <input type="text" class="form-control" asp-for="Subject">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Nội dung tin nhắn</label>
+                <textarea asp-for="Message" class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <!-- Nút gửi -->
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+
+        CKEDITOR.replace('Message');
+    </script>
+}
+
+
+
+
+

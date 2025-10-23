@@ -1,0 +1,95 @@
+﻿﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Contact>
+
+@{
+    Layout = "AdminMaster";
+    ViewData["Title"] = "Quản lý Contact";
+}
+
+<div class="container-fluid">
+    <h4>Quản Lí <b>Liên hệ</b></h4>
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <a asp-controller="Contact" asp-action="Create" class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Contact" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Contact" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Chủ đề</th>
+                    <th>Nội dung</th>
+                    <th>Ngày gửi</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var c in Model)
+                    {
+                        <tr>
+                            <td>@c.Name</td>
+                            <td>@c.Email</td>
+                            <td>@c.Subject</td>
+                            <td>@Html.Raw(c.Message)</td>
+                            <td>@c.SentAt?.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                <a asp-controller="Contact" asp-action="Edit" asp-route-id="@c.MessageId" class="edit">
+                                    <i class="material-icons" title="Chỉnh sửa">&#xE254;</i>
+                                </a>
+                                <a asp-controller="Contact" asp-action="Delete" asp-route-id="@c.MessageId"
+                                   class="delete"
+                                   onclick="return confirm('Bạn có chắc muốn xóa liên hệ này không?');">
+                                    <i class="material-icons" title="Xóa">&#xE872;</i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                }
+            </tbody>
+        </table>
+
+        <div class="clearfix">
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
+            </ul>
+        </div>
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <a asp-controller="Contact" asp-action="Create" class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Contact" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Contact" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
