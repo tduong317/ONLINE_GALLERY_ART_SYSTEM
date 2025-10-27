@@ -24,17 +24,17 @@
 
         <div class="row mb-3">
             <div class="col">
-                <label asp-for="Username" class="form-label"></label>
+                <label asp-for="Username" class="form-label fw-bold"></label>
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="col">
-                <label asp-for="FullName" class="form-label"></label>
+                <label asp-for="FullName" class="form-label fw-bold"></label>
                 <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="col">
-                <label asp-for="Password" class="form-label"></label>
+                <label asp-for="Password" class="form-label fw-bold"></label>
                 <input asp-for="Password" type="password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
@@ -42,17 +42,17 @@
 
         <div class="row mb-3">
             <div class="col">
-                <label asp-for="Address" class="form-label"></label>
+                <label asp-for="Address" class="form-label fw-bold"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="col">
-                <label asp-for="Email" class="form-label"></label>
+                <label asp-for="Email" class="form-label fw-bold"></label>
                 <input asp-for="Email" type="email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="col">
-                <label asp-for="Phone" class="form-label"></label>
+                <label asp-for="Phone" class="form-label fw-bold"></label>
                 <input asp-for="Phone" class="form-control" required pattern="[0-9]{10}" title="Vui lòng nhập số điện thoại hợp lệ (10 chữ số)" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
@@ -60,12 +60,12 @@
 
         <div class="row mb-3">
             <div class="col">
-                <label asp-for="Age" class="form-label"></label>
+                <label asp-for="Age" class="form-label fw-bold"></label>
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="col">
-                <label asp-for="Gender" class="form-label"></label>
+                <label asp-for="Gender" class="form-label fw-bold"></label>
                 <select asp-for="Gender" class="form-select">
                     <option value="">-- Chọn giới tính --</option>
                     <option value="Nam">Nam</option>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="">
-            <label asp-for="Avatar" class="form-label">Avatar</label>
+            <label asp-for="Avatar" class="form-label fw-bold">Avatar</label>
             <input asp-for="Avatar" />
             <button type="button" id="btnBrowse">Chọn ảnh</button>
             <div>

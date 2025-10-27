@@ -1,0 +1,143 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@model Gallery_Art_System.Models.Artwork
+<div class="container">
+    <form asp-action="Create" asp-controller="Artwork" method="post" enctype="multipart/form-data">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Add Artwork</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Artwork" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="CategoryId" class="form-label fw-bold">Category Name</label>
+                <select asp-for="CategoryId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.CategoryList, "CategoryId", "Name", ViewBag.SelectedCategoryId))">
+                    <option value="">-- Chọn danh mục --</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="ArtistId" class="form-label fw-bold">Artist</label>
+                <select asp-for="ArtistId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.UserList, "UserId", "FullName"))">
+                    <option value="">-- Chọn tác giả --</option>
+                </select>
+                <span asp-validation-for="ArtistId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label fw-bold">Title</label>
+            <input type="text" class="form-control" asp-for="Title">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label fw-bold" >Description</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label fw-bold">Price</label>
+                <input type="number" class="form-control" asp-for="Price" />
+            </div>
+            <div class="col">
+                <label class="form-label fw-bold">Sale Type</label>
+                <select class="form-select" asp-for="SaleType" required>
+                    <option value="">-- Select Sale Type --</option>
+                    <option value="For Sale">For Sale</option>
+                    <option value="Not for Sale">Not for Sale</option>
+                    <option value="Auction">Auction</option>
+                </select>
+                <span asp-validation-for="SaleType" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <label asp-for="ImageUrl" class="form-label fw-bold">Image</label>
+                <!-- input text để elfinder ghi đường dẫn -->
+                <input asp-for="ImageUrl" class="form-label" id="Image" />
+                <button type="button" id="btnBrowse">Chọn ảnh</button>
+                <div class="mt-2">
+                    <img src="@Model.ImageUrl" id="PictureView" width="100px" />
+                </div>
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" name="Status" value="true" class="form-check-input" @(Model.Status == true ? "checked" : "") />
+            <label class="form-check-label">Hoạt động</label>
+        </div>
+        </br>
+        <!-- Nút gửi -->
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('#btnBrowse') != undefined) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            $('#Image').val('/' + files[0].path);
+                            $('#PictureView').attr('src', '/' + files[0].path);
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                })
+                CKEDITOR.replace('Description');
+            }
+        });
+    </script>
+
+}
+
+
+
+

@@ -14,6 +14,7 @@ namespace Gallery_Art_System.Models
         public int CategoryId { get; set; }
         [Column(TypeName = "nvarchar(200)")]
         public string Name { get; set; } = null!;
+        [Column(TypeName = "nvarchar(max)")]
         public string? Description { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

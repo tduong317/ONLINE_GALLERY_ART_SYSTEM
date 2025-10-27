@@ -58,7 +58,7 @@
                             </span>
                         </td>
                         <td>@cate.Name</td>
-                        <td>@cate.Description</td>
+                        <td>@Html.Raw(cate.Description)</td>
                         <td>
                             <a asp-controller="Category" asp-action="Edit" asp-route-id="@cate.CategoryId" class="edit" data-toggle="modal">
                                 <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>

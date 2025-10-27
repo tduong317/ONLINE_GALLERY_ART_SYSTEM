@@ -1,0 +1,98 @@
+﻿@model Gallery_Art_System.Models.Gallery
+@{
+    Layout = "AdminMaster";
+    ViewData["Title"] = "Sửa Gallery";
+}
+
+<div class="container">
+    <form asp-action="Edit" method="post">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Edit Gallery</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" asp-for="GalleryId" />
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="Name" class="form-label fw-bold">Tên Gallery</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="UserId" class="form-label fw-bold">Tác giả</label>
+                <select asp-for="UserId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Users, "UserId", "FullName"))">
+                    <option value="">-- Chọn tác giả --</option>
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <label asp-for="Description" class="form-label fw-bold">Mô tả</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Khởi tạo CKEditor cho textarea Description
+            if ($('#Description').length > 0) {
+                CKEDITOR.replace('Description', {
+                    language: 'vi',
+                    removePlugins: 'sourcearea', // nếu muốn bỏ nút source
+                });
+            }
+
+            // elFinder browse button
+            if ($('#btnBrowse').length > 0) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            $('#Image').val('/' + files[0].path);
+                            $('#PictureView').attr('src', '/' + files[0].path);
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                });
+            }
+        });
+    </script>
+}

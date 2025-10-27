@@ -36,6 +36,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Artwork/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Artwork/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Artwork/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0d29ya1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ASP.net/Gallery Art System/Gallery Art System/Views/Banner/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFubmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +94,54 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/ASP.net/Gallery Art System/Gallery Art System/Views/Contact/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/ExhibitionRequest/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblJlcXVlc3RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/ExhibitionRequest/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblJlcXVlc3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/ExhibitionRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblJlcXVlc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Exhibition/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Exhibition/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Exhibition/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/GalleryArtwork/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeUFydHdvcmtcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/GalleryArtwork/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeUFydHdvcmtcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/GalleryArtwork/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeUFydHdvcmtcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Gallery/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Gallery/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Gallery Art System/Gallery Art System/Views/Gallery/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ASP.net/Gallery Art System/Gallery Art System/Views/Home/Index.cshtml]

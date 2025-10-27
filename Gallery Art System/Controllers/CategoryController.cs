@@ -47,6 +47,7 @@ namespace Gallery_Art_System.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Category cate)
         {
+            cate.CreatedAt = DateTime.Now;
             if (id != cate.CategoryId)
             {
                 return NotFound();
@@ -74,7 +75,6 @@ namespace Gallery_Art_System.Controllers
             }
             return View(cate);
         }
-        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             var cate = await _context.Categories.FindAsync(id);

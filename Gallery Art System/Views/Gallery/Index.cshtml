@@ -1,0 +1,141 @@
+﻿﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Gallery>
+
+@{
+    Layout = "AdminMaster";
+    ViewData["Title"] = "Quản lý Gallery";
+}
+
+<div class="container-fluid">
+    <h4>Quản Lí <b>Gallery</b></h4>
+    <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
+        <!-- Nghệ sĩ (Dropdown) -->
+        <div class="col-md-3">
+            <label class="form-label fs-8 fw-bold">Tác giả</label>
+            <select name="artistId" class="form-select">
+                <option value="">-- Chọn tác giả --</option>
+                @if (ViewBag.UserList != null)
+                {
+                    foreach (var user in ViewBag.UserList)
+                    {
+                        if (ViewBag.SelectedArtistId != null && ViewBag.SelectedArtistId == user.UserId)
+                        {
+                            <option value="@user.UserId" selected>@user.FullName</option>
+                        }
+                        else
+                        {
+                            <option value="@user.UserId">@user.FullName</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+
+        <!-- Nút thao tác -->
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-funnel"></i> Lọc
+            </button>
+            <a href="@Url.Action("Index", "Gallery")" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Bỏ lọc
+            </a>
+        </div>
+    </form>
+
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 text-end">
+                    <a asp-controller="Gallery"
+                       asp-action="Create"
+                       asp-route-artistId="@(ViewBag.SelectedArtistId ?? "")"
+                       class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Gallery" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    </a>
+                    <a asp-controller="Gallery" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <!-- "Select All" checkbox -->
+                            <input type="checkbox" id="selectAll" />
+                            <label for="selectAll"></label>
+                        </span>
+                    </th>
+                    <th>Tên Gallery</th>
+                    <th>Tác giả</th>
+                    <th>Mô tả</th>
+                    <th>Ngày tạo</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var g in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="custom-checkbox">
+                                <!-- Individual checkboxes -->
+                                <input type="checkbox" class="checkboxItem" id="checkbox_@g.GalleryId" name="options[]" value="@g.GalleryId" />
+                                <label for="checkbox_@g.GalleryId"></label>
+                            </span>
+                        </td>
+                        <td>@g.Name</td>
+                        <td>@g.User?.FullName</td>
+                        <td>@Html.Raw(g.Description)</td>
+                        <td>@g.CreatedAt?.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a asp-controller="Gallery" asp-action="Edit" asp-route-id="@g.GalleryId" class="edit" title="Chỉnh sửa">
+                                <i class="material-icons">&#xE254;</i>
+                            </a>
+                            <a asp-controller="Gallery" asp-action="Delete" asp-route-id="@g.GalleryId" class="delete"
+                               onclick="return confirm('Bạn có chắc muốn xóa không?');" title="Xóa">
+                                <i class="material-icons">&#xE872;</i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="clearfix">
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
+            </ul>
+        </div>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 text-end">
+                    <a asp-controller="Gallery"
+                       asp-action="Create"
+                       asp-route-artistId="@(ViewBag.SelectedArtistId ?? "")"
+                       class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="Gallery" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    </a>
+                    <a asp-controller="Gallery" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

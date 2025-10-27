@@ -23,7 +23,7 @@
 
     <!-- jQuery UI (CDN) -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
-
+    <meta charset="utf-8" />
     <!-- elFinder CSS -->
     <link rel="stylesheet" href="~/elfinder/css/elfinder.full.css" />
     <link rel="stylesheet" href="~/elfinder/css/theme.min.css" />
@@ -66,15 +66,25 @@
                         </div>
                         <div class="dropdown text-align-right">
                             <button class="dropbtn">Quản lí menu</button>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content">                               
                                 <a asp-controller="Page" asp-action="Index">Danh mục menu</a>
                                 <a asp-controller="Banner" asp-action="Index">Banner</a>
                             </div>
                         </div>
                         <div class="dropdown text-align-right">
                             <button class="dropbtn">Quản lí</button>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content">              
                                 <a asp-controller="Category" asp-action="Index">Category</a>
+                                <a asp-controller="Artwork" asp-action="Index">Artwork</a>
+                            </div>
+                        </div>
+                        <div class="dropdown text-align-right">
+                            <button class="dropbtn">Phòng trưng bày</button>
+                            <div class="dropdown-content">
+                                <a asp-controller="Gallery" asp-action="Index">Gallery</a>
+                                <a asp-controller="GalleryArtwork" asp-action="Index">Gallery_artwork</a>
+                                <a asp-controller="Exhibition" asp-action="Index">Exhibition</a>
+                                <a asp-controller="ExhibitionRequest" asp-action="Index">Exhibition_request</a>
                             </div>
                         </div>
                     </ul>

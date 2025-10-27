@@ -1,0 +1,203 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Artwork>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+<div class="container-fluid">
+    <h4>Artwork <b>Management</b></h4>
+    <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
+        <!-- Danh mục (Dropdown) -->
+        <div class="col-md-3">
+            <label class="form-label fs-8 fw-bold">Danh mục</label>
+            <select name="categoryId" class="form-select">
+                <option value="">-- Chọn danh mục --</option>
+                @if (ViewBag.CategoryList != null)
+                {
+                    foreach (var cate in ViewBag.CategoryList)
+                    {
+                        if (ViewBag.SelectedCategoryId != null && ViewBag.SelectedCategoryId == cate.CategoryId)
+                        {
+                            <option value="@cate.CategoryId" selected>@cate.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@cate.CategoryId">@cate.Name</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+
+        <!-- Nghệ sĩ (Dropdown) -->
+        <div class="col-md-3">
+            <label class="form-label fs-8 fw-bold">Tác giả</label>
+            <select name="artistId" class="form-select">
+                <option value="">-- Chọn tác giả --</option>
+                @if (ViewBag.UserList != null)
+                {
+                    foreach (var user in ViewBag.UserList)
+                    {
+                        if (ViewBag.SelectedArtistId != null && ViewBag.SelectedArtistId == user.UserId)
+                        {
+                            <option value="@user.UserId" selected>@user.FullName</option>
+                        }
+                        else
+                        {
+                            <option value="@user.UserId">@user.FullName</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+
+        <!-- Nút thao tác -->
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-funnel"></i> Lọc
+            </button>
+            <a href="@Url.Action("Index", "Artwork")" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Bỏ lọc
+            </a>
+        </div>
+    </form>
+
+
+
+
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="Artwork"
+                       asp-action="Create"
+                       asp-route-categoryId="@ViewBag.SelectedCategoryId"
+                       asp-route-artistId="@ViewBag.SelectedArtistId"
+                       class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Thêm</span>
+                    </a>
+
+                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Artwork" asp-action="Index" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Refresh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" id="selectAll" />
+                            <label for="selectAll"></label>
+                        </span>
+                    </th>
+                    <th>Category</th>
+                    <th>Artist</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>SaleType</th>
+                    <th>Image</th>
+                    <th>Trạng thái</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var art in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" class="checkboxItem" id="checkbox_@art.ArtworkId" name="options[]" value="@art.ArtworkId" />
+                                    <label for="checkbox_@art.ArtworkId"></label>
+                                </span>
+                            </td>
+                            <td>@art.Category?.Name</td>
+                            <td>@art.Artist?.FullName</td>
+                            <td>@art.Title</td>
+                            <td>@Html.Raw(art.Description)</td>
+                            <td>@(art.Price?.ToString("N0") ?? "0") $</td>
+                            <td>@art.SaleType</td>
+                            <td>
+                                <img src="@art.ImageUrl" style="width:100px;" />
+                            </td>
+
+                            <td>
+                                @if (art.Status == true)
+                                {
+                                    <span class="badge bg-success">Hoạt động</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Ẩn</span>
+                                }
+                            </td>
+                            <td>
+                                <a asp-controller="Artwork" asp-action="Edit" asp-route-id="@art.ArtworkId" class="edit" data-toggle="modal">
+                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                                </a>
+                                <a asp-controller="Artwork" asp-action="Delete" asp-route-id="@art.ArtworkId" class="delete" data-toggle="modal">
+                                    <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">&#xE872;</i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="10" class="text-muted text-center">Không có dữ liệu</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Phân Trang -->
+        <div class="clearfix">
+            <ul class="pagination">
+                <li class="page-item">
+                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Artwork", new { pageNumber }))
+                </li>
+            </ul>
+        </div>
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="Artwork"
+                       asp-action="Create"
+                       asp-route-categoryId="@ViewBag.SelectedCategoryId"
+                       asp-route-artistId="@ViewBag.SelectedArtistId"
+                       class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Thêm</span>
+                    </a>
+
+                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Xóa</span>
+                    </a>
+                    <a asp-controller="Artwork" asp-action="Index" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Refresh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

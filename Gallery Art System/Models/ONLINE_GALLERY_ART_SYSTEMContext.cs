@@ -33,6 +33,7 @@ namespace Gallery_Art_System.Models
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<Config> Configs { get; set; } = null!;
         public virtual DbSet<Banner> Banners { get; set; } = null!;
+        public object SomeDependentTable { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

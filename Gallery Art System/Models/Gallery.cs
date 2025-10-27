@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gallery_Art_System.Models
 {
@@ -12,7 +13,9 @@ namespace Gallery_Art_System.Models
 
         public int GalleryId { get; set; }
         public int UserId { get; set; }
+        [Column(TypeName = "nvarchar(300)")]
         public string? Name { get; set; }
+        [Column(TypeName = "nvarchar(300)")]
         public string? Description { get; set; }
         public DateTime? CreatedAt { get; set; }
 

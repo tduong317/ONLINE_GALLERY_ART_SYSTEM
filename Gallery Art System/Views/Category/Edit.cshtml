@@ -8,7 +8,7 @@
 }
 @model Gallery_Art_System.Models.Category
 <div class="container">
-    <form asp-action="Edit" asp-controller="Category" method="post" enctype="multipart/form-data">
+    <form asp-action="Edit" asp-controller="Category" method="post" enctype="multipart/form-data" accept-charset="utf-8">
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
@@ -25,14 +25,15 @@
         </div>
         <input type="hidden" asp-for="CategoryId" />
         <div class="mb-3 mt-3">
-            <label for="" class="form-label">Name</label>
+            <label class="form-label fw-bold">Name</label>
             <input type="text" class="form-control" asp-for="Name">
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
-        <div class="mb-3 mt-3">
-            <label for="" class="form-label">Description</label>
-            <input type="text" class="form-control" asp-for="Description">
-            <span asp-validation-for="Description" class="text-danger"></span>
+        <div class="row mb-3 mt-3">
+            <div class="col">
+                <label class="form-label fw-bold">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            </div>
         </div>
         <!-- Nút gửi -->
         <div class="table-title">
@@ -52,9 +53,46 @@
     </form>
 </div>
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+    <script type="text/javascript" src="~/lib/jqueryui/jquery-ui.min.js"></script>
+    <script src="~/elfinder/js/elfinder.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Khởi tạo CKEditor cho textarea Description
+            if ($('#Description').length > 0) {
+                CKEDITOR.replace('Description', {
+                    language: 'vi',
+                    removePlugins: 'sourcearea', // nếu muốn bỏ nút source
+                });
+            }
 
+            // elFinder browse button
+            if ($('#btnBrowse').length > 0) {
+                $('#btnBrowse').click(function () {
+                    var fm = $('<div id="elfinder" />').dialogelfinder({
+                        url: '/quan-ly-tep-tin/connector',
+                        baseUrl: "/elfinder/",
+                        width: 840,
+                        height: 450,
+                        destroyOnClose: true,
+                        title: 'Quản lý tệp tin',
+                        getFileCallback: function (files, fm) {
+                            $('#Image').val('/' + files[0].path);
+                            $('#PictureView').attr('src', '/' + files[0].path);
+                        },
+                        commandsOptions: {
+                            getfile: {
+                                multiple: true,
+                                oncomplete: 'close',
+                                folders: false
+                            }
+                        }
+                    }).dialogelfinder('instance');
+                });
+            }
+        });
+    </script>
+}
 
 
 

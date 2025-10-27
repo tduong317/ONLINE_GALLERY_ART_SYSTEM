@@ -1,0 +1,57 @@
+﻿@model Gallery_Art_System.Models.GalleryArtwork
+@{
+    Layout = "AdminMaster";
+    ViewData["Title"] = "Thêm Gallery Artwork";
+}
+
+<div class="container">
+    <form asp-action="Create" method="post">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Add Gallery Artwork</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="GalleryArtwork" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <!-- Gallery dropdown -->
+            <div class="col-md-6">
+                <label asp-for="GalleryId" class="form-label fw-bold">Gallery</label>
+                <select asp-for="GalleryId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.Galleries, "GalleryId", "Name", ViewBag.SelectedGalleryId))">
+                    <option value="">-- Chọn bộ sưu tập --</option>
+                </select>
+                <span asp-validation-for="GalleryId" class="text-danger"></span>
+            </div>
+
+            <!-- Artwork dropdown -->
+            <div class="col-md-6">
+                <label asp-for="ArtworkId" class="form-label fw-bold">Artwork</label>
+                <select asp-for="ArtworkId" class="form-select"
+                        asp-items="@(new SelectList(ViewBag.Artworks, "ArtworkId", "Title", ViewBag.SelectedArtworkId))">
+                    <option value="">-- Chọn tác phẩm --</option>
+                </select>
+                <span asp-validation-for="ArtworkId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"></h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="GalleryArtwork" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -39,6 +39,20 @@ namespace Gallery_Art_System.Controllers
         [HttpPost]
         public IActionResult Create(User data)
         {
+            var files = HttpContext.Request.Form.Files;
+            var FileName = "";
+            //using System.Linq;
+            if (files.Count() > 0 && files[0].Length > 0)
+            {
+                var file = files[0];
+                FileName = file.FileName;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                    data.Avatar = FileName;
+                }
+            }
             if (!ModelState.IsValid)
                 return View(data);
 
@@ -60,6 +74,20 @@ namespace Gallery_Art_System.Controllers
         [HttpPost]
         public IActionResult Edit(User data)
         {
+            var files = HttpContext.Request.Form.Files;
+            var FileName = "";
+            //using System.Linq;
+            if (files.Count() > 0 && files[0].Length > 0)
+            {
+                var file = files[0];
+                FileName = file.FileName;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                    data.Avatar = FileName;
+                }
+            }
             var existingUser = us.Users.FirstOrDefault(u => u.UserId == data.UserId);
             if (existingUser == null)
                 return NotFound();

@@ -23,54 +23,54 @@
         <input type="hidden" asp-for="UserId" />
         <div class="row">
             <div class="col">
-                <label class="form-label">UserName</label>
+                <label class="form-label fw-bold">UserName</label>
                 <input type="text" class="form-control" asp-for="Username" />
             </div>
             <div class="col">
-                <label class="form-label">FullName</label>
+                <label class="form-label fw-bold">FullName</label>
                 <input type="text" class="form-control" asp-for="FullName" />
             </div>
             <div class="col">
-                <label class="form-label">Password</label>
+                <label class="form-label fw-bold">Password</label>
                 <input type="password" class="form-control" asp-for="Password" />
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label class="form-label">Địa chỉ</label>
+                <label class="form-label fw-bold">Địa chỉ</label>
                 <input type="text" class="form-control" asp-for="Address" />
             </div>
             <div class="col">
-                <label class="form-label">Email</label>
+                <label class="form-label fw-bold">Email</label>
                 <input type="text" class="form-control" asp-for="Email" />
             </div>
             <div class="col">
-                <label class="form-label">Phone</label>
+                <label class="form-label fw-bold">Phone</label>
                 <input type="text" class="form-control" asp-for="Phone" />
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col">
-                <label class="form-label">Tuổi</label>
-                <input type="number" class="form-control" asp-for="Age" />
+                <label asp-for="Age" class="form-label fw-bold"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-        </div>
-        <div class="row">
             <div class="col">
-                <label class="form-label">Giới tính</label>
-                <select class="form-select" asp-for="Gender">
+                <label asp-for="Gender" class="form-label fw-bold"></label>
+                <select asp-for="Gender" class="form-select">
                     <option value="">-- Chọn giới tính --</option>
                     <option value="Nam">Nam</option>
                     <option value="Nữ">Nữ</option>
                 </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <label asp-for="Avatar" class="form-label">Avatar</label>
+                <label asp-for="Avatar" class="form-label fw-bold">Avatar</label>
                 <!-- input text để elfinder ghi đường dẫn -->
-                <input asp-for="Avatar" class="form-label" id="Image" />
+                <input asp-for="Avatar" class="form-label fw-bold" id="Image" />
                 <button type="button" id="btnBrowse">Chọn ảnh</button>
                 <div class="mt-2">
                     <img src="@Model.Avatar" id="PictureView" width="100px" />

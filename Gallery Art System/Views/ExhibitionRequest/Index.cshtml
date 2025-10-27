@@ -1,0 +1,85 @@
+﻿﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.ExhibitionRequest>
+
+@{
+    Layout = "AdminMaster";
+    ViewData["Title"] = "Quản lý Yêu cầu trưng bày";
+}
+
+<div class="container-fluid">
+    <h4>Quản Lí <b>Yêu cầu Trưng bày (Exhibition Request)</b></h4>
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <a asp-controller="ExhibitionRequest" asp-action="Create" class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="ExhibitionRequest" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>Người gửi</th>
+                    <th>Tác phẩm</th>
+                    <th>Triển lãm</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var req in Model)
+                {
+                    <tr>
+                        <td>@req.User?.FullName</td>
+                        <td>@req.Artwork?.Title</td>
+                        <td>@req.Exhibition?.Name</td>
+                        <td>
+                            @if (req.Status == true)
+                            {
+                                <span class="badge bg-success">Duyệt</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Chờ duyệt</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@req.RequestId" class="edit">
+                                <i class="material-icons" title="Chỉnh sửa">&#xE254;</i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@req.RequestId" class="delete" onclick="return confirm('Bạn có chắc muốn xóa yêu cầu này không?');">
+                                <i class="material-icons" title="Xóa">&#xE872;</i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="clearfix">
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
+            </ul>
+        </div>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <a asp-controller="ExhibitionRequest" asp-action="Create" class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                    </a>
+                    <a asp-controller="ExhibitionRequest" asp-action="Index" class="btn btn-primary">
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
