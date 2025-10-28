@@ -1,0 +1,263 @@
+﻿@model Gallery_Art_System.Models.Auction
+@{
+    ViewData["Title"] = "Auction Details";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .auction-page {
+        padding: 40px;
+    }
+
+    .auction-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+        .auction-header h2 {
+            font-weight: 800;
+            color: #34495e;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #007bff, #e91e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+    .auction-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .auction-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+    .auction-img {
+        width: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        max-height: 420px;
+    }
+
+    .auction-details h3 {
+        color: #2c3e50;
+    }
+
+    .auction-details b {
+        color: #2c3e50;
+    }
+
+    .border {
+        border: 1.5px solid #e3e6ea !important;
+    }
+
+    .bg-light {
+        background: #fafafa !important;
+    }
+
+    .fw-bold.text-primary {
+        color: #0056b3 !important;
+    }
+
+    .text-primary {
+        color: #007bff !important;
+    }
+
+    .text-success {
+        color: #28a745 !important;
+    }
+
+    .text-danger {
+        color: #e53935 !important;
+    }
+
+    .text-muted {
+        color: #777 !important;
+    }
+
+    .status-badge {
+        font-size: 0.95rem;
+        padding: 6px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .badge.bg-warning {
+        background: linear-gradient(90deg, #ffca28, #ffb300);
+        color: #333 !important;
+    }
+
+    .badge.bg-success {
+        background: linear-gradient(90deg, #4caf50, #43a047);
+    }
+
+    .badge.bg-danger {
+        background: linear-gradient(90deg, #f44336, #e53935);
+    }
+
+    .auction-actions {
+        margin-top: 35px;
+    }
+
+    .btn {
+        padding: 10px 22px;
+        font-weight: 500;
+        border-radius: 10px;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-success {
+        background: linear-gradient(90deg, #4caf50, #2e7d32);
+        color: white;
+    }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, #43a047, #1b5e20);
+        }
+
+    .btn-danger {
+        background: linear-gradient(90deg, #f44336, #c62828);
+        color: white;
+    }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, #e53935, #b71c1c);
+        }
+
+    .btn-secondary {
+        background: linear-gradient(90deg, #607d8b, #455a64);
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, #546e7a, #37474f);
+        }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+</style>
+
+<div class="auction-page container-fluid">
+    <div class="auction-header">
+        <h2><i class="fas fa-gavel"></i> Auction Details</h2>
+    </div>
+
+    <div class="auction-card">
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="@Model.Artwork?.ImageUrl" alt="Artwork Image" style="width:100%; height:auto;" class="shadow-sm" />
+            </div>
+
+            <div class="col-lg-7">
+                <div class="p-3">
+                    <h3 class="fw-bold mb-4 border-bottom pb-2 text-primary">
+                        <i class="fas fa-paint-brush me-2"></i>@Model.Artwork?.Title
+                    </h3>
+
+                    <div class="auction-details">
+                        <div class="row g-3">
+                            <!-- Description -->
+                            <div class="col-12">
+                                <div class="border rounded p-3 bg-light shadow-sm">
+                                    <h6 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                                        <i class="fas fa-info-circle me-1"></i> Description
+                                    </h6>
+                                    <div class="text-secondary" style="max-height: 180px; overflow-y: auto;">
+                                        @Html.Raw(Model.Artwork?.Description)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Prices -->
+                            <div class="col-md-6">
+                                <div class="border rounded p-3 bg-light shadow-sm h-100">
+                                    <h6 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                                        <i class="fas fa-dollar-sign me-1"></i> Price Details
+                                    </h6>
+                                    <p class="mb-2"><b>Start Price:</b></p>
+                                    <p class="text-success fw-semibold">@Model.StartPrice.ToString("N0") $</p>
+                                    <p class="mb-2"><b>Current Price:</b></p>
+                                    <p class="text-danger fw-semibold">@(Model.CurrentPrice?.ToString("N0") ?? "-") $</p>
+                                </div>
+                            </div>
+
+                            <!-- Time -->
+                            <div class="col-md-6">
+                                <div class="border rounded p-3 bg-light shadow-sm h-100">
+                                    <h6 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                                        <i class="fas fa-clock me-1"></i> Time Details
+                                    </h6>
+                                    <p class="mb-2"><b>Start Time:</b></p>
+                                    <p class="text-muted">@Model.StartTime.ToString("g")</p>
+                                    <p class="mb-2"><b>End Time:</b></p>
+                                    <p class="text-muted">@Model.EndTime.ToString("g")</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="mt-4">
+                            <b>Status:</b>
+                            @if (Model.ApprovalStatus == "Pending")
+                            {
+                                <span class="badge bg-warning ms-2 px-3 py-2 fs-6">Pending</span>
+                            }
+                            else if (Model.ApprovalStatus == "Approved")
+                            {
+                                <span class="badge bg-success ms-2 px-3 py-2 fs-6">Approved</span>
+                            }
+                            else if (Model.ApprovalStatus == "Rejected")
+                            {
+                                <span class="badge bg-danger ms-2 px-3 py-2 fs-6">Rejected</span>
+                            }
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="auction-actions mt-4">
+                            @if (Model.ApprovalStatus == "Pending")
+                            {
+                                <div class="d-flex flex-wrap gap-3">
+                                    <form asp-action="Approve" asp-route-id="@Model.AuctionId" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-check me-1"></i> Approve
+                                        </button>
+                                    </form>
+                                    <form asp-action="Reject" asp-route-id="@Model.AuctionId" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-times me-1"></i> Reject
+                                        </button>
+                                    </form>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex justify-content-end">
+                                    <a asp-action="Index" class="btn btn-secondary px-4 py-2 shadow-sm">
+                                        <i class="fas fa-arrow-left me-1"></i> Back to List
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

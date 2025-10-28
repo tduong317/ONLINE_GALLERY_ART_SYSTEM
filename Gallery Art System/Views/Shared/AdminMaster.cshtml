@@ -29,7 +29,12 @@
     <link rel="stylesheet" href="~/elfinder/css/theme.min.css" />
     <link rel="stylesheet" href="~/elfinder-material-theme/Material/css/theme-gray.css" />
 </head>
-
+@if (httpCTA.HttpContext.Session.GetString("username") == null)
+    {
+    <script>
+        window.location.href = '/logon';
+    </script>
+    }
 <body>
     <header>
         <div class="container-fluid">
@@ -85,6 +90,13 @@
                                 <a asp-controller="GalleryArtwork" asp-action="Index">Gallery_artwork</a>
                                 <a asp-controller="Exhibition" asp-action="Index">Exhibition</a>
                                 <a asp-controller="ExhibitionRequest" asp-action="Index">Exhibition_request</a>
+                            </div>
+                        </div>
+                        <div class="dropdown text-align-right">
+                            <button class="dropbtn">Đấu giá</button>
+                            <div class="dropdown-content">
+                                <a asp-controller="Auction" asp-action="Index">Auction</a>
+                                <a asp-controller="Bid" asp-action="Index">Bid</a>
                             </div>
                         </div>
                     </ul>

@@ -16,8 +16,9 @@ namespace Gallery_Art_System.Models
         public decimal? CurrentPrice { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public bool? Status { get; set; }
-
+        public bool Status { get; set; }
+        public string? ApprovalStatus { get; set; }
+        
         public virtual Artwork Artwork { get; set; } = null!;
         public virtual ICollection<Bid> Bids { get; set; }
     }

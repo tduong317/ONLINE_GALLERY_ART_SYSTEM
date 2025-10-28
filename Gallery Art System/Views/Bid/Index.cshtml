@@ -1,0 +1,54 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Bid>
+
+@{
+    ViewData["Title"] = "Bid Management";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+<div class="container-fluid">
+    <h4>Bids <b>Management</b></h4>
+
+    <div class="table-wrapper" style="text-align:center;">
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>#</th>
+                    <th>Artwork</th>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Bid Time</th>
+                    <th>Total Bidders</th>
+                    <th>Current Highest Bid</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bid in Model)
+                {
+                    var totalBidders = bid.Auction?.Bids?.Select(b => b.UserId).Distinct().Count() ?? 0;
+                    var highestBid = bid.Auction?.Bids?.Max(b => b.Amount) ?? bid.Auction?.StartPrice ?? 0;
+
+                    <tr>
+                        <td>@bid.BidId</td>
+                        <td>
+                            <img src="@bid.Auction?.Artwork?.ImageUrl" width="60" height="60" style="object-fit:cover;" />
+                            <div>@bid.Auction?.Artwork?.Title</div>
+                        </td>
+                        <td>@bid.User.FullName</td>
+                        <td>@bid.Amount.ToString("N0") $</td>
+                        <td>@(bid.BidTime?.ToString("dd/MM/yyyy HH:mm") ?? "-")</td>
+                        <td>@totalBidders</td>
+                        <td>@highestBid.ToString("N0") $</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="clearfix">
+            <ul class="pagination">
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { pageNumber }))</li>
+            </ul>
+        </div>
+    </div>
+</div>

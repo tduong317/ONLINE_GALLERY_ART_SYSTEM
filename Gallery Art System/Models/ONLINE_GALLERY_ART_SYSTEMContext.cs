@@ -139,10 +139,9 @@ namespace Gallery_Art_System.Models
                     .HasColumnName("start_time");
 
                 entity.Property(e => e.Status)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("status")
-                    .HasDefaultValueSql("('ONGOING')");
+    .HasColumnName("status")
+    .HasDefaultValue(false);
+
 
                 entity.HasOne(d => d.Artwork)
                     .WithMany(p => p.Auctions)

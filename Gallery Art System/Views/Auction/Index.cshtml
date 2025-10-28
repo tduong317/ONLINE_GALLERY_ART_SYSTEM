@@ -1,0 +1,153 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<Gallery_Art_System.Models.Auction>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+<div class="container-fluid">
+    <h4>Auctions <b>Managemnet</b></h4>
+    <div class="table-wrapper" style="text-align:center;">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="auction" asp-action="Create" class="btn btn-success" data-toggle="modal">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Add</span>
+                    </a>                   
+                    <a asp-controller="auctions" asp-action="" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Refresh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover table-bordered">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <span class="custom-checkbox">
+                            <!-- "Select All" checkbox -->
+                            <input type="checkbox" id="selectAll" />
+                            <label for="selectAll"></label>
+                        </span>
+                    </th>
+                    <th>Artwork</th>
+                    <th>Description</th>
+                    <th>Start Time</th>
+                    <th>Start Price</th>
+                    <th>Status</th>
+                    <th>Approval Status</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var auc in Model)
+                {
+                    <tr>
+                        <td>
+                            <span class="custom-checkbox">
+                                <!-- Individual checkboxes -->
+                                <input type="checkbox" class="checkboxItem" id="checkbox_@auc.ArtworkId" name="options[]" value="@auc.ArtworkId " />
+                                <label for="checkbox_@auc.ArtworkId"></label>
+                            </span>
+                        </td>
+                        <td><img src="@auc.Artwork?.ImageUrl" width="100px" /></td>
+                        <td>@Html.Raw(auc.Artwork?.Description)</td>
+                        <td>@auc.StartTime</td>
+                        <td>@auc.StartPrice.ToString("N0") $</td>
+                        <td>
+                            @if (auc.Status == true)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Closed</span>
+                            }
+                        </td>
+                        <td>
+                            @if (auc.ApprovalStatus == "Pending")
+                            {
+                                <span class="badge bg-warning text-dark">Pending</span>
+                            }
+                            else if (auc.ApprovalStatus == "Approved")
+                            {
+                                <span class="badge bg-success">Approved</span>
+                            }
+                            else if (auc.ApprovalStatus == "Rejected")
+                            {
+                                <span class="badge bg-danger">Rejected</span>
+                            }
+                        </td>
+                        <td width="150">
+                            <a asp-controller="auction" asp-action="Details" asp-route-id="@auc.AuctionId" class="details" data-toggle="modal">
+                                <i class="material-icons" data-toggle="tooltip" title="Details"><i class="fa-solid fa-eye"></i></i>
+                            </a>
+                            <a asp-controller="auction" asp-action="Edit" asp-route-id="@auc.AuctionId" class="edit" data-toggle="modal">
+                                <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                            </a>
+                            <a asp-controller="auction" asp-action="Delete"
+                               asp-route-id="@auc.AuctionId"
+                               class="delete"
+                               data-toggle="tooltip"
+                               title="Xóa"
+                               onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                                <i class="material-icons">&#xE872;</i> <!-- icon delete -->
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Phân Trang -->
+        <div class="clearfix">
+            <ul class="pagination">
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
+            </ul>
+        </div>
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="auction" asp-action="Create" class="btn btn-success" data-toggle="modal">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Add</span>
+                    </a>                   
+                    <a asp-controller="auctions" asp-action="" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Refresh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function deleteAuction(id) {
+            fetch(`/auction/Delete/${id}`, {
+                method: 'POST',
+                headers: {
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Xóa thành công!");
+                    location.reload();
+                } else {
+                    alert("Có lỗi xảy ra khi xóa.");
+                }
+            })
+            .catch(() => alert("Không thể kết nối đến máy chủ."));
+        }
+    </script>
+}

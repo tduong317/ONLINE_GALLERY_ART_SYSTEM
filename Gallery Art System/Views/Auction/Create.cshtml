@@ -1,0 +1,113 @@
+﻿@model Gallery_Art_System.Models.Auction
+@{
+    ViewData["Title"] = "Create Auction";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+<div class="container">
+    <form asp-action="Create" method="post">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black">Add Auction</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Auction" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Artwork -->
+        <div class="mb-3 mt-3">
+            <label class="form-label">Artwork</label>
+            <select asp-for="ArtworkId" asp-items="ViewBag.ArtworkId" class="form-select" required>
+                <option value="">-- Select Artwork --</option>
+            </select>
+            <span asp-validation-for="ArtworkId" class="text-danger"></span>
+        </div>
+
+
+        <!-- Start Price -->
+        <div class="mb-3 mt-3">
+            <label class="form-label">Start Price</label>
+            <input asp-for="StartPrice"
+                   type="text"
+                   class="form-control price-input"
+                   required
+                   oninput="formatPrice(this)">
+            <span asp-validation-for="StartPrice" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <!-- Start Time -->
+            <div class="col mb-3 mt-3">
+                <label class="form-label">Start Time</label>
+                <input asp-for="StartTime" type="datetime-local" class="form-control" required />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+
+            <!-- End Time -->
+            <div class="col mb-3 mt-3">
+                <label class="form-label">End Time</label>
+                <input asp-for="EndTime" type="datetime-local" class="form-control" required />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- Status -->
+        <div class="mb-3 mt-3">
+            <label class="form-label">Status</label>
+            <select asp-for="Status" class="form-select">
+                <option value="true">Active</option>
+                <option value="false">Closed</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2 style="color:black"> </h2>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Auction" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function formatPrice(input) {
+            // Lấy giá trị người dùng nhập (bỏ dấu phẩy cũ)
+            let value = input.value.replace(/,/g, '');
+
+            // Nếu không phải số thì thôi
+            if (isNaN(value) || value === '') {
+                input.value = '';
+                return;
+            }
+
+            // Tách phần nguyên và phần thập phân (nếu có)
+            let parts = value.split('.');
+            parts[0] = Number(parts[0]).toLocaleString('en-US'); // thêm dấu phẩy ngăn cách hàng nghìn
+            input.value = parts.join('.');
+        }
+
+        // Khi submit form: bỏ dấu phẩy để ModelBinder đọc đúng kiểu decimal
+        document.querySelector("form").addEventListener("submit", function () {
+            document.querySelectorAll(".price-input").forEach(el => {
+                el.value = el.value.replace(/,/g, '');
+            });
+        });
+    </script>
+}

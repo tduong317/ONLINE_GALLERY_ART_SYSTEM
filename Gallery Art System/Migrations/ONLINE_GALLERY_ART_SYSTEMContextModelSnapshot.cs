@@ -56,7 +56,7 @@ namespace Gallery_Art_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArtworkId"), 1L, 1);
 
-                    b.Property<int>("ArtistId")
+                    b.Property<int?>("ArtistId")
                         .HasColumnType("int")
                         .HasColumnName("artist_id");
 
@@ -92,11 +92,11 @@ namespace Gallery_Art_System.Migrations
                         .HasColumnName("sale_type")
                         .HasDefaultValueSql("('FIXED')");
 
-                    b.Property<string>("Status")
+                    b.Property<bool?>("Status")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("bit")
                         .HasColumnName("status")
                         .HasDefaultValueSql("('AVAILABLE')");
 
@@ -125,6 +125,9 @@ namespace Gallery_Art_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuctionId"), 1L, 1);
 
+                    b.Property<string>("ApprovalStatus")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ArtworkId")
                         .HasColumnType("int")
                         .HasColumnName("artwork_id");
@@ -145,11 +148,11 @@ namespace Gallery_Art_System.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("start_time");
 
-                    b.Property<string>("Status")
+                    b.Property<bool?>("Status")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
+                        .HasColumnType("bit")
                         .HasColumnName("status")
                         .HasDefaultValueSql("('ONGOING')");
 
@@ -158,6 +161,25 @@ namespace Gallery_Art_System.Migrations
                     b.HasIndex("ArtworkId");
 
                     b.ToTable("Auction", (string)null);
+                });
+
+            modelBuilder.Entity("Gallery_Art_System.Models.Banner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Banner");
                 });
 
             modelBuilder.Entity("Gallery_Art_System.Models.Bid", b =>
@@ -219,7 +241,7 @@ namespace Gallery_Art_System.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(100)")
+                        .HasColumnType("nvarchar(100)")
                         .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -299,7 +321,7 @@ namespace Gallery_Art_System.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("nvarchar(150)")
                         .HasColumnName("email");
 
                     b.Property<string>("Message")
@@ -311,7 +333,7 @@ namespace Gallery_Art_System.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("nvarchar(150)")
                         .HasColumnName("name");
 
                     b.Property<DateTime?>("SentAt")
@@ -323,7 +345,7 @@ namespace Gallery_Art_System.Migrations
                     b.Property<string>("Subject")
                         .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("subject");
 
                     b.HasKey("MessageId")
@@ -358,14 +380,14 @@ namespace Gallery_Art_System.Migrations
                     b.Property<string>("Location")
                         .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("location");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("name");
 
                     b.Property<DateTime?>("StartDate")
@@ -394,11 +416,11 @@ namespace Gallery_Art_System.Migrations
                         .HasColumnType("int")
                         .HasColumnName("exhibition_id");
 
-                    b.Property<string>("Status")
+                    b.Property<bool?>("Status")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("bit")
                         .HasColumnName("status")
                         .HasDefaultValueSql("('PENDING')");
 
@@ -440,7 +462,7 @@ namespace Gallery_Art_System.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("nvarchar(150)")
                         .HasColumnName("name");
 
                     b.Property<int>("UserId")
@@ -685,12 +707,15 @@ namespace Gallery_Art_System.Migrations
                     b.Property<string>("Address")
                         .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("address");
 
                     b.Property<int?>("Age")
                         .HasColumnType("int")
                         .HasColumnName("age");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -701,32 +726,31 @@ namespace Gallery_Art_System.Migrations
                     b.Property<string>("Email")
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("nvarchar(150)")
                         .HasColumnName("email");
 
                     b.Property<string>("FullName")
                         .HasMaxLength(150)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(150)")
+                        .HasColumnType("nvarchar(150)")
                         .HasColumnName("full_name");
 
                     b.Property<string>("Gender")
                         .HasMaxLength(10)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
+                        .HasColumnType("nvarchar(10)")
                         .HasColumnName("gender");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(255)")
+                        .HasColumnType("nvarchar(255)")
                         .HasColumnName("password");
 
                     b.Property<string>("Phone")
                         .HasMaxLength(20)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(20)")
+                        .HasColumnType("nvarchar(20)")
                         .HasColumnName("phone");
 
                     b.Property<string>("Username")
@@ -753,7 +777,6 @@ namespace Gallery_Art_System.Migrations
                     b.HasOne("Gallery_Art_System.Models.User", "Artist")
                         .WithMany("Artworks")
                         .HasForeignKey("ArtistId")
-                        .IsRequired()
                         .HasConstraintName("FK__artwork__artist___44FF419A");
 
                     b.HasOne("Gallery_Art_System.Models.Category", "Category")
