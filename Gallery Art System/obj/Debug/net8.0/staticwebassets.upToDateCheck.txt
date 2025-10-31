@@ -337,6 +337,7 @@ wwwroot\ckeditor\skins\v2\images\toolbar_start.gif
 wwwroot\ckeditor\skins\v2\skin.js
 wwwroot\ckeditor\skins\v2\templates.css
 wwwroot\ckeditor\themes\default\theme.js
+wwwroot\css\css_admin.css
 wwwroot\css\login.css
 wwwroot\css\logon.css
 wwwroot\css\site.css
@@ -523,6 +524,7 @@ wwwroot\favicon.ico
 wwwroot\files\453647192_525678453140895_1825468776591405950_n.jpg
 wwwroot\files\467741106_615406131053411_5678388305646780995_n.png
 wwwroot\files\469038087_122185081544168215_3942261540789633529_n.jpg
+wwwroot\files\549926760_122185360226333274_4443648041404113907_n.jpg
 wwwroot\files\8db07aaf-8023-46cb-97fc-81978796401e.jpg
 wwwroot\images\artworks\0da16a68-48cf-44a3-b72d-13b5db6a459c.jfif
 wwwroot\images\artworks\135b7ce8-03d7-44b3-a2ae-bf22cb33c2f5.jfif
@@ -599,4 +601,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\css_admin.css

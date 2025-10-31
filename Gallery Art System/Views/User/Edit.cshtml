@@ -59,8 +59,8 @@
                 <label asp-for="Gender" class="form-label fw-bold"></label>
                 <select asp-for="Gender" class="form-select">
                     <option value="">-- Select Gender --</option>
-                    <option value="Nam">Male</option>
-                    <option value="Nữ">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
@@ -111,7 +111,7 @@
                         destroyOnClose: true,
                         title: 'Quản lý tệp tin',
                         getFileCallback: function (files, fm) {
-                            $('#Avatar').val('/' + files[0].path);
+                            $('#    ').val('/' + files[0].path);
                             $('#PictureView').attr('src', '/' + files[0].path);
                         },
                         commandsOptions: {

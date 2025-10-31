@@ -2292,23 +2292,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tai19\\.nuget\\packages\\": {},
+    "C:\\Users\\Duong\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project_SEM3\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
+      "projectUniqueName": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Gallery Art System.csproj",
       "projectName": "Gallery Art System",
-      "projectPath": "E:\\Project_SEM3\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
-      "packagesPath": "C:\\Users\\tai19\\.nuget\\packages\\",
-      "outputPath": "E:\\Project_SEM3\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\obj\\",
+      "projectPath": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Gallery Art System.csproj",
+      "packagesPath": "C:\\Users\\Duong\\.nuget\\packages\\",
+      "outputPath": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tai19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Duong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

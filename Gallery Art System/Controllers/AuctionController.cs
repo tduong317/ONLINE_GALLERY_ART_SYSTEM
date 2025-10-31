@@ -137,15 +137,18 @@ namespace Gallery_Art_System.Controllers
 
 
         // POST: Auction/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var auction = await _context.Auctions.FindAsync(id);
-            if (auction == null) return NotFound();
+            if (auction == null)
+            {
+                return NotFound();
+            }
 
             _context.Auctions.Remove(auction);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

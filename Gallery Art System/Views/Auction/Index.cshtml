@@ -106,7 +106,7 @@
         <!-- Phân Trang -->
         <div class="clearfix">
             <ul class="pagination">
-                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Auction", new { pageNumber = pageNumber }))</li>
             </ul>
         </div>
         <div class="table-title">

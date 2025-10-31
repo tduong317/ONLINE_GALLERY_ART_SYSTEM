@@ -7,26 +7,9 @@
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Liên hệ</b></h4>
+    <h4>Management <b>Contact</b></h4>
     <div class="table-wrapper" style="text-align:center;">
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6">
-                    <a asp-controller="Contact" asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Add</span>
-                    </a>
-                    <a asp-controller="Contact" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
-                        <i class="material-icons">&#xE5C9;</i>
-                        <span>Delete</span>
-                    </a>
-                    <a asp-controller="Contact" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
+        
         <table class="table table-hover table-bordered">
             <thead class="table-success">
                 <tr>
@@ -34,8 +17,7 @@
                     <th>Email</th>
                     <th>Topic</th>
                     <th>Message</th>
-                    <th>Created_At</th>
-                    <th>Function</th>
+                    <th>Created_At</th>                  
                 </tr>
             </thead>
             <tbody>
@@ -48,17 +30,7 @@
                             <td>@c.Email</td>
                             <td>@c.Subject</td>
                             <td>@Html.Raw(c.Message)</td>
-                            <td>@c.SentAt?.ToString("dd/MM/yyyy HH:mm")</td>
-                            <td>
-                                <a asp-controller="Contact" asp-action="Edit" asp-route-id="@c.MessageId" class="edit">
-                                    <i class="material-icons" title="Chỉnh sửa">&#xE254;</i>
-                                </a>
-                                <a asp-controller="Contact" asp-action="Delete" asp-route-id="@c.MessageId"
-                                   class="delete"
-                                   onclick="return confirm('Are you sure?');">
-                                    <i class="material-icons" title="Xóa">&#xE872;</i>
-                                </a>
-                            </td>
+                            <td width="200">@c.SentAt?.ToString("dd/MM/yyyy HH:mm")</td>                            
                         </tr>
                     }
                 }

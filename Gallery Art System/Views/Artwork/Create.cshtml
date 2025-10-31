@@ -19,6 +19,7 @@
                         Back
                         <i class='fas'>&#xf3e5;</i>
                     </a>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
@@ -80,8 +81,9 @@
             <div class="col">
                 <label asp-for="ImageUrl" class="form-label fw-bold">Image</label>
                 <!-- input text để elfinder ghi đường dẫn -->
-                <input type="file" name="ImageFile" class="form-control" accept="image/*" />
-                <div class="mt-2">  
+                <input asp-for="ImageUrl" class="form-label" id="Image" />
+                <button type="button" id="btnBrowse">Chọn ảnh</button>
+                <div class="mt-2">
                     <img src="@Model.ImageUrl" id="PictureView" width="100px" />
                 </div>
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
@@ -99,6 +101,10 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
+                    <a class="btn btn-primary" asp-controller="Artwork" asp-action="Index">
+                        Back
+                        <i class='fas'>&#xf3e5;</i>
+                    </a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

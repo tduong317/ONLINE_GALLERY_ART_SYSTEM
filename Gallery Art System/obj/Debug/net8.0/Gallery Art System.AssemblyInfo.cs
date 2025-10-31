@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gallery Art System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7662c2c73812b98a880501035331ef411addf3b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fec54e56c601b335c8a73d684bbc170cc1d3c3ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gallery Art System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gallery Art System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

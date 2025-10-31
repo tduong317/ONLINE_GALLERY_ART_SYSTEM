@@ -78,26 +78,26 @@
                 <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
             </ul>
         </div>
-        @* <div class="table-title">
+        <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
                 </div>
                 <div class="col-sm-6">
                     <a asp-controller="category" asp-action="Create" class="btn btn-success" data-toggle="modal">
                         <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
+                        <span>Add</span>
                     </a>
                     <a asp-controller="Category" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     <a asp-controller="Category" asp-action="" class="btn btn-primary" data-toggle="modal">
                         <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Làm mới</span>
+                        <span>Refresh</span>
                     </a>
                 </div>
             </div>
-        </div> *@
+        </div>
         
     </div>
 </div>

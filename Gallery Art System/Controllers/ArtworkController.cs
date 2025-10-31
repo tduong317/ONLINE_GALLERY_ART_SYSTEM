@@ -16,7 +16,7 @@ namespace Gallery_Art_System.Controllers
             if (pageNumber < 1)
                 pageNumber = 1;
 
-            int pageSize = 6;
+            int pageSize = 10;
 
             // Truy vấn artworks cơ bản
             var artworks = _context.Artworks

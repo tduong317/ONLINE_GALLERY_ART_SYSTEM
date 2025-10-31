@@ -129,7 +129,7 @@
                             <td>@art.Artist</td>
                             <td>@art.Title</td>
                             <td>
-                                @(art.Description?.Length > 30? art.Description.Substring(0, 30) + "...": art.Description)
+                                @Html.Raw(art.Description?.Length > 30? art.Description.Substring(0, 30) + "...": art.Description)
                             </td>
 
                             <td>@(art.Price?.ToString("N0") ?? "0") $</td>
@@ -171,10 +171,34 @@
         <!-- Phân Trang -->
         <div class="clearfix">
             <ul class="pagination">
-                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Artwork", new { pageNumber = pageNumber }))</li>
             </ul>
         </div>
 
-        
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <a asp-controller="Artwork"
+                       asp-action="Create"
+                       asp-route-categoryId="@ViewBag.SelectedCategoryId"
+                       asp-route-artistId="@ViewBag.SelectedArtistId"
+                       class="btn btn-success">
+                        <i class="material-icons">&#xE147;</i>
+                        <span>Add</span>
+                    </a>
+
+                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Are you sure?');">
+                        <i class="material-icons">&#xE5C9;</i>
+                        <span>Delete</span>
+                    </a>
+                    <a asp-controller="Artwork" asp-action="Index" class="btn btn-primary" data-toggle="modal">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Refresh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
