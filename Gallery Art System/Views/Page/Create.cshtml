@@ -9,7 +9,7 @@
 </style>
 
 <div class="container">
-    <h4><strong>QUẢN LÝ DANH MỤC TRANG</strong></h4>
+    <h4><strong>Pages Management</strong></h4>
 
     <form asp-action="Create" asp-controller="Page" method="post" enctype="multipart/form-data">
         <div class="table-title" style="margin-top:20px">
@@ -18,8 +18,7 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Page" asp-action="Index">Trở lại<i class='fas'>&#xf3e5;</i></a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại </button>
+                    <a class="btn btn-primary" asp-controller="Page" asp-action="Index">Back<i class='fas'>&#xf3e5;</i></a>
                 </div>
             </div>
         </div>
@@ -28,42 +27,42 @@
         </div>
         <!-- Tên trang -->
         <div class="form-group">
-            <label for="pageName" class="form-label">Tên trang:</label>
+            <label for="pageName" class="form-label">Page Name:</label>
             <input type="text" class="form-control" asp-for="Name">
             <span asp-validation-for="Name" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
         </div>
 
         <div class="mb-3">
-            <label for="pageType" class="form-label"><strong>Loại trang</strong></label>
+            <label for="pageType" class="form-label"><strong>Page Type</strong></label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-layers"></i></span>
                 <select id="pageType" class="form-select">
-                    <option value="linkPage">Trang liên kết</option>
-                    <option value="ckeditorPage">Trang sử dụng CKEditor</option>
+                    <option value="linkPage">Link Page</option>
+                    <option value="ckeditorPage">Page with CKEditor</option>
                 </select>
             </div>
         </div>
 
         <div class="form-group" id="ckeditorContainer" style="display: none;">
-            <label for="contentEditor" class="form-label">Nội dung:</label>
+            <label for="contentEditor" class="form-label">Content:</label>
             <textarea id="contentEditor" asp-for="Detail" class="form-control"></textarea>
         </div>
 
         <!-- Trang nội dung -->
         <div class="form-group hidePage" id="contentPageGroup">
-            <label for="pageInfoInput" class="form-label">Thông tin trang nội dung:</label>
+            <label for="pageInfoInput" class="form-label">Content Page Information:</label>
             <input type="text" class="form-control" asp-for="Content" id="pageInfoInput">
             <span asp-validation-for="Content" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
         </div>
 
         <!-- Kiểu liên kết -->
         <div class="mb-3">
-            <label for="pageLink" class="form-label"><strong>Liên kết:</strong></label>
+            <label for="pageLink" class="form-label"><strong>Add Link:</strong></label>
             <div class="input-group">
                 <span class="input-group-text">🔗</span>
                 <select id="pageLink" class="form-select">
-                    <option value="inputLink">Nhập liên kết</option>
-                    <option value="moduleLink">Liên kết module</option>
+                    <option value="inputLink">Link URL</option>
+                    <option value="moduleLink">Link Module</option>
                 </select>
             </div>
             <span asp-validation-for="Link" class="text-danger"></span>
@@ -73,14 +72,14 @@
         <div class="mb-3 hidePage" id="linkInputGroup">
             <div class="input-group">
                 <span class="input-group-text">🌐</span>
-                <input type="text" class="form-control" asp-for="Link" id="pageInfoLink" placeholder="Nhập liên kết...">
+                <input type="text" class="form-control" asp-for="Link" id="pageInfoLink" placeholder="Type link...">
             </div>
             <span asp-validation-for="Link" class="text-danger"></span>
         </div>
 
         <!-- Liên kết module -->
         <div class="mb-3 hidePage" id="pageLinkModule">
-            <label for="moduleLinkSelect" class="form-label"><strong>Liên kết module:</strong></label>
+            <label for="moduleLinkSelect" class="form-label"><strong>Link Module:</strong></label>
             <div class="input-group">
                 <span class="input-group-text">📂</span>
                 @* <select asp-for="Link" class="form-select" id="moduleLinkSelect" onchange="updateLinkInput(this)">
@@ -99,7 +98,7 @@
             <!-- Cột 1 -->
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="Target" class="form-label">Kiểu hiển thị:</label>
+                    <label for="Target" class="form-label">Display Style:</label>
                     <select id="Target" class="form-select" asp-for="Target">
                         <option value="_self">_self</option>
                         <option value="_blank">_blank</option>
@@ -110,12 +109,12 @@
             <!-- Cột 2 -->
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="form-label"><b>Vị trí hiển thị</b></label>
+                    <label class="form-label"><b>Position</b></label>
                     <select class="form-select" asp-for="Position">
-                        <option value="0">Menu trên</option>
-                        <option value="1">Menu giữa</option>
-                        <option value="2">Menu dưới</option>
-                        <option value="3">Giữa dưới</option>
+                        <option value="0">Menu top</option>
+                        <option value="1">Menu center</option>
+                        <option value="2">Menu bottom</option>
+                        <option value="3">Bottom Center</option>
                     </select>
                     <span asp-validation-for="Position" class="text-danger"></span>
                 </div>
@@ -144,7 +143,7 @@
 
         <!-- Thứ tự -->
         <div class="form-group">
-            <label class="form-label"><b>Thứ tự</b></label>
+            <label class="form-label"><b>Order</b></label>
             <input type="number" class="form-control" asp-for="Ord">
             <span asp-validation-for="Ord" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
         </div>
@@ -152,7 +151,7 @@
         <!-- Trạng thái -->
         <div class="form-group">
             <div class="mb-3 mt-3">
-                <label class="form-label">Kích hoạt</label>
+                <label class="form-label">Status</label>
                 <input type="checkbox" name="Status" value="true" />
             </div>
             <span asp-validation-for="Status" class="text-danger"></span> <!-- Hiển thị lỗi nếu có -->
@@ -165,8 +164,7 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Page" asp-action="Index">Trở lại<i class='fas'>&#xf3e5;</i></a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại </button>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i>Save</button>
                 </div>
             </div>
         </div>

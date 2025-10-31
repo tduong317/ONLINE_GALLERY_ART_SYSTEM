@@ -11,7 +11,7 @@ namespace Gallery_Art_System.Controllers
 
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             var bids = _context.Bids
                 .Include(b => b.Auction)
                 .ThenInclude(a => a.Artwork)

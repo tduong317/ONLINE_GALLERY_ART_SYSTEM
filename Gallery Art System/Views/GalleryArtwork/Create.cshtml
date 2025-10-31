@@ -1,7 +1,7 @@
 ﻿@model Gallery_Art_System.Models.GalleryArtwork
 @{
     Layout = "AdminMaster";
-    ViewData["Title"] = "Thêm Gallery Artwork";
+    ViewData["Title"] = "Add Gallery Artwork";
 }
 
 <div class="container">
@@ -13,7 +13,6 @@
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary" asp-controller="GalleryArtwork" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
@@ -24,7 +23,7 @@
                 <label asp-for="GalleryId" class="form-label fw-bold">Gallery</label>
                 <select asp-for="GalleryId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.Galleries, "GalleryId", "Name", ViewBag.SelectedGalleryId))">
-                    <option value="">-- Chọn bộ sưu tập --</option>
+                    <option value="">-- Select Gallery --</option>
                 </select>
                 <span asp-validation-for="GalleryId" class="text-danger"></span>
             </div>
@@ -34,7 +33,7 @@
                 <label asp-for="ArtworkId" class="form-label fw-bold">Artwork</label>
                 <select asp-for="ArtworkId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.Artworks, "ArtworkId", "Title", ViewBag.SelectedArtworkId))">
-                    <option value="">-- Chọn tác phẩm --</option>
+                    <option value="">--Select Artwork--</option>
                 </select>
                 <span asp-validation-for="ArtworkId" class="text-danger"></span>
             </div>
@@ -48,7 +47,6 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="GalleryArtwork" asp-action="Index"> Back <i class='fas'>&#xf3e5;</i></a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

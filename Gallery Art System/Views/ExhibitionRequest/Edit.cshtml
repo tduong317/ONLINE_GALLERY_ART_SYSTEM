@@ -1,20 +1,17 @@
 ﻿@model Gallery_Art_System.Models.ExhibitionRequest
 @{
     Layout = "AdminMaster";
-    ViewData["Title"] = "Sửa Yêu cầu Trưng bày";
+    ViewData["Title"] = "Edit Exhibition Request";
 }
 
 <div class="container mt-5">
     <div class="card shadow-sm border-0">
         <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">Sửa Yêu cầu Trưng bày</h4>
+            <h4 class="mb-0">Edit Exhibition Request</h4>
         </div>
         <div class="card-body">
             <form asp-action="Edit" method="post">
                 <div class="d-flex justify-content-end gap-2">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-save me-1"></i> Lưu
-                    </button>
                     <a class="btn btn-primary" asp-controller="ExhibitionRequest" asp-action="Index">
                         Back
                         <i class='fas'>&#xf3e5;</i>
@@ -23,10 +20,10 @@
                 <input type="hidden" asp-for="RequestId" />
                 <!-- Người gửi -->
                 <div class="mb-3">
-                    <label asp-for="UserId" class="form-label fw-semibold">Người gửi</label>
+                    <label asp-for="UserId" class="form-label fw-semibold">Sender</label>
                     <select asp-for="UserId" class="form-select"
                             asp-items="@(ViewBag.Users != null ? new SelectList(ViewBag.Users, "UserId", "FullName") : new SelectList(Enumerable.Empty<User>()))">
-                        <option value="">-- Chọn Người gửi --</option>
+                        <option value="">-- Select Sender --</option>
                     </select>
                     <span asp-validation-for="UserId" class="text-danger"></span>
                 </div>
@@ -36,17 +33,17 @@
                     <label asp-for="ArtworkId" class="form-label fw-semibold">Tác phẩm</label>
                     <select asp-for="ArtworkId" class="form-select"
                             asp-items="@(ViewBag.Artworks != null ? new SelectList(ViewBag.Artworks, "ArtworkId", "Title") : new SelectList(Enumerable.Empty<Artwork>()))">
-                        <option value="">-- Chọn Tác phẩm --</option>
+                        <option value="">-- Select Artwork --</option>
                     </select>
                     <span asp-validation-for="ArtworkId" class="text-danger"></span>
                 </div>
 
                 <!-- Triển lãm -->
                 <div class="mb-3">
-                    <label asp-for="ExhibitionId" class="form-label fw-semibold">Triển lãm</label>
+                    <label asp-for="ExhibitionId" class="form-label fw-semibold">Exhibition</label>
                     <select asp-for="ExhibitionId" class="form-select"
                             asp-items="@(ViewBag.Exhibitions != null ? new SelectList(ViewBag.Exhibitions, "ExhibitionId", "Name") : new SelectList(Enumerable.Empty<Exhibition>()))">
-                        <option value="">-- Chọn Triển lãm --</option>
+                        <option value="">-- Select Exhibition --</option>
                     </select>
                     <span asp-validation-for="ExhibitionId" class="text-danger"></span>
                 </div>
@@ -54,18 +51,14 @@
                 <!-- Trạng thái -->
                 <div class="mb-3 form-check">
                     <input type="checkbox" name="Status" value="true" class="form-check-input" @(Model.Status == true ? "checked" : "") />
-                    <label class="form-check-label">Hoạt động</label>
+                    <label class="form-check-label">Active</label>
                 </div>
 
                 <!-- Nút hành động -->
                 <div class="d-flex justify-content-end gap-2">
                     <button type="submit" class="btn btn-success">
-                        <i class="fas fa-save me-1"></i> Lưu
+                        <i class="fas fa-save me-1"></i> Save
                     </button>
-                    <a class="btn btn-primary" asp-controller="ExhibitionRequest" asp-action="Index">
-                        Back
-                        <i class='fas'>&#xf3e5;</i>
-                    </a>
                 </div>
             </form>
         </div>

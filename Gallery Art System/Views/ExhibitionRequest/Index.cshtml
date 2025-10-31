@@ -3,21 +3,21 @@
 
 @{
     Layout = "AdminMaster";
-    ViewData["Title"] = "Quản lý Yêu cầu trưng bày";
+    ViewData["Title"] = "Exhibition Request Managment";
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Yêu cầu Trưng bày (Exhibition Request)</b></h4>
+    <h4>Exhibition Request <b>Managment</b></h4>
     <div class="table-wrapper" style="text-align:center;">
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                     <a asp-controller="ExhibitionRequest" asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                        <i class="material-icons">&#xE147;</i> <span>Add</span>
                     </a>
                     <a asp-controller="ExhibitionRequest" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -26,11 +26,11 @@
         <table class="table table-hover table-bordered">
             <thead class="table-success">
                 <tr>
-                    <th>Người gửi</th>
-                    <th>Tác phẩm</th>
-                    <th>Triển lãm</th>
-                    <th>Trạng thái</th>
-                    <th>Chức năng</th>
+                    <th>Sender</th>
+                    <th>Artwork</th>
+                    <th>Exhibition</th>
+                    <th>Status</th>
+                    <th>Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,11 +43,11 @@
                         <td>
                             @if (req.Status == true)
                             {
-                                <span class="badge bg-success">Duyệt</span>
+                                <span class="badge bg-success">Approve</span>
                             }
                             else
                             {
-                                <span class="badge bg-danger">Chờ duyệt</span>
+                                <span class="badge bg-danger">Pending</span>
                             }
                         </td>
                         <td>
@@ -68,18 +68,7 @@
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
             </ul>
         </div>
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6">
-                    <a asp-controller="ExhibitionRequest" asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
-                    </a>
-                    <a asp-controller="ExhibitionRequest" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+         <div class="table-title">
+        
     </div>
 </div>

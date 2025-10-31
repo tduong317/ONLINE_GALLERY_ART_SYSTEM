@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gallery_Art_System.Models
 {
@@ -15,18 +18,27 @@ namespace Gallery_Art_System.Models
         }
 
         public int ArtworkId { get; set; }
-        public int? ArtistId { get; set; }
+        public int? UserId { get; set; }
+
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
+
+        public string? Artist { get; set; }
         public int? CategoryId { get; set; }
         public decimal? Price { get; set; }
         public string? SaleType { get; set; }
         public string? ImageUrl { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
+
         public DateTime? CreatedAt { get; set; }
         public bool? Status { get; set; }
 
-        public virtual User? Artist { get; set; } = null!;
+        // Quan hệ
+        public virtual User? User { get; set; }
         public virtual Category? Category { get; set; }
+
         public virtual ICollection<Auction> Auctions { get; set; }
         public virtual ICollection<ExhibitionRequest> ExhibitionRequests { get; set; }
         public virtual ICollection<GalleryArtwork> GalleryArtworks { get; set; }

@@ -26,7 +26,7 @@ namespace Gallery_Art_System.Controllers
         // GET: Exhibition
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             int pageIndex = pageNumber ?? 1;
 
             var exhibitions = _context.Exhibitions
@@ -51,7 +51,7 @@ namespace Gallery_Art_System.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images//exhibitions", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);
@@ -86,7 +86,7 @@ namespace Gallery_Art_System.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images/exhibitions", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);

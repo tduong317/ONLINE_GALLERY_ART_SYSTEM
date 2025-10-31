@@ -3,17 +3,17 @@
 
 @{
     Layout = "AdminMaster";
-    ViewData["Title"] = "Quản lý Gallery";
+    ViewData["Title"] = "Gallery Management";
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Gallery</b></h4>
+    <h4>Gallery <b>Management</b></h4>
     <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
         <!-- Nghệ sĩ (Dropdown) -->
         <div class="col-md-3">
-            <label class="form-label fs-8 fw-bold">Tác giả</label>
+            <label class="form-label fs-8 fw-bold">Artist</label>
             <select name="artistId" class="form-select">
-                <option value="">-- Chọn tác giả --</option>
+                <option value="">-- Select Artist --</option>
                 @if (ViewBag.UserList != null)
                 {
                     foreach (var user in ViewBag.UserList)
@@ -34,10 +34,10 @@
         <!-- Nút thao tác -->
         <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-primary">
-                <i class="bi bi-funnel"></i> Lọc
+                <i class="bi bi-funnel"></i> Filter
             </button>
             <a href="@Url.Action("Index", "Gallery")" class="btn btn-secondary">
-                <i class="bi bi-x-circle"></i> Bỏ lọc
+                <i class="bi bi-x-circle"></i> Remove Filter
             </a>
         </div>
     </form>
@@ -51,15 +51,15 @@
                        asp-action="Create"
                        asp-route-artistId="@(ViewBag.SelectedArtistId ?? "")"
                        class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                        <i class="material-icons">&#xE147;</i> <span>Add</span>
                     </a>
                     <a asp-controller="Gallery" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     </a>
                     <a asp-controller="Gallery" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -75,11 +75,11 @@
                             <label for="selectAll"></label>
                         </span>
                     </th>
-                    <th>Tên Gallery</th>
-                    <th>Tác giả</th>
-                    <th>Mô tả</th>
-                    <th>Ngày tạo</th>
-                    <th>Chức năng</th>
+                    <th>Gallery Name</th>
+                    <th>Artist</th>
+                    <th>Description</th>
+                    <th>Created Date</th>
+                    <th>Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,26 +116,6 @@
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
             </ul>
         </div>
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6 text-end">
-                    <a asp-controller="Gallery"
-                       asp-action="Create"
-                       asp-route-artistId="@(ViewBag.SelectedArtistId ?? "")"
-                       class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
-                    </a>
-                    <a asp-controller="Gallery" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
-                        <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
-                    </a>
-                    </a>
-                    <a asp-controller="Gallery" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+       
     </div>
 </div>

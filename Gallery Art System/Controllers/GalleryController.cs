@@ -18,7 +18,7 @@ namespace Gallery_Art_System.Controllers
 
         public IActionResult Index(int? artistId, int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             int pageIndex = pageNumber ?? 1;
 
             // Lấy danh sách User để đổ vào dropdown

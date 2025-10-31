@@ -337,7 +337,6 @@ wwwroot\ckeditor\skins\v2\images\toolbar_start.gif
 wwwroot\ckeditor\skins\v2\skin.js
 wwwroot\ckeditor\skins\v2\templates.css
 wwwroot\ckeditor\themes\default\theme.js
-wwwroot\css\css_admin.css
 wwwroot\css\login.css
 wwwroot\css\logon.css
 wwwroot\css\site.css
@@ -525,7 +524,22 @@ wwwroot\files\453647192_525678453140895_1825468776591405950_n.jpg
 wwwroot\files\467741106_615406131053411_5678388305646780995_n.png
 wwwroot\files\469038087_122185081544168215_3942261540789633529_n.jpg
 wwwroot\files\8db07aaf-8023-46cb-97fc-81978796401e.jpg
+wwwroot\images\artworks\0da16a68-48cf-44a3-b72d-13b5db6a459c.jfif
+wwwroot\images\artworks\135b7ce8-03d7-44b3-a2ae-bf22cb33c2f5.jfif
+wwwroot\images\artworks\49c254a7-2201-4293-af54-33dc5735f84b.jfif
+wwwroot\images\artworks\629e486d-b9d8-4e4f-99b4-5c87d0b90583.jfif
+wwwroot\images\artworks\82fe3afe-d3e7-4e3b-9ec8-1ea42eb25e28.jfif
+wwwroot\images\artworks\86b0f5cf-c360-4926-b8ab-4ae140de32c7.jfif
+wwwroot\images\artworks\896a3724-1694-4863-8d9c-c1e5980394ff.jfif
+wwwroot\images\artworks\a5be36f9-e241-4f60-a30a-c8bb13421ab9.jfif
+wwwroot\images\artworks\bfb759cf-99cc-4c13-a770-9b12087ba6d8.jfif
+wwwroot\images\artworks\dfbb2a66-757b-42cd-bf4b-97de418a3b4e.jfif
+wwwroot\images\artworks\e80829ab-30d8-4842-8241-1be53e1d571a.jfif
+wwwroot\images\artworks\f03aee37-4056-44bf-8596-f666cc7bcb88.jfif
+wwwroot\images\artworks\fccb5dbf-530a-4266-a447-0d290692f78f.jfif
 wwwroot\images\exhibitions\b91d5f98-b8ed-44a1-9265-4756bbff5ab1.jpg
+wwwroot\images\homes\img1.webp
+wwwroot\images\homes\img2.jfif
 wwwroot\images\left-img.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -585,3 +599,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\css_admin.css

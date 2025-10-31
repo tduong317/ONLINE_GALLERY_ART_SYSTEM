@@ -2,7 +2,7 @@
 @model X.PagedList.IPagedList<Gallery_Art_System.Models.Artwork>
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Artwork";
     Layout = "~/Views/Shared/AdminMaster.cshtml";
 }
 <div class="container-fluid">
@@ -10,9 +10,9 @@
     <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
         <!-- Danh mục (Dropdown) -->
         <div class="col-md-3">
-            <label class="form-label fs-8 fw-bold">Danh mục</label>
+            <label class="form-label fs-8 fw-bold">Category</label>
             <select name="categoryId" class="form-select">
-                <option value="">-- Chọn danh mục --</option>
+                <option value="">-- Select Category--</option>
                 @if (ViewBag.CategoryList != null)
                 {
                     foreach (var cate in ViewBag.CategoryList)
@@ -32,9 +32,9 @@
 
         <!-- Nghệ sĩ (Dropdown) -->
         <div class="col-md-3">
-            <label class="form-label fs-8 fw-bold">Tác giả</label>
+            <label class="form-label fs-8 fw-bold">UserId</label>
             <select name="artistId" class="form-select">
-                <option value="">-- Chọn tác giả --</option>
+                <option value="">-- Select UserId --</option>
                 @if (ViewBag.UserList != null)
                 {
                     foreach (var user in ViewBag.UserList)
@@ -55,10 +55,10 @@
         <!-- Nút thao tác -->
         <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-primary">
-                <i class="bi bi-funnel"></i> Lọc
+                <i class="bi bi-funnel"></i> Filter
             </button>
             <a href="@Url.Action("Index", "Artwork")" class="btn btn-secondary">
-                <i class="bi bi-x-circle"></i> Bỏ lọc
+                <i class="bi bi-x-circle"></i> Remove
             </a>
         </div>
     </form>
@@ -78,12 +78,12 @@
                        asp-route-artistId="@ViewBag.SelectedArtistId"
                        class="btn btn-success">
                         <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
+                        <span>Add</span>
                     </a>
 
-                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Are you sure?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     <a asp-controller="Artwork" asp-action="Index" class="btn btn-primary" data-toggle="modal">
                         <i class="fa-solid fa-arrows-rotate"></i>
@@ -109,7 +109,7 @@
                     <th>Price</th>
                     <th>SaleType</th>
                     <th>Image</th>
-                    <th>Trạng thái</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -126,9 +126,12 @@
                                 </span>
                             </td>
                             <td>@art.Category?.Name</td>
-                            <td>@art.Artist?.FullName</td>
+                            <td>@art.Artist</td>
                             <td>@art.Title</td>
-                            <td>@Html.Raw(art.Description)</td>
+                            <td>
+                                @(art.Description?.Length > 30? art.Description.Substring(0, 30) + "...": art.Description)
+                            </td>
+
                             <td>@(art.Price?.ToString("N0") ?? "0") $</td>
                             <td>@art.SaleType</td>
                             <td>
@@ -138,11 +141,11 @@
                             <td>
                                 @if (art.Status == true)
                                 {
-                                    <span class="badge bg-success">Hoạt động</span>
+                                    <span class="badge bg-success">Active</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-danger">Ẩn</span>
+                                    <span class="badge bg-danger">Hiden</span>
                                 }
                             </td>
                             <td>
@@ -150,7 +153,7 @@
                                     <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                                 </a>
                                 <a asp-controller="Artwork" asp-action="Delete" asp-route-id="@art.ArtworkId" class="delete" data-toggle="modal">
-                                    <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">&#xE872;</i>
+                                    <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure?');">&#xE872;</i>
                                 </a>
                             </td>
                         </tr>
@@ -159,7 +162,7 @@
                 else
                 {
                     <tr>
-                        <td colspan="10" class="text-muted text-center">Không có dữ liệu</td>
+                        <td colspan="10" class="text-muted text-center">No data</td>
                     </tr>
                 }
             </tbody>
@@ -168,36 +171,10 @@
         <!-- Phân Trang -->
         <div class="clearfix">
             <ul class="pagination">
-                <li class="page-item">
-                    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Artwork", new { pageNumber }))
-                </li>
+                <li class="page-item">@Html.PagedListPager(Model, pageNumber => Url.Action("Index", "Admin", new { pageNumber = pageNumber }))</li>
             </ul>
         </div>
 
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <a asp-controller="Artwork"
-                       asp-action="Create"
-                       asp-route-categoryId="@ViewBag.SelectedCategoryId"
-                       asp-route-artistId="@ViewBag.SelectedArtistId"
-                       class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
-                    </a>
-
-                    <a asp-controller="Artwork" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
-                        <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
-                    </a>
-                    <a asp-controller="Artwork" asp-action="Index" class="btn btn-primary" data-toggle="modal">
-                        <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Refresh</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>

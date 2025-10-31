@@ -12,7 +12,7 @@ namespace Gallery_Art_System.Controllers
 
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             var auctions = _context.Auctions
                 .Include(a => a.Artwork)   // ✅ Load Artwork để tránh null
                 .OrderByDescending(a => a.AuctionId)

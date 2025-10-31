@@ -1,13 +1,14 @@
-using System.Diagnostics;
-using Gallery_Art_System.Models;
+﻿using Gallery_Art_System.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace Gallery_Art_System.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private readonly ONLINE_GALLERY_ART_SYSTEMContext _context = new ONLINE_GALLERY_ART_SYSTEMContext();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,8 +16,18 @@ namespace Gallery_Art_System.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var banner = _context.Banners.ToList();
+
+            var artwork = _context.Artworks
+                .Include(a => a.Category) // Gọi luôn thông tin category
+                .OrderBy(a => a.ArtworkId)
+                .Take(6)
+                .ToList();
+
+            ViewBag.Banners = banner;
+            return View(artwork);
         }
+
 
         public IActionResult Privacy()
         {

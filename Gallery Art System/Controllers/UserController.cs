@@ -46,7 +46,7 @@ namespace Gallery_Art_System.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images/users", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);
@@ -81,7 +81,7 @@ namespace Gallery_Art_System.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images//users", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);

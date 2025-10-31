@@ -19,7 +19,7 @@ namespace Gallery_Art_System.Controllers
         // ========== INDEX ==========
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10; 
+            int pageSize = 6; 
             int pageIndex = pageNumber ?? 1; 
 
             var list = ctx.GalleryArtworks

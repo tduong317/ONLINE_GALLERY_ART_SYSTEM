@@ -8,7 +8,7 @@
 }
 @model Gallery_Art_System.Models.Artwork
 <div class="container">
-    <form asp-action="Edit" asp-controller="Artwork" method="post" enctype="multipart/form-data">
+    <form asp-action="Edit" asp-controller="Artwork" asp-route-id="@Model.ArtworkId" method="post" enctype="multipart/form-data">
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
@@ -19,33 +19,40 @@
                         Back
                         <i class='fas'>&#xf3e5;</i>
                     </a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
         <div class="row">
+        <input type="hidden" asp-for="ArtworkId" />
+
             <div class="col-md-6 mb-3">
                 <label asp-for="CategoryId" class="form-label fw-bold">Category Name</label>
                 <select asp-for="CategoryId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.CategoryList, "CategoryId", "Name", ViewBag.SelectedCategoryId))">
-                    <option value="">-- Chọn danh mục --</option>
+                    <option value="">-- Select Category --</option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label asp-for="ArtistId" class="form-label fw-bold" ">Artist</label>
-                <select asp-for="ArtistId" class="form-select"
+                <label asp-for="UserId" class="form-label fw-bold" >User</label>
+                <select asp-for="UserId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.UserList, "UserId", "FullName"))">
                     <option value="">-- Chọn tác giả --</option>
                 </select>
-                <span asp-validation-for="ArtistId" class="text-danger"></span>
+                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
         </div>
         <div class="mb-3 mt-3">
             <label for="" class="form-label fw-bold">Title</label>
             <input type="text" class="form-control" asp-for="Title">
             <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="" class="form-label fw-bold">Artist</label>
+            <input type="text" class="form-control" asp-for="Artist">
+            <span asp-validation-for="Artist" class="text-danger"></span>
         </div>
 
         <div class="mb-3 mt-3">
@@ -83,7 +90,7 @@
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" name="Status" value="true" class="form-check-input" @(Model.Status == true ? "checked" : "") />
-            <label class="form-check-label">Hoạt động</label>
+            <label class="form-check-label">Active</label>
         </div>
         </br>
         <!-- Nút gửi -->
@@ -93,10 +100,6 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Artwork" asp-action="Index">
-                        Back
-                        <i class='fas'>&#xf3e5;</i>
-                    </a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

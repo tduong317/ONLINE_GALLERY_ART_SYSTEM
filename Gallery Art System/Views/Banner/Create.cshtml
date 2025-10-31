@@ -8,11 +8,8 @@
     <form asp-action="Create" asp-controller="Banner" method="post" enctype="multipart/form-data" class="bg-light p-4 rounded-4 shadow-sm mt-3">
 
         <div class="mb-4 border-bottom pb-2 d-flex justify-content-between align-items-center">
-            <h4 class="fw-bold text-primary mb-0">🖼️ Add Banner</h4>
+            <h4 class="fw-bold text-primary mb-0"> Add Banner</h4>
             <div>
-                <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i> Save
-                </button>
                 <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
                     <i class='fas fa-arrow-left'></i> Back
                 </a>           
@@ -21,11 +18,11 @@
 
         <!-- Image Upload -->
         <div class="mb-4">
-            <label asp-for="Image" class="form-label fw-semibold text-dark">Hình ảnh</label>
+            <label asp-for="Image" class="form-label fw-semibold text-dark">Select or enter an image path:</label>
             <div class="input-group">
-                <input asp-for="Image" class="form-control shadow-sm" placeholder="Chọn hoặc nhập đường dẫn ảnh..." />
+                <input asp-for="Image" class="form-control shadow-sm" placeholder="Enter image path or browse..." />
                 <button type="button" id="btnBrowse" class="btn btn-outline-primary">
-                    <i class="fas fa-folder-open"></i> Chọn ảnh
+                    <i class="fas fa-folder-open"></i> Select Image
                 </button>
             </div>
             <span asp-validation-for="Image" class="text-danger small"></span>
@@ -33,29 +30,25 @@
             <div class="text-center mt-3">
                 <div class="p-2 bg-white border rounded-4 shadow-sm d-inline-block">
                     <img src="" id="PictureView" width="150px" class="rounded-3" style="display:none;" />
-                    <div id="previewPlaceholder" class="text-muted small">Chưa có ảnh được chọn</div>
+                    <div id="previewPlaceholder" class="text-muted small">No images selected</div>
                 </div>
             </div>
         </div>
         <br />
         <!-- Status Checkbox -->
         <div class="mb-3 form-check">
-            <label asp-for="Status" class="form-check-label fw-semibold text-dark">Hoạt động</label>
+            <label asp-for="Status" class="form-check-label fw-semibold text-dark">Active</label>
             <input type="checkbox" asp-for="Status" class="form-check-input" />
         </div>
 
-
-        <!-- Bottom Buttons -->
-        <div class="d-flex justify-content-end border-top pt-3 mt-4">
             <div>
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i> Save
                 </button>
-                <a class="btn btn-outline-secondary me-2" asp-controller="Banner" asp-action="Index">
-                    <i class='fas fa-arrow-left'></i> Back
-                </a>
             </div>
-        </div>
+
+        <!-- Bottom Buttons -->
+       
     </form>
 
 </div>

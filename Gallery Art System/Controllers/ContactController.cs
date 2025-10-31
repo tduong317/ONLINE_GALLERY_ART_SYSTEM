@@ -17,7 +17,7 @@ namespace Gallery_Art_System.Controllers
 
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             var contacts = _context.Contacts
                 .OrderByDescending(c => c.SentAt)
                 .ToPagedList(pageNumber ?? 1, pageSize);

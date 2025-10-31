@@ -1,8 +1,125 @@
-﻿@{
+﻿@model IEnumerable<Gallery_Art_System.Models.Artwork>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Dấu chấm điều hướng -->
+        <div class="carousel-indicators">
+            @{
+                var banners = ViewBag.Banners as List<Gallery_Art_System.Models.Banner>;
+                int count = banners?.Count ?? 0;
+            }
+            @for (int i = 0; i < count; i++)
+            {
+                <button type="button"
+                        data-bs-target="#bannerCarousel"
+                        data-bs-slide-to="@i"
+                        class="@(i == 0 ? "active" : "")"
+                        aria-current="@(i == 0 ? "true" : "false")"
+                        aria-label="Slide @(i + 1)">
+                </button>
+            }
+        </div>
+
+        <!-- Các ảnh banner -->
+        <div class="carousel-inner">
+            @{
+                int index = 0;
+            }
+            @foreach (var bn in ViewBag.Banners)
+            {
+                var activeClass = index == 0 ? "active" : "";
+                <div class="carousel-item @activeClass">
+                    <img src="@bn.Image" alt="Banner @index" class="d-block w-100 banner-img">
+                </div>
+                index++;
+            }
+        </div>
+
+        <!-- Nút điều hướng -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="popular-art">
+        <div class="row mt-5">
+            @foreach (var art in Model)
+            {
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card shadow-sm" style="width: 22rem; border-radius: 10px; overflow: hidden;">
+
+                        <!-- Ảnh -->
+                        <img class="card-img-top"
+                             src="@art.ImageUrl"
+                             alt="@art.Title"
+                             style="width:100%; height:250px; margin: 20px;object-fit: none">
+
+
+                        <!-- Nội dung -->
+                        <div class="card-body">
+
+                            <!-- Tiêu đề và mô tả -->
+                            <h5 class="card-title fw-bold">@art.Title</h5>
+                            <p class="card-text text-muted" style="min-height: 60px;">
+                                @art.Description?.Substring(0, Math.Min(80, art.Description.Length))...
+                            </p>
+
+                            <!-- Tác giả & Danh mục -->
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <span style="font-weight: 600"><i class="bi bi-person"></i> @art.Artist</span>
+                                <span class="text-secondary">
+                                    <i class="bi bi-tags"></i> @art.Category?.Name
+                                </span>
+                            </div>
+                            <!-- Giá & SaleType -->
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="fw-bold text-primary">@(art.Price?.ToString("N0") ?? "0") $</span>
+                                <span class="badge bg-success">@art.SaleType</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="btn btn-success">See more</button>
+    </div>
+    <div class="item1">
+        <p class="title">Discover the Beauty of Art in Every Form</p>
+        <div class="content1">
+            <div class="text1">
+                <p>Where creativity meets inspiration</p>
+                <span>Explore a curated collection of paintings, sculptures, and photographs from talented artists around the world. Each piece tells a unique story that connects emotion, culture, and imagination.</span>
+                <span>Join us in celebrating the timeless beauty of art — whether you're an artist, collector, or admirer, there's always something new to discover.</span>
+                <button>Explore Now</button>
+            </div>
+            <div class="img1">
+                <img src="/images/homes/img1.webp" alt="Art Gallery">
+            </div>
+        </div>
+    </div>
+    <div class="item2">
+        <p class="title">Upcoming Exhibition: “Colors of Emotion”</p>
+        <div class="content2">
+            <div class="img2">
+                <img src="/images/homes/img2.jfif" alt="Colors of Emotion Exhibition">
+            </div>
+            <div class="text2">
+                <p>Experience the power of art that speaks beyond words</p>
+                <span>Our upcoming exhibition, <b>“Colors of Emotion”</b>, brings together contemporary artists who express human feelings through vibrant colors, textures, and light.</span>
+                <span>Join us this November at the Gallery Hall to witness over 100 artworks that redefine the boundaries of modern art and creativity.</span>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </div>
+
 </div>

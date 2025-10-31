@@ -18,7 +18,7 @@ namespace Gallery_Art_System.Controllers
         // GET: ExhibitionRequest
         public IActionResult Index(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 6;
             int pageIndex = pageNumber ?? 1;
 
             var requests = _context.ExhibitionRequests

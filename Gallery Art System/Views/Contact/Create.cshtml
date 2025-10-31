@@ -15,7 +15,6 @@
                         Back
                         <i class='fas'>&#xf3e5;</i>
                     </a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
@@ -38,13 +37,13 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="form-label fw-bold">Chủ đề</label>
+                <label for="" class="form-label fw-bold">Topic</label>
                 <input type="text" class="form-control" asp-for="Subject">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label class="form-label fw-bold">Nội dung tin nhắn</label>
+                <label class="form-label fw-bold">Message</label>
                 <textarea asp-for="Message" class="form-control" rows="4"></textarea>
             </div>
         </div>
@@ -55,10 +54,6 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">
-                        Back
-                        <i class='fas'>&#xf3e5;</i>
-                    </a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

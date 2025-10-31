@@ -11,17 +11,17 @@ namespace Gallery_Art_System.Controllers
     public class ArtworkController : Controller
     {
         private readonly ONLINE_GALLERY_ART_SYSTEMContext _context = new ONLINE_GALLERY_ART_SYSTEMContext();
-        public IActionResult Index(int? categoryId, int? artistId, int pageNumber = 1)
+        public IActionResult Index(int? categoryId, int? UserId, int pageNumber = 1)
         {
             if (pageNumber < 1)
                 pageNumber = 1;
 
-            int pageSize = 10;
+            int pageSize = 6;
 
             // Truy vấn artworks cơ bản
             var artworks = _context.Artworks
                 .Include(a => a.Category)
-                .Include(a => a.Artist)
+                .Include(a => a.User)
                 .AsQueryable();
 
             // ======= Lọc theo danh mục =======
@@ -31,9 +31,9 @@ namespace Gallery_Art_System.Controllers
             }
 
             // ======= Lọc theo nghệ sĩ =======
-            if (artistId.HasValue && artistId > 0)
+            if (UserId.HasValue && UserId > 0)
             {
-                artworks = artworks.Where(a => a.ArtistId == artistId);
+                artworks = artworks.Where(a => a.UserId == UserId);
             }
 
             // Phân trang & sắp xếp
@@ -46,7 +46,7 @@ namespace Gallery_Art_System.Controllers
             ViewBag.UserList = _context.Users.ToList();
 
             ViewBag.SelectedCategoryId = categoryId;
-            ViewBag.SelectedArtistId = artistId;
+            ViewBag.SelectedUserId = UserId;
 
             return View(pagedArtworks);
         }
@@ -54,7 +54,7 @@ namespace Gallery_Art_System.Controllers
 
 
         [HttpGet]
-        public IActionResult Create(int? categoryId, int? artistId)
+        public IActionResult Create(int? categoryId, int? UserId)
         {
             // Lấy danh sách danh mục & nghệ sĩ cho dropdown
             ViewBag.CategoryList = _context.Categories.ToList();
@@ -62,13 +62,13 @@ namespace Gallery_Art_System.Controllers
 
             // Lưu lại ID đang được chọn (để hiển thị selected trong view)
             ViewBag.SelectedCategoryId = categoryId;
-            ViewBag.SelectedArtistId = artistId;
+            ViewBag.SelectedUserId = UserId;
 
             // Tạo model Artwork mới, gán sẵn CategoryId và ArtistId
             var newArtwork = new Artwork
             {
                 CategoryId = categoryId,
-                ArtistId = artistId
+                UserId = UserId
             };
 
             return View(newArtwork);
@@ -76,32 +76,39 @@ namespace Gallery_Art_System.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Artwork data)
+        public async Task<IActionResult> Create(Artwork art)
         {
-            if (data.Status == null)
-                data.Status = false;
-            if (!string.IsNullOrEmpty(data.ImageUrl))
+            if (!ModelState.IsValid)
             {
-                // Đảm bảo đường dẫn đúng định dạng
-                if (!data.ImageUrl.StartsWith("/"))
+                ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name");
+                ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username");
+                return View(art);
+            }
+
+
+            // Xử lý upload ảnh
+            if (art.ImageFile != null && art.ImageFile.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
+                if (!Directory.Exists(uploads))
+                    Directory.CreateDirectory(uploads);
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(art.ImageFile.FileName);
+                var filePath = Path.Combine(uploads, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    data.ImageUrl = "/" + data.ImageUrl;
+                    await art.ImageFile.CopyToAsync(stream);
                 }
-            }
-            data.CreatedAt = DateTime.Now;
-            data.Artist = null;
 
-            if (ModelState.IsValid)
-            {
-                _context.Artworks.Add(data);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                art.ImageUrl = "/images/artworks/" + fileName;
             }
 
-            ViewBag.CategoryList = _context.Categories.ToList();
-            ViewBag.UserList = _context.Users.ToList();
-            return View(data);
+            art.CreatedAt = DateTime.Now;
+
+            _context.Artworks.Add(art);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public IActionResult Edit(int id)
@@ -122,50 +129,66 @@ namespace Gallery_Art_System.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Artwork data)
+        public async Task<IActionResult> Edit(int id, Artwork artwork)
         {
-            if (data.Status == null)
-                data.Status = false;
-            if (!ModelState.IsValid)
-            {
-                ViewBag.CategoryList = _context.Categories.ToList();
-                ViewBag.UserList = _context.Users.ToList();
-                return View(data);
-            }
-
-            var existingArtwork = _context.Artworks.AsNoTracking().FirstOrDefault(a => a.ArtworkId == id);
-            if (existingArtwork == null)
+            if (id != artwork.ArtworkId)
                 return NotFound();
 
-            // Cập nhật các trường được sửa
-            existingArtwork.Title = data.Title;
-            existingArtwork.Description = data.Description;
-            existingArtwork.Price = data.Price;
-            existingArtwork.SaleType = data.SaleType;
-            existingArtwork.CategoryId = data.CategoryId;
-            existingArtwork.ArtistId = data.ArtistId;
-            existingArtwork.Status = data.Status;
+            var art = await _context.Artworks.FindAsync(id);
+            if (art == null)
+                return NotFound();
 
-            // Xử lý ảnh
-            var files = HttpContext.Request.Form.Files;
-            if (files.Count > 0 && files[0].Length > 0)
+            if (!ModelState.IsValid)
             {
-                var file = files[0];
-                var fileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", fileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-                existingArtwork.ImageUrl = "/" + fileName; // hoặc data.ImageUrl nếu dùng elfinder
+                ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name");
+                ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username");
+                return View(artwork);
             }
 
-            _context.Artworks.Update(existingArtwork);
-            _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            // Nếu có ảnh mới
+            if (artwork.ImageFile != null && artwork.ImageFile.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
+                if (!Directory.Exists(uploads))
+                    Directory.CreateDirectory(uploads);
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(artwork.ImageFile.FileName);
+                var filePath = Path.Combine(uploads, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await artwork.ImageFile.CopyToAsync(stream);
+                }
+
+                // Xóa ảnh cũ
+                if (!string.IsNullOrEmpty(art.ImageUrl))
+                {
+                    var oldPath = Path.Combine(uploads, art.ImageUrl);
+                    if (System.IO.File.Exists(oldPath))
+                        System.IO.File.Delete(oldPath);
+                }
+
+                art.ImageUrl = fileName;
+            }
+
+            // Cập nhật các trường còn lại
+            art.Title = artwork.Title;
+            art.Description = artwork.Description;
+            art.Price = artwork.Price;
+            art.CategoryId = artwork.CategoryId;
+            art.SaleType = artwork.SaleType;
+            art.Status = artwork.Status;
+            art.Artist = artwork.Artist;
+            art.UserId = artwork.UserId;
+            art.CreatedAt = DateTime.Now;
+
+            _context.Update(art);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
+
 
 
         public IActionResult Delete(int id)

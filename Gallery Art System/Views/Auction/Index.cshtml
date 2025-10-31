@@ -2,7 +2,7 @@
 @model X.PagedList.IPagedList<Gallery_Art_System.Models.Auction>
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpCTA
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Auction";
     Layout = "~/Views/Shared/AdminMaster.cshtml";
 }
 <div class="container-fluid">
@@ -94,7 +94,7 @@
                                class="delete"
                                data-toggle="tooltip"
                                title="Xóa"
-                               onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                               onclick="return confirm('Are you sure?');">
                                 <i class="material-icons">&#xE872;</i> <!-- icon delete -->
                             </a>
                         </td>

@@ -17,7 +17,7 @@ namespace Gallery_Art_System.Controllers
         [HttpGet]
         public IActionResult Index(int pageNumber = 1)
         {
-            var pageSize = 10;
+            var pageSize = 6;
             var pageList = _context.Configs.OrderBy(cf => cf.Id).ToPagedList(pageNumber, pageSize);
             return View(pageList);
         }

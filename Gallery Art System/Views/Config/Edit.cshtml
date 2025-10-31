@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/AdminMaster.cshtml";
 }
 @model Gallery_Art_System.Models.Config
@@ -19,7 +19,6 @@
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-primary" asp-controller="Config" asp-action="Edit"> Back <i class='fas'>&#xf3e5;</i></a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
@@ -29,7 +28,7 @@
                 <label asp-for="Image" class="form-label">Logo</label>
                 <!-- input text để elfinder ghi đường dẫn -->
                 <input asp-for="Image" class="form-label" id="Image" />
-                <button type="button" id="btnBrowse">Chọn ảnh</button>
+                <button type="button" id="btnBrowse">Select Images</button>
                 <div class="mt-2">
                     <img src="@Model.Image" id="PictureView" width="100px" />
                 </div>
@@ -106,7 +105,6 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Config" asp-action="Edit"> Back <i class='fas'>&#xf3e5;</i></a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

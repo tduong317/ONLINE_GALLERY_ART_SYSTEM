@@ -11,7 +11,7 @@ namespace Gallery_Art_System.Controllers
         private readonly ONLINE_GALLERY_ART_SYSTEMContext _context = new ONLINE_GALLERY_ART_SYSTEMContext();
         public IActionResult Index(int pageNumber = 1)
         {
-            var pageSize = 10;
+            var pageSize = 6;
             var pageList = _context.Categories.OrderBy(cate => cate.CategoryId).ToPagedList(pageNumber, pageSize);
             return View(pageList);
         }

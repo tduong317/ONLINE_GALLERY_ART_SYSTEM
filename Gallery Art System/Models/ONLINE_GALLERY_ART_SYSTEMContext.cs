@@ -40,7 +40,7 @@ namespace Gallery_Art_System.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-N06RDFD\\DUONGDEPTRAI;Initial Catalog=ONLINE_GALLERY_ART_SYSTEM;User ID=sa;Password=123456;MultipleActiveResultSets=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=ONLINE_GALLERY_ART_SYSTEM;uid=sa;password=1234$;MultipleActiveResultSets=true;TrustServerCertificate=True;");
             }
         }
 
@@ -63,7 +63,7 @@ namespace Gallery_Art_System.Models
 
                 entity.Property(e => e.ArtworkId).HasColumnName("artwork_id");
 
-                entity.Property(e => e.ArtistId).HasColumnName("artist_id");
+                entity.Property(e => e.UserId).HasColumnName("user_id");
 
                 entity.Property(e => e.CategoryId).HasColumnName("category_id");
 
@@ -102,11 +102,11 @@ namespace Gallery_Art_System.Models
                     .IsUnicode(false)
                     .HasColumnName("title");
 
-                entity.HasOne(d => d.Artist)
-                    .WithMany(p => p.Artworks)
-                    .HasForeignKey(d => d.ArtistId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__artwork__artist___44FF419A");
+                entity.HasOne(d => d.User)
+                     .WithMany(p => p.Artworks)
+                     .HasForeignKey(d => d.UserId)
+                     .OnDelete(DeleteBehavior.ClientSetNull)
+                     .HasConstraintName("FK_Artwork_User");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Artworks)

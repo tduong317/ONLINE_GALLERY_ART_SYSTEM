@@ -15,7 +15,7 @@ namespace StudyDocumentPlatform.Controllers
             {
                 pageNumber = 1;
             }
-            var pageSize = 10;
+            var pageSize = 6;
             var pageList = bns.Banners.OrderBy(c => c.Id).ToPagedList(pageNumber, pageSize);
             return View(pageList);
         }
@@ -36,7 +36,7 @@ namespace StudyDocumentPlatform.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images//banners", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);
@@ -69,7 +69,7 @@ namespace StudyDocumentPlatform.Controllers
             {
                 var file = files[0];
                 FileName = file.FileName;
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images//banners", FileName);
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     file.CopyTo(stream);

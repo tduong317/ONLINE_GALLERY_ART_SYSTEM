@@ -10,17 +10,17 @@
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Triển lãm (Exhibition)</b></h4>
+    <h4>Exhibitions <b>Gallery</b></h4>
     <div class="table-wrapper" style="text-align:center;">
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                     <a asp-controller="Exhibition" asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                        <i class="material-icons">&#xE147;</i> <span>Add</span>
                     </a>
                     <a asp-controller="Exhibition" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -29,13 +29,13 @@
         <table class="table table-hover table-bordered">
             <thead class="table-success">
                 <tr>
-                    <th>Tên triển lãm</th>
-                    <th>Địa điểm</th>
-                    <th>Ngày bắt đầu</th>
-                    <th>Ngày kết thúc</th>
-                    <th>Hình ảnh</th>
-                    <th>Mô tả</th>
-                    <th>Chức năng</th>
+                    <th>Exhibition Name</th>
+                    <th>Location</th>
+                    <th>Opening Date</th>
+                    <th>Closing Date</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,16 +53,16 @@
                             }
                             else
                             {
-                                <span>Không có ảnh</span>
+                                <span>No image</span>
                             }
                         </td>
                         <td>@Html.Raw(ex.Description)</td>
                         <td>
                             <a asp-controller="Exhibition" asp-action="Edit" asp-route-id="@ex.ExhibitionId" class="edit">
-                                <i class="material-icons" title="Chỉnh sửa">&#xE254;</i>
+                                <i class="material-icons" title="Edit">&#xE254;</i>
                             </a>
                             <a asp-controller="Exhibition" asp-action="Delete" asp-route-id="@ex.ExhibitionId" class="delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">
-                                <i class="material-icons" title="Xóa">&#xE872;</i>
+                                <i class="material-icons" title="Delete">&#xE872;</i>
                             </a>
                         </td>
                     </tr>
@@ -74,7 +74,7 @@
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
             </ul>
         </div>
-        <div class="table-title">
+        @* <div class="table-title">
             <div class="row">
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
@@ -86,6 +86,6 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> *@
     </div>
 </div>

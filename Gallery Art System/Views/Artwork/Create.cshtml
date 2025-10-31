@@ -19,7 +19,6 @@
                         Back
                         <i class='fas'>&#xf3e5;</i>
                     </a>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>
         </div>
@@ -28,24 +27,32 @@
                 <label asp-for="CategoryId" class="form-label fw-bold">Category Name</label>
                 <select asp-for="CategoryId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.CategoryList, "CategoryId", "Name", ViewBag.SelectedCategoryId))">
-                    <option value="">-- Chọn danh mục --</option>
+                    <option value="">-- Select Category --</option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label asp-for="ArtistId" class="form-label fw-bold">Artist</label>
-                <select asp-for="ArtistId" class="form-select"
+                <label asp-for="UserId" class="form-label fw-bold">UserId</label>
+                <select asp-for="UserId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.UserList, "UserId", "FullName"))">
-                    <option value="">-- Chọn tác giả --</option>
+                    <option value="">-- Select User --</option>
                 </select>
-                <span asp-validation-for="ArtistId" class="text-danger"></span>
+                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
         </div>
         <div class="mb-3 mt-3">
             <label for="" class="form-label fw-bold">Title</label>
             <input type="text" class="form-control" asp-for="Title">
             <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label class="form-label">Artist</label>
+            <input type="text" class="form-control" asp-for="Artist" required
+                   oninvalid="this.setCustomValidity('Please enter artwork title')"
+                   oninput="this.setCustomValidity('')">
+            <span asp-validation-for="Artist" class="text-danger"></span>
         </div>
 
         <div class="mb-3 mt-3">
@@ -73,9 +80,8 @@
             <div class="col">
                 <label asp-for="ImageUrl" class="form-label fw-bold">Image</label>
                 <!-- input text để elfinder ghi đường dẫn -->
-                <input asp-for="ImageUrl" class="form-label" id="Image" />
-                <button type="button" id="btnBrowse">Chọn ảnh</button>
-                <div class="mt-2">
+                <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                <div class="mt-2">  
                     <img src="@Model.ImageUrl" id="PictureView" width="100px" />
                 </div>
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
@@ -83,7 +89,7 @@
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" name="Status" value="true" class="form-check-input" @(Model.Status == true ? "checked" : "") />
-            <label class="form-check-label">Hoạt động</label>
+            <label class="form-check-label">Active</label>
         </div>
         </br>
         <!-- Nút gửi -->
@@ -93,10 +99,6 @@
                     <h2 style="color:black"></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary" asp-controller="Artwork" asp-action="Index">
-                        Back
-                        <i class='fas'>&#xf3e5;</i>
-                    </a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save </button>
                 </div>
             </div>

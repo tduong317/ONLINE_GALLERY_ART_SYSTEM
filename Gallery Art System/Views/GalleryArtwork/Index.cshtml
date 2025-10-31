@@ -2,21 +2,21 @@
 @model X.PagedList.IPagedList<Gallery_Art_System.Models.GalleryArtwork>
 @{
     Layout = "AdminMaster";
-    ViewData["Title"] = "Quản lý Gallery Artwork";
+    ViewData["Title"] = "Gallery Artwork Management";
 }
 
 <div class="container-fluid">
-    <h4>Quản lý <b>Gallery Artwork</b></h4>
+    <h4>Gallery Artwork <b>Management</b></h4>
     <div class="table-wrapper" style="text-align:center;">
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6 text-end">
                     <a asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                        <i class="material-icons">&#xE147;</i> <span>Add</span>
                     </a>                  
                     <a asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -34,8 +34,8 @@
                     </th>
                     <th>Gallery</th>
                     <th>Artwork</th>
-                    <th>Ngày thêm</th>
-                    <th>Chức năng</th>
+                    <th>Create Date</th>
+                    <th>Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,19 +75,6 @@
             <ul class="pagination">
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
             </ul>
-        </div>
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6 text-end">
-                    <a asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
-                    </a>                    
-                    <a asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </div>

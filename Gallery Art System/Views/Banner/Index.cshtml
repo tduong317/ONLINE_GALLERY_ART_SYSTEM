@@ -9,7 +9,7 @@
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Banner</b></h4>
+    <h4>Banners <b>Management</b></h4>
     <div class="table-wrapper" style="text-align:center;">
         <div class="table-title">
             <div class="row">
@@ -18,15 +18,15 @@
                 <div class="col-sm-6">
                     <a asp-controller="Banner" asp-action="Create" class="btn btn-success" data-toggle="modal">
                         <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
+                        <span>Add</span>
                     </a>
                     <a asp-controller="Banner" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     <a asp-controller="Banner" asp-action="" class="btn btn-primary" data-toggle="modal">
                         <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Làm mới</span>
+                        <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -42,8 +42,8 @@
                         </span>
                     </th>
                     <th>Banner</th>
-                    <th>Trạng thái</th>
-                    <th>Chức năng</th>
+                    <th>Status</th>
+                    <th>Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,11 +63,11 @@
                         <td style="text-align:center">
                             @if (bn.Status == true)
                             {
-                                <span class="badge bg-success">Hoạt động</span>
+                                <span class="badge bg-success">Active</span>
                             }
                             else
                             {
-                                <span class="badge bg-danger">Ngừng</span>
+                                <span class="badge bg-danger">Closed</span>
                             }
                         </td>
                         <td>
@@ -75,7 +75,7 @@
                                 <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                             </a>
                             <a asp-controller="Banner" asp-action="Delete" asp-route-id="@bn.Id" class="delete" data-toggle="modal">
-                                <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Bạn có chắc muốn xóa không?');">&#xE872;</i>
+                                <i class="material-icons" data-toggle="tooltip" title="Delete" onclick="return confirm('Are you sure?');">&#xE872;</i>
                             </a>
                         </td>
                     </tr>
@@ -90,25 +90,5 @@
             </ul>
         </div>
 
-        <div class="table-title" style="margin-top:20px">
-            <div class="row">
-                <div class="col-sm-6">
-                </div>
-                <div class="col-sm-6">
-                    <a asp-controller="Banner" asp-action="Create" class="btn btn-success" data-toggle="modal">
-                        <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
-                    </a>
-                    <a asp-controller="Banner" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
-                        <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
-                    </a>
-                    <a asp-controller="Banner" asp-action="" class="btn btn-primary" data-toggle="modal">
-                        <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Làm mới</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

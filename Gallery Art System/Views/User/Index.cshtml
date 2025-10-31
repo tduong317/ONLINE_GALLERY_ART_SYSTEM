@@ -9,7 +9,7 @@
 }
 
 <div class="container-fluid">
-    <h4>Quản Lí <b>Người dùng</b></h4>
+    <h4>Management <b>User</b></h4>
     <!-- Form tìm kiếm -->
     @{
         var classList = ViewBag.ClassList as IEnumerable<string>;
@@ -19,7 +19,7 @@
     <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
         <!-- Họ và tên -->
         <div class="col-md-3">
-            <label class="form-label fs-8 fw-bold">Họ và tên</label>
+            <label class="form-label fs-8 fw-bold">Full Name</label>
             <input type="text" name="FullName" value="@ViewBag.FullName"
                    class="form-control" placeholder="Nhập họ và tên...">
         </div>
@@ -27,10 +27,10 @@
         <!-- Nút thao tác -->
         <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-primary">
-                <i class="bi bi-funnel"></i> Lọc
+                <i class="bi bi-funnel"></i> Filter
             </button>
             <a href="@Url.Action("Index", "User")" class="btn btn-secondary">
-                <i class="bi bi-x-circle"></i> Bỏ lọc
+                <i class="bi bi-x-circle"></i> Remove Filter
             </a>
         </div>
     </form>
@@ -44,15 +44,15 @@
                 <div class="col-sm-6">
                     <a asp-controller="User" asp-action="Create" class="btn btn-success" data-toggle="modal">
                         <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
+                        <span>Add</span>
                     </a>
                     <a asp-controller="User" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     <a asp-controller="User" asp-action="" class="btn btn-primary" data-toggle="modal">
                         <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Làm mới</span>
+                        <span>Refresh</span>
                     </a>
                 </div>
             </div>
@@ -67,13 +67,13 @@
                             <label for="selectAll"></label>
                         </span>
                     </th>
-                    <th>Tên đăng nhập</th>
+                    <th>Username</th>
                     <th>Fullname</th>
-                    <th>Giới tính</th>
-                    <th>Tuổi</th>
+                    <th>Gender</th>
+                    <th>Age</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Địa chỉ</th>
+                    <th>Address</th>
                     <th>Function</th>
                 </tr>
             </thead>
@@ -122,15 +122,15 @@
                 <div class="col-sm-6">
                     <a asp-controller="User" asp-action="Create" class="btn btn-success" data-toggle="modal">
                         <i class="material-icons">&#xE147;</i>
-                        <span>Thêm</span>
+                        <span>Add</span>
                     </a>
                     <a asp-controller="User" asp-action="DeleteAll" class="btn btn-danger" data-toggle="modal" onclick="return confirm('Bạn có chắc muốn xóa không?');">
                         <i class="material-icons">&#xE5C9;</i>
-                        <span>Xóa</span>
+                        <span>Delete</span>
                     </a>
                     <a asp-controller="User" asp-action="" class="btn btn-primary" data-toggle="modal">
                         <i class="fa-solid fa-arrows-rotate"></i>
-                        <span>Làm mới</span>
+                        <span>Refresh</span>
                     </a>
                 </div>
             </div>
