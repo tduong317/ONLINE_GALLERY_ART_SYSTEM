@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Gallery_Art_System.Models.Exhibition>
+@using System.Globalization
+@{
+    ViewData["Title"] = "Exhibition";
+}
+<div class="banner-ex">
+    <h1>Exhibitions</h1>
+    <p><a>Home </a>/<a> Exhibitons</a></p>
+</div>
+<section class="event-filter-bar">
+    <div class="container event-filter-container">
+        <div class="search">
+            <div class="search-section">
+                <input type="text" class="search-input" placeholder="Search for events" />
+                <button class="find-btn">Find Events</button>
+            </div>
+
+            <div class="view-section">
+                <a href="#" class="view-link">List</a>
+                <a href="#" class="view-link">Month</a>
+                <a href="#" class="view-link">Day</a>
+            </div>
+        </div>
+
+        <div class="date-section">
+            <button class="nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="today-btn">Today</button>
+            <span class="date-range">Now - December 15 <i class="fa-solid fa-caret-down"></i></span>
+        </div>
+
+    </div>
+</section>
+<section class="events-list">
+    <div class="container events">
+        <div class="month-label">
+            @DateTime.Now.ToString("MMMM yyyy", CultureInfo.CreateSpecificCulture("en-US"))
+        </div>
+        @foreach(var exh in Model){
+
+
+        <div class="event-item">
+            <div class="event-date">
+                <div class="weekday">@exh.StartDate?.ToString("ddd")?.ToUpper()</div>
+                <div class="day">@exh.StartDate?.Day</div>
+            </div>
+            <div class="event-info">
+                <div class="event-period">@exh.StartDate - @exh.EndDate</div>
+                <h2 class="event-title">@exh.Name</h2>
+                <div class="event-location">@exh.Location</div>
+                <div class="event-desc">
+                        <p>@Html.Raw(exh.Description)</p>
+                </div>
+            </div>
+            <div class="event-image">
+                <img src="@exh.ImageUrl" alt="Caravaggio Painting" />
+            </div>
+        </div>
+        }
+
+        <!-- Bạn có thể copy block .event-item để thêm nhiều sự kiện khác -->
+
+    </div>
+
+</section>
+
+<!-- Pagination -->
+<div class="pagination">
+    <nav class="pagination-container">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a href="#" class="page-link">« Prev</a>
+            </li>
+            <li class="page-item active">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item">
+                <a href="#" class="page-link">Next »</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+

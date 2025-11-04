@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using X.PagedList.Extensions;
 
 namespace Gallery_Art_System.Controllers
 {
@@ -28,7 +29,11 @@ namespace Gallery_Art_System.Controllers
             return View(artwork);
         }
 
-
+        public IActionResult Exhibition(int page=1) {
+            var limit = 6;
+            var exh = _context.Exhibitions.ToPagedList(page,limit);
+            return View(exh);
+        }
         public IActionResult Privacy()
         {
             return View();

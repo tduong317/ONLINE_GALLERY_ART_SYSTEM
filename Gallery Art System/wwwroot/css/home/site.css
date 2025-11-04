@@ -1,0 +1,822 @@
+﻿html {
+    font-size: 14px;
+}
+.pb-3{
+    padding-bottom: 0px !important;
+}
+.mt-5{
+    margin-top: 0px !important;
+}
+.me-4 span{
+    margin-left: 10px;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+.container-fluid{
+    padding:0;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+/* ==== TOP INFO BAR ==== */
+.top-info-bar {
+    background-color: #1b1a17; /* nền tối */
+    color: #b8b8a9;
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.5px;
+}
+
+    .top-info-bar i {
+        color: #b8b8a9;
+        font-size: 12px;
+    margin-bottom: 10px;
+    }
+
+    .top-info-bar .right-info div {
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .top-info-bar .right-info div:hover {
+            color: #fff;
+        }
+
+    /* chỉnh icon cách chữ */
+    .top-info-bar i {
+        display: contents;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        font-size: 13px; /* tùy chỉnh nếu icon quá to */
+        margin-right: 6px; /* chỉ cần margin bên phải */
+        position: relative;
+        top: -1px; /* tinh chỉnh nhỏ cho cân hơn */
+    }
+
+    /* Thêm viền ngăn cách giữa các mục */
+    .top-info-bar .right-info div {
+        border-right: 1px solid rgba(255, 255, 255, 0.3);
+        padding-right: 12px; /* khoảng cách chữ với viền */
+        margin-right: 12px; /* khoảng cách giữa các mục */
+    }
+
+        /* Bỏ viền ở mục cuối cùng */
+        .top-info-bar .right-info div:last-child {
+            border-right: none;
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+
+/* nếu muốn căn giữa toàn bộ khi thu nhỏ màn hình */
+@media (max-width: 768px) {
+    .top-info-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .top-info-bar .right-info {
+        margin-top: 5px;
+    }
+}
+
+/* ===== MENU TRONG SUỐT TRÊN BANNER ===== */
+/* ===== NAVBAR CƠ BẢN ===== */
+.overlay-nav {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    padding: 10px 60px;
+    background: transparent;
+    transition: all 0.4s ease;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+}
+
+    .overlay-nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+/* ===== MENU ===== */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.left-nav {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.right-nav {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: #ebe9cf !important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+    .nav-link:hover {
+        color: #ebe9cf !important;
+    }
+
+/* ===== LOGO Ở GIỮA ===== */
+.logo-center {
+    position: relative;
+    z-index: 2;
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+    filter: brightness(100%);
+    transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+    .logo-img:hover {
+        transform: scale(1.05);
+    }
+
+/* ===== LOGIN ===== */
+.login button {
+    font-size: 1rem;
+    padding: 8px 25px;
+    background-color: transparent;
+    color: #ebe9cf;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+    .login button:hover {
+        background-color: #1e1e19;
+        border-color: #c9a050;
+    }
+
+/* ===== HIỆU ỨNG SCROLL ===== */
+.overlay-nav.scrolled {
+    background-color: #1e1e19;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    top: 0;
+}
+
+    .overlay-nav.scrolled .nav-link {
+        color: #ebe9cf !important;
+    }
+
+    .overlay-nav.scrolled .logo-img {
+    }
+
+    .overlay-nav.scrolled .login button {
+        background-color: #1e1e19;
+        color: #ebe9cf !important;
+        border-color: #ebe9cf;
+    }
+
+        .overlay-nav.scrolled .login button:hover {
+            background-color: #6d6d65;
+            border-color: #13130d;
+        }
+
+.footer {
+    background-color: #111;
+    color: #ebe9cf;
+    font-family: 'Poppins', sans-serif;
+}
+
+    .footer a {
+        color: #ebe9cf;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+.logo-footer a.navbar-brand {
+    font-family: "Opulent BC", serif;
+    font-size: 2rem;
+    color: #ebe9cf;
+    text-decoration: none;
+}
+
+.logo-footer p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.logo-footer img{
+    width: 30%;
+    display: block;
+    margin: 0 auto
+}
+
+.footer h5 {
+    color: #ebe9cf;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* === Payment icons === */
+.payment-icons img {
+    height: 25px; /* giảm kích thước icon */
+    width: auto;
+    opacity: 0.8; /* làm mờ nhẹ cho tinh tế */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+    .payment-icons img:hover {
+        opacity: 1;
+        transform: scale(1.05); /* hiệu ứng phóng nhẹ khi hover */
+    }
+
+@media (max-width: 768px) {
+    .payment-icons {
+        justify-content: center !important; /* canh giữa khi màn nhỏ */
+        margin-top: 1rem;
+    }
+}
+
+
+/* Newsletter */
+.newsletter .form-control {
+    border-radius: 25px 0 0 25px;
+    border: none;
+    padding: 10px 15px;
+}
+
+.newsletter .btn {
+    border-radius: 0 25px 25px 0;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+    .newsletter .btn:hover {
+        background-color: #8f88ff;
+    }
+
+/* Social icons */
+.social a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    color: white;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+    .social a:hover {
+        color: #bbb;
+        transform: translateY(-3px);
+    }
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer small {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.carousel-item img {
+    height: 100%;
+}
+
+.banner-img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 15px 25px;
+}
+
+.collection-section {
+    background-color: #f9f7f1;
+    padding: 60px 20px;
+    font-family: "Poppins", sans-serif;
+    color: #111;
+    margin: 0 auto;
+    max-width: 1110px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+    .header h2 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+.view-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #111;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #111;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 40px;
+    max-width: 500px;
+    text-align: left;
+}
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.artwork-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.artwork-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.artwork-item .artist {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn-load {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn-load:hover {
+        background-color: #333;
+    }
+
+/* ===== Khối chung ===== */
+.item1, .item2 {
+    padding: 60px 0;
+}
+
+    .item1 .title,
+    .item2 .title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+/* ===== Layout ===== */
+.content1, .content2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Cho responsive */
+}
+
+/* ===== ITEM 1: ảnh bên phải ===== */
+/* Item1: text trái - ảnh phải */
+.content1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-direction: row;
+}
+
+/* Item2: ảnh trái - text phải */
+.content2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-direction: row; /* ảnh bên trái */
+}
+
+/* ===== Text chung ===== */
+.text1, .text2 {
+    flex: 1;
+    min-width: 300px;
+}
+
+    .text1 p, .text2 p {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #444;
+    }
+
+    .text1 span, .text2 span {
+        display: block;
+        margin-top: 10px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .text1 button, .text2 button {
+        margin-top: 20px;
+        background-color: #2b2b2b;
+        color: #fff;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        width: 20%;
+    }
+
+        .text1 button:hover, .text2 button:hover {
+            background-color: #555;
+        }
+
+/* ===== Hình ảnh ===== */
+.img1 img, .img2 img {
+    width: 500px;
+    max-width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .content1, .content2 {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .text1 button, .text2 button {
+        margin: 20px auto 0;
+    }
+}
+/* ===== HERO SECTION ===== */
+.about-us {
+    margin: 0 auto;
+    max-width: 1110px;
+    background-color: #f7f6ec; /* nền kem sáng nhẹ */
+    display: flex;
+    height: 600px;
+    justify-content: center; /* căn giữa ngang */
+    align-items: center; /* căn giữa dọc */
+    text-align: center; /* căn giữa chữ */
+    padding: 60px 15px; /* chừa khoảng cách nhỏ */
+}
+
+/* vùng chứa nội dung */
+.hero-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #222;
+    font-size: 2.8rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* Nút More About */
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #111;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+    .hero-btn span {
+        display: inline-block;
+        margin-left: 10px;
+        background: #f7f6ec;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 28px;
+        transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+        color: #000;
+    }
+
+        .hero-btn:hover span {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+            transform: translateX(5px);
+        }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .about-us {
+        background-position: center bottom;
+        background-size: cover;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+        }
+}
+/* Section style */
+.exhibitions-section {
+    background-color: #f9f7f1;
+    padding: 60px 20px;
+    font-family: "Poppins", sans-serif;
+    color: #111;
+    margin: 0 auto;
+    max-width: 1110px;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .header h2 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+.view-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #111;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+    .view-all span {
+        margin-left: 6px;
+    }
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 2px solid #111;
+    margin-bottom: 30px;
+}
+
+/* Main image */
+.main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+/* Exhibition list */
+.exhibition-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.exhibition-item {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr auto;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+    .exhibition-item:first-child {
+        border-top: none;
+    }
+
+    .exhibition-item .info h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .exhibition-item .date {
+        color: #777;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .exhibition-item .desc p {
+        font-size: 0.95rem;
+        color: #444;
+        margin: 0;
+    }
+
+/* Button */
+.btn-more {
+    display: inline-block;
+    border: 1px solid #111;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #111;
+    transition: all 0.3s ease;
+}
+
+    .btn-more:hover {
+        background-color: #111;
+        color: #fff;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .exhibition-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .btn-more {
+        margin-top: 10px;
+    }
+}
+.newsletter-section {
+    background-image: url('/images/homes/img4.jpg'); /* ảnh nền */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 200px 0; /* tăng chiều cao vùng section */
+    color: #f5f5f5;
+    overflow: hidden;
+    border-bottom: 1px solid white;
+}
+
+    .newsletter-section .overlay {
+        background: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0; /* kéo overlay lên cao hơn một chút */
+        left: 0;
+        width: 100%;
+        height: 100%; /* 👈 overlay dài hơn chiều cao section */
+        z-index: 1;
+    }
+
+.newsletter-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 60px
+}
+
+.newsletter-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.newsletter-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+}
+
+    .newsletter-input::placeholder {
+        color: #aaa;
+    }
+
+.newsletter-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .newsletter-btn:hover {
+        color: #c7a96b;
+    }
+
+.agree-check {
+    font-size: 13px;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+    .agree-check input {
+        margin-right: 5px;
+    }

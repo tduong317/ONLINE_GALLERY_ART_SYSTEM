@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center" style="background-color: #f7f6ed;">
     <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <!-- Dấu chấm điều hướng -->
@@ -50,50 +50,157 @@
         </button>
     </div>
 
-    <div class="popular-art">
-        <div class="row mt-5">
-            @foreach (var art in Model)
-            {
-                <div class="col-md-4 mb-4 d-flex justify-content-center">
-                    <div class="card shadow-sm" style="width: 22rem; border-radius: 10px; overflow: hidden;">
+    <div class="about-us">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>
+                    Discover Inspiring Art<br>
+                    At DNT Art Gallery<br>
+                    & Exhibition Center
+                </h1>
+                <p>
+                    Explore a world of creativity and imagination through our curated exhibitions,
+                    featuring masterpieces from renowned and emerging artists.
+                    The DNT Art Gallery celebrates the beauty of artistic expression,
+                    connecting people, culture, and history through the power of art.
+                </p>
+                <a href="#" class="hero-btn">
+                    More About
+                    <span><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
 
-                        <!-- Ảnh -->
-                        <img class="card-img-top"
-                             src="@art.ImageUrl"
-                             alt="@art.Title"
-                             style="width:100%; height:250px; margin: 20px;object-fit: none">
+    </div>
 
+    <section class="exhibitions-section">
+        <div class="container">
+            <div class="header">
+                <h2>Upcoming Exhibitions</h2>
+                <a href="#" class="view-all">
+                    View All Exhibitions <span>→</span>
+                </a>
+            </div>
+            <hr class="divider" />
 
-                        <!-- Nội dung -->
-                        <div class="card-body">
+            <div class="main-image">
+                <img src="~/images/homes/img3.jpg" alt="Exhibition main" />
+            </div>
 
-                            <!-- Tiêu đề và mô tả -->
-                            <h5 class="card-title fw-bold">@art.Title</h5>
-                            <p class="card-text text-muted" style="min-height: 60px;">
-                                @art.Description?.Substring(0, Math.Min(80, art.Description.Length))...
-                            </p>
-
-                            <!-- Tác giả & Danh mục -->
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <span style="font-weight: 600"><i class="bi bi-person"></i> @art.Artist</span>
-                                <span class="text-secondary">
-                                    <i class="bi bi-tags"></i> @art.Category?.Name
-                                </span>
-                            </div>
-                            <!-- Giá & SaleType -->
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <span class="fw-bold text-primary">@(art.Price?.ToString("N0") ?? "0") $</span>
-                                <span class="badge bg-success">@art.SaleType</span>
-                            </div>
-
-                        </div>
+            <div class="exhibition-list">
+                <div class="exhibition-item">
+                    <div class="info">
+                        <h3>Unique Exhibition<br>Johan Zoffany</h3>
+                        <p class="date">February 10, 2019 – April 28, 2019</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Explore the world of classic art through the masterpieces of Johan Zoffany,
+                            capturing the essence of 18th-century European culture and expression.
+                        </p>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="btn-more">More Info</a>
                     </div>
                 </div>
-            }
+
+                <div class="exhibition-item">
+                    <div class="info">
+                        <h3>Records & Rebels<br>1966–1970</h3>
+                        <p class="date">February 10, 2019 – April 28, 2019</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A bold and colorful journey into one of the most revolutionary periods
+                            in modern art, music, and fashion.
+                        </p>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="btn-more">More Info</a>
+                    </div>
+                </div>
+
+                <div class="exhibition-item">
+                    <div class="info">
+                        <h3>Bernard van Orley<br>At Saint-Géry</h3>
+                        <p class="date">February 10, 2019 – April 28, 2019</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Discover the Flemish Renaissance through the works of Bernard van Orley,
+                            blending realism, faith, and storytelling.
+                        </p>
+                    </div>
+                    <div class="action">
+                        <a href="#" class="btn-more">More Info</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-success">See more</button>
-    </div>
-    <div class="item1">
+    </section>
+
+
+    <section class="collection-section">
+        <div class="container">
+            <div class="header">
+                <h2>Artwork</h2>
+                <a href="#" class="view-all">
+                    View All Artwork <span>→</span>
+                </a>
+            </div>
+            <hr class="divider" />
+
+            <p class="intro">
+                Our artwork currently contains more than 100,000 works of art and design
+                dating from ancient times to today.
+            </p>
+
+            <div class="artwork-grid">
+                @foreach (var art in Model)
+                {
+                    <div class="artwork-item">
+                        <img src="@art.ImageUrl" alt="@art.Title" />
+                        <h3>@art.Title</h3>
+                        <p class="artist">@art.Artist</p>
+                </div>
+                                }
+            </div>
+
+            <div class="load-more">
+                <button class="btn-load">Load More</button>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section">
+        <div class="overlay">
+            <div class="newsletter-content text-center">
+                <h2 class="newsletter-title">Newsletter</h2>
+                <p class="newsletter-subtitle">
+                    Receive e-mail updates on our exhibitions,<br />
+                    events, and more:
+                </p>
+
+                <form class="newsletter-form">
+                    <input type="email"
+                           placeholder="Email Address"
+                           required
+                           class="newsletter-input" />
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="agree-check">
+                    <input type="checkbox" id="agree" />
+                    <label for="agree">
+                        I agree that my submitted data is being collected and stored.
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    @* <div class="item1">
         <p class="title">Discover the Beauty of Art in Every Form</p>
         <div class="content1">
             <div class="text1">
@@ -120,6 +227,6 @@
                 <button>Learn More</button>
             </div>
         </div>
-    </div>
+    </div> *@
 
 </div>

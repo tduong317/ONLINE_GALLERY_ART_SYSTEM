@@ -338,9 +338,10 @@ wwwroot\ckeditor\skins\v2\skin.js
 wwwroot\ckeditor\skins\v2\templates.css
 wwwroot\ckeditor\themes\default\theme.js
 wwwroot\css\css_admin.css
+wwwroot\css\home\exhibition.css
+wwwroot\css\home\site.css
 wwwroot\css\login.css
 wwwroot\css\logon.css
-wwwroot\css\site.css
 wwwroot\elfinder-material-theme\LICENSE
 wwwroot\elfinder-material-theme\manifests\material-default.json
 wwwroot\elfinder-material-theme\manifests\material-gray.json
@@ -521,11 +522,18 @@ wwwroot\elfinder\js\worker\quicklook.tiff.min.js
 wwwroot\elfinder\js\worker\quicklook.unzip.js
 wwwroot\elfinder\js\worker\quicklook.unzip.min.js
 wwwroot\favicon.ico
+wwwroot\files\2.jpg
+wwwroot\files\3.jpg
 wwwroot\files\453647192_525678453140895_1825468776591405950_n.jpg
 wwwroot\files\467741106_615406131053411_5678388305646780995_n.png
 wwwroot\files\469038087_122185081544168215_3942261540789633529_n.jpg
 wwwroot\files\549926760_122185360226333274_4443648041404113907_n.jpg
 wwwroot\files\8db07aaf-8023-46cb-97fc-81978796401e.jpg
+wwwroot\files\Art Exhibition.png
+wwwroot\files\banner4.jpg
+wwwroot\files\Where Art Meets Elegance (1).png
+wwwroot\files\Where Art Meets Elegance (2).png
+wwwroot\files\Where Art Meets Elegance.png
 wwwroot\images\artworks\0da16a68-48cf-44a3-b72d-13b5db6a459c.jfif
 wwwroot\images\artworks\135b7ce8-03d7-44b3-a2ae-bf22cb33c2f5.jfif
 wwwroot\images\artworks\49c254a7-2201-4293-af54-33dc5735f84b.jfif
@@ -542,7 +550,12 @@ wwwroot\images\artworks\fccb5dbf-530a-4266-a447-0d290692f78f.jfif
 wwwroot\images\exhibitions\b91d5f98-b8ed-44a1-9265-4756bbff5ab1.jpg
 wwwroot\images\homes\img1.webp
 wwwroot\images\homes\img2.jfif
+wwwroot\images\homes\img3.jpg
+wwwroot\images\homes\img4.jpg
+wwwroot\images\homes\img5.jpg
+wwwroot\images\homes\img6.jpg
 wwwroot\images\left-img.jpg
+wwwroot\images\logo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
