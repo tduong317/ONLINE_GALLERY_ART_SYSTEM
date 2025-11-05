@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\ASP.net\\Gallery Art System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\models\\online_gallery_art_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\models\\online_gallery_art_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\models\\galleryartwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\models\\galleryartwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -173,14 +185,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\wwwroot\\css\\css_admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\wwwroot\\css\\css_admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\models\\online_gallery_art_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\models\\online_gallery_art_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|d:\\asp.net\\gallery art system\\gallery art system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -190,63 +194,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "GalleryArtwork.cs",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\GalleryArtwork.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Models\\GalleryArtwork.cs",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\GalleryArtwork.cs",
+              "RelativeToolTip": "Gallery Art System\\Models\\GalleryArtwork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T04:25:12.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AuctionController.cs",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\AuctionController.cs",
               "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\AuctionController.cs",
               "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\AuctionController.cs",
               "RelativeToolTip": "Gallery Art System\\Controllers\\AuctionController.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAcwJUAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAAwJgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-31T08:40:45.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAmwGIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:39:23.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Edit.cshtml",
-              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Edit.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Edit.cshtml",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAFMAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:37:20.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAFAAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:36:15.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\ExhibitionRequest\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\ExhibitionRequest\\Edit.cshtml",
@@ -254,12 +232,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\ExhibitionRequest\\Edit.cshtml",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:35:39.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:35:39.088Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\ExhibitionRequest\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\ExhibitionRequest\\Create.cshtml",
@@ -267,12 +244,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\ExhibitionRequest\\Create.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAEcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:34:33.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:34:33.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\ExhibitionRequest\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\ExhibitionRequest\\Index.cshtml",
@@ -280,12 +256,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\ExhibitionRequest\\Index.cshtml",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAFIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:34:04.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:34:04.606Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Exhibition\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Exhibition\\Edit.cshtml",
@@ -293,12 +268,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Exhibition\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:33:39.797Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:33:39.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Exhibition\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Exhibition\\Create.cshtml",
@@ -306,12 +280,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Exhibition\\Create.cshtml",
               "ViewState": "AgIAADMAAAAAAAAAAAAAAEYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:32:45.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:32:45.497Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Exhibition\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Exhibition\\Index.cshtml",
@@ -319,12 +292,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Exhibition\\Index.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAFgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:32:28.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:32:28.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\GalleryArtwork\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\GalleryArtwork\\Edit.cshtml",
@@ -332,12 +304,73 @@
               "RelativeToolTip": "Gallery Art System\\Views\\GalleryArtwork\\Edit.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:32:00.34Z",
+              "WhenOpened": "2025-10-31T08:32:00.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ONLINE_GALLERY_ART_SYSTEMContext.cs",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
+              "RelativeToolTip": "Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAuwCoAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:06:38.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\appsettings.json",
+              "RelativeDocumentMoniker": "Gallery Art System\\appsettings.json",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\appsettings.json",
+              "RelativeToolTip": "Gallery Art System\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-31T07:06:30.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Create.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Create.cshtml",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Create.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Create.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAFAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T08:36:15.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Edit.cshtml",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Edit.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Edit.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T08:37:20.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Index.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Index.cshtml",
+              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Auction\\Index.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Index.cshtml",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAmwGIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-31T08:39:23.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\GalleryArtwork\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\GalleryArtwork\\Index.cshtml",
@@ -345,12 +378,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\GalleryArtwork\\Index.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAFoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:30:58.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:30:58.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\GalleryArtwork\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\GalleryArtwork\\Create.cshtml",
@@ -358,12 +390,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\GalleryArtwork\\Create.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:30:45.962Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:30:45.962Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Gallery\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Gallery\\Edit.cshtml",
@@ -371,12 +402,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Gallery\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:30:14.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:30:14.029Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Gallery\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Gallery\\Create.cshtml",
@@ -384,12 +414,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Gallery\\Create.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:29:40.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:29:40.612Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Gallery\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Gallery\\Index.cshtml",
@@ -397,12 +426,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Gallery\\Index.cshtml",
               "ViewState": "AgIAAF8AAAAAAAAAAAAmwHsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:29:08.215Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:29:08.215Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Artwork\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Artwork\\Create.cshtml",
@@ -410,12 +438,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Artwork\\Create.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAFoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:24:02.773Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:24:02.773Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\CategoryController.cs",
@@ -423,12 +450,11 @@
               "RelativeToolTip": "Gallery Art System\\Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T08:20:09.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:20:09.406Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Page\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Page\\Edit.cshtml",
@@ -436,12 +462,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Page\\Edit.cshtml",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAAALUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:19:36.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:19:36.407Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Page\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Page\\Create.cshtml",
@@ -449,12 +474,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Page\\Create.cshtml",
               "ViewState": "AgIAAJMAAAAAAAAAAAAAAKsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T08:18:17.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:18:17.534Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "FileManagerController.cs",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\FileManagerController.cs",
               "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\FileManagerController.cs",
@@ -462,12 +486,11 @@
               "RelativeToolTip": "Gallery Art System\\Controllers\\FileManagerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T08:00:15.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:00:15.413Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\User\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\User\\Edit.cshtml",
@@ -475,12 +498,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\User\\Edit.cshtml",
               "ViewState": "AgIAACwAAAAAAAAAAAAkwD4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:55:34.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:55:34.661Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\User\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\User\\Create.cshtml",
@@ -488,12 +510,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\User\\Create.cshtml",
               "ViewState": "AgIAAEAAAAAAAAAAAAAkwEsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:55:28.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:55:28.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Category\\Index.cshtml",
@@ -501,12 +522,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Category\\Index.cshtml",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAF8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T05:44:22.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T05:44:22.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Artwork\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Artwork\\Edit.cshtml",
@@ -514,12 +534,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Artwork\\Edit.cshtml",
               "ViewState": "AgIAAE4AAAAAAAAAAAAAAGQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:32:32.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:32:32.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "ArtworkController.cs",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\ArtworkController.cs",
               "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\ArtworkController.cs",
@@ -527,12 +546,11 @@
               "RelativeToolTip": "Gallery Art System\\Controllers\\ArtworkController.cs",
               "ViewState": "AgIAALUAAAAAAAAAAAAcwBIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T07:48:16.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:48:16.597Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Banner\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Banner\\Create.cshtml",
@@ -540,12 +558,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Banner\\Create.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:51:01.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:51:01.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\User\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\User\\Index.cshtml",
@@ -553,12 +570,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\User\\Index.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:54:56.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:54:56.032Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Banner\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Banner\\Edit.cshtml",
@@ -566,12 +582,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Banner\\Edit.cshtml",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:50:07.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:50:07.979Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Artwork\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Artwork\\Index.cshtml",
@@ -579,12 +594,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Artwork\\Index.cshtml",
               "ViewState": "AgIAAGsAAAAAAAAAAAAiwIMAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:47:37.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:47:37.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Admin\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Admin\\Edit.cshtml",
@@ -592,12 +606,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Admin\\Edit.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAADcAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:49:29.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:49:29.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Admin\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Admin\\Create.cshtml",
@@ -605,12 +618,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Admin\\Create.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAAD8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:49:19.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:49:19.872Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "AdminMaster.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Shared\\AdminMaster.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Shared\\AdminMaster.cshtml",
@@ -618,12 +630,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Shared\\AdminMaster.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T05:42:57.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T05:42:57.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 37,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Banner\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Banner\\Index.cshtml",
@@ -631,12 +642,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Banner\\Index.cshtml",
               "ViewState": "AgIAAEMAAAAAAAAAAAAiwG4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:46:23.229Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:46:23.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\UserController.cs",
@@ -644,12 +654,11 @@
               "RelativeToolTip": "Gallery Art System\\Controllers\\UserController.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAAAwwH0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T07:46:14.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:46:14.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Admin\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Admin\\Index.cshtml",
@@ -657,12 +666,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Admin\\Index.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAGQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:45:56.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:45:56.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Config\\Edit.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Config\\Edit.cshtml",
@@ -670,12 +678,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Config\\Edit.cshtml",
               "ViewState": "AgIAAFEAAAAAAAAAAAAAAG4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:42:28.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:42:28.253Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Contact\\Create.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Contact\\Create.cshtml",
@@ -683,12 +690,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Contact\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:42:04.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:42:04.562Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Views\\Contact\\Index.cshtml",
               "RelativeDocumentMoniker": "Gallery Art System\\Views\\Contact\\Index.cshtml",
@@ -696,12 +702,11 @@
               "RelativeToolTip": "Gallery Art System\\Views\\Contact\\Index.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-31T07:41:43.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:41:43.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "logon.css",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\wwwroot\\css\\logon.css",
               "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\logon.css",
@@ -709,12 +714,11 @@
               "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\logon.css",
               "ViewState": "AgIAAOgAAAAAAAAAAAAcwBQBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-31T07:38:10.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:38:10.46Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "login.css",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\wwwroot\\css\\login.css",
               "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\login.css",
@@ -722,25 +726,11 @@
               "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\login.css",
               "ViewState": "AgIAAOEAAAAAAAAAAAAcwA0BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-31T07:38:08.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T07:38:08.636Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "ONLINE_GALLERY_ART_SYSTEMContext.cs",
-              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
-              "RelativeDocumentMoniker": "Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
-              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
-              "RelativeToolTip": "Gallery Art System\\Models\\ONLINE_GALLERY_ART_SYSTEMContext.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAcwCoAAAB3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T07:06:38.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "site.css",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\site.css",
@@ -748,25 +738,11 @@
               "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\site.css",
               "ViewState": "AgIAAMsAAAAAAAAAAAAcwBUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-31T05:45:37.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T05:45:37.973Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\appsettings.json",
-              "RelativeDocumentMoniker": "Gallery Art System\\appsettings.json",
-              "ToolTip": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\appsettings.json",
-              "RelativeToolTip": "Gallery Art System\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-31T07:06:30.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "css_admin.css",
               "DocumentMoniker": "D:\\ASP.net\\Gallery Art System\\Gallery Art System\\wwwroot\\css\\css_admin.css",
               "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\css_admin.css",
@@ -774,8 +750,7 @@
               "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\css_admin.css",
               "ViewState": "AgIAAAICAAAAAAAAAAAgwA0CAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-10-31T05:44:30.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T05:44:30.204Z"
             }
           ]
         }
