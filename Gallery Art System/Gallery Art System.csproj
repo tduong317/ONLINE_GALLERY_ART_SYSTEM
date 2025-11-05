@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\banners\**" />
+    <Compile Remove="wwwroot\images\users\**" />
+    <Content Remove="wwwroot\images\banners\**" />
+    <Content Remove="wwwroot\images\users\**" />
+    <EmbeddedResource Remove="wwwroot\images\banners\**" />
+    <EmbeddedResource Remove="wwwroot\images\users\**" />
+    <None Remove="wwwroot\images\banners\**" />
+    <None Remove="wwwroot\images\users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt" Version="1.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="elFinder.NetCore" Version="1.4.1" />
@@ -17,14 +28,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.9" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\files\" />
-    <Folder Include="wwwroot\images\banners\" />
     <Folder Include="wwwroot\images\artworks\" />
-    <Folder Include="wwwroot\images\users\" />
   </ItemGroup>
 
 </Project>

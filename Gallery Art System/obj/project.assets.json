@@ -853,7 +853,7 @@
           }
         }
       },
-      "X.PagedList/10.5.7": {
+      "X.PagedList/10.5.9": {
         "type": "package",
         "compile": {
           "lib/net8.0/X.PagedList.dll": {}
@@ -862,10 +862,10 @@
           "lib/net8.0/X.PagedList.dll": {}
         }
       },
-      "X.PagedList.Mvc.Core/10.5.7": {
+      "X.PagedList.Mvc.Core/10.5.9": {
         "type": "package",
         "dependencies": {
-          "X.PagedList": "10.5.7"
+          "X.PagedList": "10.5.9"
         },
         "compile": {
           "lib/net8.0/X.PagedList.Mvc.Core.dll": {}
@@ -2242,40 +2242,36 @@
         "version.txt"
       ]
     },
-    "X.PagedList/10.5.7": {
-      "sha512": "Nevli+eaR3wMeb6pSNa+ApsddA9bw6Pl7wuX7B2nFj0v184RV/FtFRUckgNAaogGcmEiLXcsQX3ox0y164DnHg==",
+    "X.PagedList/10.5.9": {
+      "sha512": "iwrGkIQn/puv4kNe23GVSPtpvKf5bl1aSbhIoWAhrl5LnvEmTwkGftlxSEFlgInVmMx1cb8Q7ivJPqxJtw7TAg==",
       "type": "package",
-      "path": "x.pagedlist/10.5.7",
+      "path": "x.pagedlist/10.5.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "README.md",
-        "lib/net481/X.PagedList.dll",
         "lib/net6.0/X.PagedList.dll",
-        "lib/net7.0/X.PagedList.dll",
         "lib/net8.0/X.PagedList.dll",
         "lib/netstandard2.0/X.PagedList.dll",
-        "lib/netstandard2.1/X.PagedList.dll",
         "x-pagedlist.png",
-        "x.pagedlist.10.5.7.nupkg.sha512",
+        "x.pagedlist.10.5.9.nupkg.sha512",
         "x.pagedlist.nuspec"
       ]
     },
-    "X.PagedList.Mvc.Core/10.5.7": {
-      "sha512": "YuQEz9Y2AC8oaYk6yBISRxSpKuUEYLwoDpjimump8O+v4B2vZcigWQ6nEYE9blwmKLV0xGLy0S2zlbicvKCyPg==",
+    "X.PagedList.Mvc.Core/10.5.9": {
+      "sha512": "LhZwvTyUtn+BYVVc4ERCfZeK+br76nPQy8GTXg4pL9jOazusAUNiGkKBRFL/owOgAdTRKPLtHj+pBfZup7weyg==",
       "type": "package",
-      "path": "x.pagedlist.mvc.core/10.5.7",
+      "path": "x.pagedlist.mvc.core/10.5.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "README.md",
         "lib/net6.0/X.PagedList.Mvc.Core.dll",
-        "lib/net7.0/X.PagedList.Mvc.Core.dll",
         "lib/net8.0/X.PagedList.Mvc.Core.dll",
         "x-pagedlist.png",
-        "x.pagedlist.mvc.core.10.5.7.nupkg.sha512",
+        "x.pagedlist.mvc.core.10.5.9.nupkg.sha512",
         "x.pagedlist.mvc.core.nuspec"
       ]
     }
@@ -2287,28 +2283,28 @@
       "Microsoft.EntityFrameworkCore >= 6.0.28",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.28",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.28",
-      "X.PagedList.Mvc.Core >= 10.5.7",
+      "X.PagedList.Mvc.Core >= 10.5.9",
       "elFinder.NetCore >= 1.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tai19\\.nuget\\packages\\": {},
+    "C:\\Users\\Duong\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
+      "projectUniqueName": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
       "projectName": "Gallery Art System",
-      "projectPath": "F:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
-      "packagesPath": "C:\\Users\\tai19\\.nuget\\packages\\",
-      "outputPath": "F:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\obj\\",
+      "projectPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+      "packagesPath": "C:\\Users\\Duong\\.nuget\\packages\\",
+      "outputPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tai19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Duong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2365,7 +2361,7 @@
           },
           "X.PagedList.Mvc.Core": {
             "target": "Package",
-            "version": "[10.5.7, )"
+            "version": "[10.5.9, )"
           },
           "elFinder.NetCore": {
             "target": "Package",

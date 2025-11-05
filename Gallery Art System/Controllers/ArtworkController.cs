@@ -87,22 +87,37 @@ namespace Gallery_Art_System.Controllers
 
 
             // Xử lý upload ảnh
-            if (art.ImageFile != null && art.ImageFile.Length > 0)
+            // Xử lý khi người dùng chọn ảnh qua elFinder
+            if (!string.IsNullOrEmpty(art.ImageUrl))
             {
-                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
-                if (!Directory.Exists(uploads))
-                    Directory.CreateDirectory(uploads);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(art.ImageFile.FileName);
-                var filePath = Path.Combine(uploads, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                try
                 {
-                    await art.ImageFile.CopyToAsync(stream);
-                }
+                    // Đường dẫn ảnh gốc (trong elFinder)
+                    var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", art.ImageUrl.TrimStart('/'));
 
-                art.ImageUrl = "/images/artworks/" + fileName;
+                    // Nếu file tồn tại, copy sang /images/artworks/
+                    if (System.IO.File.Exists(sourcePath))
+                    {
+                        var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
+                        if (!Directory.Exists(uploads))
+                            Directory.CreateDirectory(uploads);
+
+                        // Tạo tên file mới để tránh trùng
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(sourcePath);
+                        var destPath = Path.Combine(uploads, fileName);
+
+                        System.IO.File.Copy(sourcePath, destPath, true);
+
+                        // Cập nhật đường dẫn mới trong DB
+                        art.ImageUrl = "/images/artworks/" + fileName;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Copy image error: " + ex.Message);
+                }
             }
+
 
             art.CreatedAt = DateTime.Now;
 
@@ -139,40 +154,46 @@ namespace Gallery_Art_System.Controllers
                 return NotFound();
 
             if (!ModelState.IsValid)
-            {
-                ViewBag.CategoryId = new SelectList(_context.Categories, "CategoryId", "Name");
-                ViewBag.UserId = new SelectList(_context.Users, "UserId", "Username");
                 return View(artwork);
-            }
 
-
-            // Nếu có ảnh mới
-            if (artwork.ImageFile != null && artwork.ImageFile.Length > 0)
+            // Nếu người dùng đã chọn ảnh mới từ elFinder
+            // Nếu người dùng chọn ảnh mới bằng elFinder
+            if (!string.IsNullOrEmpty(artwork.ImageUrl) && artwork.ImageUrl != art.ImageUrl)
             {
-                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
-                if (!Directory.Exists(uploads))
-                    Directory.CreateDirectory(uploads);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(artwork.ImageFile.FileName);
-                var filePath = Path.Combine(uploads, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                try
                 {
-                    await artwork.ImageFile.CopyToAsync(stream);
-                }
+                    var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", artwork.ImageUrl.TrimStart('/'));
 
-                // Xóa ảnh cũ
-                if (!string.IsNullOrEmpty(art.ImageUrl))
+                    if (System.IO.File.Exists(sourcePath))
+                    {
+                        var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/artworks");
+                        if (!Directory.Exists(uploads))
+                            Directory.CreateDirectory(uploads);
+
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(sourcePath);
+                        var destPath = Path.Combine(uploads, fileName);
+
+                        System.IO.File.Copy(sourcePath, destPath, true);
+
+                        // Xóa ảnh cũ nếu có
+                        if (!string.IsNullOrEmpty(art.ImageUrl))
+                        {
+                            var oldPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", art.ImageUrl.TrimStart('/'));
+                            if (System.IO.File.Exists(oldPath))
+                                System.IO.File.Delete(oldPath);
+                        }
+
+                        art.ImageUrl = "/images/artworks/" + fileName;
+                    }
+                }
+                catch (Exception ex)
                 {
-                    var oldPath = Path.Combine(uploads, art.ImageUrl);
-                    if (System.IO.File.Exists(oldPath))
-                        System.IO.File.Delete(oldPath);
+                    Console.WriteLine("Copy image error: " + ex.Message);
                 }
-
-                art.ImageUrl = fileName;
             }
 
-            // Cập nhật các trường còn lại
+
+            // Cập nhật các trường khác
             art.Title = artwork.Title;
             art.Description = artwork.Description;
             art.Price = artwork.Price;
@@ -188,6 +209,7 @@ namespace Gallery_Art_System.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
 
 
 

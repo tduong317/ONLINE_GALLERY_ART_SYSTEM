@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Art_Gallery_System</title>
+    <title>Art_Gallery_System</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -14,153 +14,21 @@
           rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="~/css/home/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/artwork.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/exhibition.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Art_Gallery_System_FE.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="~/images/logo.png" />
 </head>
 
 <body>
-    <header>
-        <!-- Top info bar -->
-        <div class="top-info-bar">
-            <div class="container d-flex justify-content-between align-items-center">
-                <div class="left-info">
-                        <i class="bi bi-clock me-2"></i>
-                    <span>
-                        THE MUSEUM IS OPEN TODAY 10 AM - 5 PM
-                    </span>
-                </div>
-                <div class="right-info d-flex align-items-center">
-                    <div class="me-4">
-                        <i class="bi bi-geo-alt me-1"></i><span>34TH AVE, QUEENS, NY 11106</span>
-                    </div>
-                    <div class="me-4">
-                        <i class="bi bi-search me-1"></i><span>SEARCH</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navbar chính -->
-        <nav id="mainHeader" class="navbar navbar-expand-sm overlay-nav fixed-top transparent">
-            <div class="container">
-                <ul class="navbar-nav left-nav">
-                    <li class="nav-item"><a class="nav-link" asp-action="Index" asp-controller="Home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="Artwork" asp-controller="Home">Artwork</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="Exhibition" asp-controller="Home">Exhibtion</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="Auction" asp-controller="Home">Auction</a></li>
-                </ul>
-
-                <a class="navbar-brand logo-center" href="#">
-                    <img src="~/images/logo.png" alt="Logo" class="logo-img">
-                </a>
-
-                <ul class="navbar-nav right-nav">
-                    <li class="nav-item"><a class="nav-link" asp-action="Artist" asp-controller="Home">Artist</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="Pages" asp-controller="Home">Pages</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="AboutUs" asp-controller="Home">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-action="Contact" asp-controller="Home">Contacts</a></li>
-                    <div class="login">
-                        <button class="btn btn-dark px-4 rounded-pill">Login</button>
-                    </div>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-
+    @await Component.InvokeAsync("Header")
+    @RenderBody()
     <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="footer mt-5">
-        <div class="container py-5">
-            <div class="row justify-content-between">
-
-                <!-- Cột logo + mô tả -->
-                <div class="col-md-4 mb-4 logo-footer">
-                    <a class="navbar-brand fw-bold fs-3" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img alt="Logo" class="logo-footer" src="~/images/logo.png" />
-                    </a>
-                    <p class="mt-3">
-                        Sign up to receive 10% off your first order.<br>
-                        Discover new art and collections added weekly by our curators.
-                    </p>
-
-                    <div class="newsletter mt-3">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <button class="btn btn-light"><i class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <small class="d-block mt-3 text-muted">
-                        By subscribing, you agree to our Terms of Use and acknowledge our Privacy Notice.
-                    </small>
-
-                    <div class="social mt-4">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                    </div>
-                </div>
-
-                <!-- Cột Company -->
-                <div class="col-md-2 mb-4 contact-footer">
-                    <h5>Company</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-
-                <!-- Cột Support -->
-                <div class="col-md-2 mb-4">
-                    <h5>Support</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-
-                <!-- ✅ Cột Info & Payment -->
-                <div class="col-md-3 mb-4">
-                    <h5>Info & Payment</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fa-solid fa-phone me-2"></i> +84 123 456 789</li>
-                        <li><i class="fa-solid fa-envelope me-2"></i> DNTArtGallery@gmail.com</li>
-                        <li><i class="fa-solid fa-location-dot me-2"></i> 238 Hoang Quoc Viet, Cau Giay, Ha Noi, Viet Nam</li>
-                        <li><i class="fa-solid fa-clock me-2"></i> Mon – Fri: 9:00 – 18:00</li>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="hidden lg:flex flex-row  w-full flex-wrap pt-10 gap-3 justify-between">
-                <div></div>
-                <!-- Payment icons -->
-                <div class="d-flex justify-content-end align-items-center flex-wrap pt-4 gap-2 payment-icons">
-                    <img src="https://mediahub.debenhams.com/dbz_prod_visa-pay-method-icon-2024?fmt=auto&h=72" alt="Visa" loading="lazy">
-                    <img src="https://mediahub.debenhams.com/dbz_prod_mastercard-pay-method-icon-2024?fmt=auto&h=72" alt="Mastercard" loading="lazy">
-                    <img src="https://mediahub.debenhams.com/dbz_prod_amex-pay-method-icon-2024?fmt=auto&h=72" alt="Amex" loading="lazy">
-                    <img src="https://mediahub.debenhams.com/dbz_prod_paypal-pay-method-icon-2024?fmt=auto&h=72" alt="PayPal" loading="lazy">
-                    <img src="https://mediahub.debenhams.com/dbz_prod_applepay-pay-method-icon-2024?fmt=auto&h=72" alt="Apple Pay" loading="lazy">
-                </div>
-            </div>
-            <div class="text-center border-top pt-4 mt-4">
-                <p class="mb-0 text-muted">
-                    &copy; 2025 - Art Gallery System - All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
+    @await Component.InvokeAsync("Footer")
     <script>
                     window.addEventListener('scroll', function () {
             const header = document.getElementById('mainHeader');

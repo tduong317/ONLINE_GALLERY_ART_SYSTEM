@@ -12,7 +12,9 @@ namespace Gallery_Art_System.Models
         public string? MailPort { get; set; }
         public string? MailInfo { get; set; }
         public string? Contact { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
         public string? Title { get; set; }
+        [Column(TypeName = "nvarchar(max)")]
         public string? Description { get; set; }
         public string? Hotline { get; set; }
         public string? SocialLink1 { get; set; }

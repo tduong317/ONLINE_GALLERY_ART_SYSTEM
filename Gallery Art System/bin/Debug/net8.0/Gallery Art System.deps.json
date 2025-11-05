@@ -13,7 +13,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.28",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.28",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.28",
-          "X.PagedList.Mvc.Core": "10.5.7",
+          "X.PagedList.Mvc.Core": "10.5.9",
           "elFinder.NetCore": "1.4.1"
         },
         "runtime": {
@@ -468,22 +468,22 @@
           }
         }
       },
-      "X.PagedList/10.5.7": {
+      "X.PagedList/10.5.9": {
         "runtime": {
           "lib/net8.0/X.PagedList.dll": {
-            "assemblyVersion": "10.5.7.0",
-            "fileVersion": "10.5.7.0"
+            "assemblyVersion": "10.5.9.0",
+            "fileVersion": "10.5.9.0"
           }
         }
       },
-      "X.PagedList.Mvc.Core/10.5.7": {
+      "X.PagedList.Mvc.Core/10.5.9": {
         "dependencies": {
-          "X.PagedList": "10.5.7"
+          "X.PagedList": "10.5.9"
         },
         "runtime": {
           "lib/net8.0/X.PagedList.Mvc.Core.dll": {
-            "assemblyVersion": "10.5.7.0",
-            "fileVersion": "10.5.7.0"
+            "assemblyVersion": "10.5.9.0",
+            "fileVersion": "10.5.9.0"
           }
         }
       }
@@ -831,19 +831,19 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "X.PagedList/10.5.7": {
+    "X.PagedList/10.5.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Nevli+eaR3wMeb6pSNa+ApsddA9bw6Pl7wuX7B2nFj0v184RV/FtFRUckgNAaogGcmEiLXcsQX3ox0y164DnHg==",
-      "path": "x.pagedlist/10.5.7",
-      "hashPath": "x.pagedlist.10.5.7.nupkg.sha512"
+      "sha512": "sha512-iwrGkIQn/puv4kNe23GVSPtpvKf5bl1aSbhIoWAhrl5LnvEmTwkGftlxSEFlgInVmMx1cb8Q7ivJPqxJtw7TAg==",
+      "path": "x.pagedlist/10.5.9",
+      "hashPath": "x.pagedlist.10.5.9.nupkg.sha512"
     },
-    "X.PagedList.Mvc.Core/10.5.7": {
+    "X.PagedList.Mvc.Core/10.5.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YuQEz9Y2AC8oaYk6yBISRxSpKuUEYLwoDpjimump8O+v4B2vZcigWQ6nEYE9blwmKLV0xGLy0S2zlbicvKCyPg==",
-      "path": "x.pagedlist.mvc.core/10.5.7",
-      "hashPath": "x.pagedlist.mvc.core.10.5.7.nupkg.sha512"
+      "sha512": "sha512-LhZwvTyUtn+BYVVc4ERCfZeK+br76nPQy8GTXg4pL9jOazusAUNiGkKBRFL/owOgAdTRKPLtHj+pBfZup7weyg==",
+      "path": "x.pagedlist.mvc.core/10.5.9",
+      "hashPath": "x.pagedlist.mvc.core.10.5.9.nupkg.sha512"
     }
   }
 }

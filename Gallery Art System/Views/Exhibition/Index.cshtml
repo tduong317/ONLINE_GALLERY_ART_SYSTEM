@@ -11,6 +11,24 @@
 
 <div class="container-fluid">
     <h4>Exhibitions <b>Gallery</b></h4>
+    <form method="get" asp-action="Index" class="row g-3 mb-4 align-items-end px-3 ms-2">
+        <div class="col-md-3">
+            <label class="form-label fs-8 fw-bold">Exhibition Name</label>
+            <input type="text" name="Name" value="@ViewBag.Name"
+                   class="form-control" placeholder="Enter the Exhibition Name...">
+        </div>
+
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-funnel"></i> Filter
+            </button>
+            <!-- Nút xóa bộ lọc -->
+            <a href="@Url.Action("Index", "Exhibition")" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Remove Filter
+            </a>
+        </div>
+    </form>
+
     <div class="table-wrapper" style="text-align:center;">
         <div class="table-title">
             <div class="row">
@@ -79,10 +97,10 @@
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                     <a asp-controller="Exhibition" asp-action="Create" class="btn btn-success">
-                        <i class="material-icons">&#xE147;</i> <span>Thêm</span>
+                        <i class="material-icons">&#xE147;</i> <span>Add</span>
                     </a>
                     <a asp-controller="Exhibition" asp-action="Index" class="btn btn-primary">
-                        <i class="fa-solid fa-arrows-rotate"></i> <span>Làm mới</span>
+                        <i class="fa-solid fa-arrows-rotate"></i> <span>Refresh</span>
                     </a>
                 </div>
             </div>

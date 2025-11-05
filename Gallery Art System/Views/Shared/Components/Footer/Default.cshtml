@@ -1,0 +1,83 @@
+﻿<footer class="footer mt-5">
+    <div class="container py-5">
+        <div class="row justify-content-between">
+            @foreach (var cf in ViewBag.Config)
+            {
+                <!-- Cột logo + mô tả -->
+                <div class="col-md-4 mb-4 logo-footer">
+                    <a class="navbar-brand fw-bold fs-3" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img alt="Logo" class="logo-footer" src="@cf.Image" />
+                    </a>
+                    <p class="mt-3">
+                        @cf.SocialLink3<br />
+                        @cf.LinkVideo1
+                    </p>
+
+                    <div class="social mt-4">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            }
+            <!-- Cột Company -->
+            @foreach (var group in ViewBag.Page1)
+            {
+                <div class="col-md-2 mb-4 contact-footer">
+                    <h5>@group.Parent.Name</h5>
+                    <ul class="list-unstyled">
+                        @foreach (var child in group.Children)
+                        {
+                            <li><a href="@child.Link">@child.Name</a></li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            @foreach (var group in ViewBag.Page2)
+            {
+                <!-- Cột Support -->
+                <div class="col-md-2 mb-4">
+                    <h5>@group.Parent.Name</h5>
+                    @foreach (var child in group.Children)
+                    {
+                        <ul class="list-unstyled">
+                            <li><a href="@child.Link">@child.Name</a></li>                      
+                        </ul>
+                    }
+                </div>
+            }
+            @foreach (var cf in ViewBag.Config)
+            {
+                <!-- ✅ Cột Info & Payment -->
+                <div class="col-md-3 mb-4">
+                    <h5>Info & Payment</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fa-solid fa-phone me-2"></i>@cf.Hotline</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i>@cf.Mail</li>
+                        <li><i class="fa-solid fa-location-dot me-2"></i>@cf.Contact</li>
+                        <li><i class="fa-solid fa-clock me-2"></i>@cf.SocialLink1</li>
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="hidden lg:flex flex-row  w-full flex-wrap pt-10 gap-3 justify-between">
+            <div></div>
+            <!-- Payment icons -->
+            <div class="d-flex justify-content-end align-items-center flex-wrap pt-4 gap-2 payment-icons">
+                <img src="https://mediahub.debenhams.com/dbz_prod_visa-pay-method-icon-2024?fmt=auto&h=72" alt="Visa" loading="lazy">
+                <img src="https://mediahub.debenhams.com/dbz_prod_mastercard-pay-method-icon-2024?fmt=auto&h=72" alt="Mastercard" loading="lazy">
+                <img src="https://mediahub.debenhams.com/dbz_prod_amex-pay-method-icon-2024?fmt=auto&h=72" alt="Amex" loading="lazy">
+                <img src="https://mediahub.debenhams.com/dbz_prod_paypal-pay-method-icon-2024?fmt=auto&h=72" alt="PayPal" loading="lazy">
+                <img src="https://mediahub.debenhams.com/dbz_prod_applepay-pay-method-icon-2024?fmt=auto&h=72" alt="Apple Pay" loading="lazy">
+            </div>
+        </div>
+        <div class="text-center border-top pt-4 mt-4">
+            <p class="mb-0 text-muted">
+                &copy; 2025 - Art Gallery System - All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>

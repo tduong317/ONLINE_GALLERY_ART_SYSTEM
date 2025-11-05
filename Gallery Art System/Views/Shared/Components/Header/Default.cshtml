@@ -1,0 +1,52 @@
+﻿<header>
+    <!-- Top info bar -->
+    <div class="top-info-bar">
+        @foreach (var cf in ViewBag.Config)
+        {
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="left-info">
+                    <i class="bi bi-clock me-2"></i>
+                    <span>
+                        @cf.SocialLink2
+                    </span>
+                </div>
+                <div class="right-info d-flex align-items-center">
+                    <div class="me-4">
+                        <i class="bi bi-geo-alt me-1"></i><span>@cf.Contact</span>
+                    </div>
+                    <div class="me-4">
+                        <i class="bi bi-envelope-fill me-1"></i><span>@cf.Mail</span>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Navbar chính -->
+    <nav id="mainHeader" class="navbar navbar-expand-sm overlay-nav fixed-top transparent">
+        <div class="container">
+            <ul class="navbar-nav left-nav">
+                <li class="nav-item"><a class="nav-link" asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="Artwork" asp-controller="Home">Artwork</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="Exhibition" asp-controller="Home">Exhibtion</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="Auction" asp-controller="Home">Auction</a></li>
+            </ul>
+            @foreach (var cf in ViewBag.Config)
+            {
+                <a class="navbar-brand logo-center" href="/">
+                    <img src="@cf.Image" alt="Logo" class="logo-img">
+                </a>
+            }
+            <ul class="navbar-nav right-nav">
+                <li class="nav-item"><a class="nav-link" asp-action="Artist" asp-controller="Home">Artist</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="Pages" asp-controller="Home">Pages</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="AboutUs" asp-controller="Home">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="Contact" asp-controller="Home">Contacts</a></li>
+                <div class="login">
+                    <button class="btn btn-dark px-4 rounded-pill">Login</button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -24,17 +24,31 @@ namespace Gallery_Art_System.Controllers
         }
 
         // GET: Exhibition
-        public IActionResult Index(int? pageNumber)
+        public IActionResult Index(int? pageNumber, string? Name)
         {
-            int pageSize = 6;
+            int pageSize = 10;
             int pageIndex = pageNumber ?? 1;
 
-            var exhibitions = _context.Exhibitions
+            // Truy vấn từ bảng Exhibitions
+            var exhibitions = _context.Exhibitions.AsQueryable();
+
+            // Lọc theo tên Exhibition
+            if (!string.IsNullOrEmpty(Name))
+            {
+                exhibitions = exhibitions.Where(e => e.Name.Contains(Name));
+            }
+
+            // Giữ lại giá trị tìm kiếm để hiển thị lại trên view
+            ViewBag.Name = Name;
+
+            // Phân trang và sắp xếp
+            var pagedExhibitions = exhibitions
                 .OrderByDescending(e => e.ExhibitionId)
                 .ToPagedList(pageIndex, pageSize);
 
-            return View(exhibitions);
+            return View(pagedExhibitions);
         }
+
 
         public IActionResult Create()
         {

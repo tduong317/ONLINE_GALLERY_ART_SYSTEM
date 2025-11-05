@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Gallery_Art_System.Models.Artwork>
+@{
+    ViewData["Title"] = "Artwork";
+}
+<div class="banner-art">
+    <h1>Artworks</h1>
+    <p><a>Home </a>/<a> Artworks</a></p>
+</div>
+<div class="container art-content">
+    <aside class="art-filter">
+
+        <!-- FILTER SECTION -->
+        <div class="filter-box">
+            <h4>Filter</h4>
+            <div class="price-range">
+                <input type="range" min="10" max="35" value="20" class="range-slider" id="priceRange">
+                <p>Price: $10 — $35</p>
+                <button class="filter-btn">FILTER</button>
+            </div>
+        </div>
+
+        <!-- CATEGORIES SECTION -->
+        <div class="categories-box">
+            <h4>Categories</h4>
+            <ul class="category-list">
+                @if (ViewBag.CategoryList != null)
+                {
+                    foreach (var category in ViewBag.CategoryList)
+                    {
+                        <li>
+                            <span class="dash"></span><a asp-action="Artwork" asp-controller="Home" asp-route-categoryId="@category.CategoryId">@category.Name.ToUpper()</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li><em>No categories found.</em></li>
+                }
+            </ul>
+        </div>
+
+    </aside>
+
+    <section class="art-list-section">
+        <div class="art-header">
+            <div class="results-info">
+                <i class="bi bi-grid-3x3-gap me-2"></i> Showing 1–8 of 24 results
+            </div>
+            <div class="sort-dropdown">
+                <select>
+                    <option>Sort by latest</option>
+                    <option>Sort by price: low to high</option>
+                    <option>Sort by price: high to low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="art-grid">
+            @foreach( var art in Model){
+
+            <div class="art-item">
+                    <div class="art-img-wrapper">
+                        <img src="@art.ImageUrl" alt="@art.Title">
+                        <span class="discount-badge">-20%</span>
+
+                        <!-- overlay xuất hiện khi hover -->
+                        <div class="art-overlay">
+                            <a href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                <div class="art-info">
+                    <p class="category">@art.Category?.Name</p>
+                    <h3 class="art-title">@art.Title</h3>
+                    <p class="price">
+                    <span class="new-price">@art.Price?.ToString("N0") $</span>
+                    </p>
+                </div>
+            </div>
+
+            }
+        </div>
+    </section>
+</div>

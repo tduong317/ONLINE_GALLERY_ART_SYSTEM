@@ -11,26 +11,16 @@
     <div class="container event-filter-container">
         <div class="search">
             <div class="search-section">
-                <input type="text" class="search-input" placeholder="Search for events" />
-                <button class="find-btn">Find Events</button>
+                <form asp-controller="Home" asp-action="Exhibition" method="get" class="d-flex">
+                    <input type="text" name="query" class="search-input" placeholder="Search for exhibitions"
+                           value="@ViewBag.Query" />
+                    <button type="submit" class="find-btn">Find Events</button>
+                </form>
             </div>
-
-            <div class="view-section">
-                <a href="#" class="view-link">List</a>
-                <a href="#" class="view-link">Month</a>
-                <a href="#" class="view-link">Day</a>
-            </div>
-        </div>
-
-        <div class="date-section">
-            <button class="nav-btn"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
-            <button class="today-btn">Today</button>
-            <span class="date-range">Now - December 15 <i class="fa-solid fa-caret-down"></i></span>
-        </div>
-
+        </div>       
     </div>
 </section>
+
 <section class="events-list">
     <div class="container events">
         <div class="month-label">
@@ -68,21 +58,41 @@
 <div class="pagination">
     <nav class="pagination-container">
         <ul class="pagination">
-            <li class="page-item disabled">
-                <a href="#" class="page-link">« Prev</a>
-            </li>
-            <li class="page-item active">
-                <a href="#" class="page-link">1</a>
-            </li>
-            <li class="page-item"><a href="#" class="page-link">2</a></li>
-            <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link">4</a></li>
-            <li class="page-item">
-                <a href="#" class="page-link">Next »</a>
-            </li>
+            @if (Model is X.PagedList.IPagedList<Gallery_Art_System.Models.Exhibition> pagedList)
+            {
+                <!-- Nút Prev -->
+                <li class="page-item @(pagedList.HasPreviousPage ? "" : "disabled")">
+                    <a href="@(pagedList.HasPreviousPage? Url.Action("Exhibition", new { page = pagedList.PageNumber - 1, query = ViewBag.Query }) : "#")" class="page-link">
+                        « Prev
+                    </a>
+                </li>
+
+                <!-- Danh sách số trang -->
+                @for (int i = 1; i <= pagedList.PageCount; i++)
+                {
+                    <li class="page-item @(i == pagedList.PageNumber ? "active" : "")">
+                        <a href="@Url.Action("Exhibition", new { page = i, query = ViewBag.Query })" class="page-link">@i</a>
+                    </li>
+                }
+
+                <!-- Nút Next -->
+                <li class="page-item @(pagedList.HasNextPage ? "" : "disabled")">
+                    <a href="@(pagedList.HasNextPage? Url.Action("Exhibition", new { page = pagedList.PageNumber + 1, query = ViewBag.Query }) : "#")" class="page-link">
+                        Next »
+                    </a>
+                </li>
+            }
+            else
+            {
+                <!-- Nếu model không có phân trang -->
+                <li class="page-item active">
+                    <a href="#" class="page-link">1</a>
+                </li>
+            }
         </ul>
     </nav>
 </div>
+
 
 
 
