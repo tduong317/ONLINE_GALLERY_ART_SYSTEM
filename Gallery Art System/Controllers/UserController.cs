@@ -1,4 +1,5 @@
-﻿using Gallery_Art_System.Models;
+﻿using Gallery_Art_System.Helper;
+using Gallery_Art_System.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList.Extensions;
@@ -126,55 +127,93 @@ namespace Gallery_Art_System.Controllers
             us.SaveChanges();
             return RedirectToAction("Index");
         }
-        public IActionResult Login()
+        public IActionResult Register()
         {
-            if (HttpContext.Session.GetString("FullName") == null)
-            {
-                return View();
-            }
-            else
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Register(User data)
+        {
+            data.CreatedAt = DateTime.Now;
+
+            // ✅ Dùng BCrypt trực tiếp thay vì PasswordHelper
+            data.Password = BCrypt.Net.BCrypt.HashPassword(data.Password);
+
+            us.Users.Add(data);
+            us.SaveChanges();
+
+            TempData["SuccessMessage"] = "Registration successful!";
+            return RedirectToAction("Login");
+        }
+        public IActionResult Login(string? returnUrl)
+        {
+            // Nếu đã đăng nhập thì quay về Home
+            if (HttpContext.Session.GetString("FullName") != null)
             {
                 return RedirectToAction("Index", "Home");
             }
+
+            // Lưu đường dẫn quay lại (returnUrl) để gửi qua View
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
+
         [HttpPost]
-        public IActionResult Login(User data)
+        public IActionResult Login(User data, string? returnUrl)
         {
             if (HttpContext.Session.GetString("FullName") == null)
             {
-                var user = us.Users.FirstOrDefault(u => u.FullName == data.FullName);
+                User user = null;
 
-                if (user != null)
+                // ✅ Kiểm tra theo Username trước, nếu không có thì theo Email
+                if (!string.IsNullOrEmpty(data.Username))
                 {
-                    // ✅ So sánh mật khẩu nhập vào với hash trong DB
-                    bool isPasswordValid = BCrypt.Net.BCrypt.Verify(data.Password, user.Password);
+                    user = us.Users.FirstOrDefault(u => u.Username == data.Username);
+                }
+                else if (!string.IsNullOrEmpty(data.Email))
+                {
+                    user = us.Users.FirstOrDefault(u => u.Email == data.Email);
+                }
 
-                    if (isPasswordValid)
-                    {
-                        HttpContext.Session.SetString("FullName", user.FullName);
-                        HttpContext.Session.SetString("UserName", user.Username);
-                        HttpContext.Session.SetInt32("UserId", user.UserId);
+                if (user != null && BCrypt.Net.BCrypt.Verify(data.Password, user.Password))
+                {
+                    // ✅ Lưu session sau khi đăng nhập thành công
+                    HttpContext.Session.SetString("FullName", user.FullName);
+                    HttpContext.Session.SetString("UserName", user.Username);
+                    HttpContext.Session.SetInt32("UserId", user.UserId);
 
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
+                    // ✅ Quay lại trang trước nếu có returnUrl, ngược lại về Home
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
-                        ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                        return Redirect(returnUrl);
                     }
+
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                    ViewBag.ErrorMessage = "Email, username, or password is incorrect!";
                 }
             }
 
             return View();
         }
-        [HttpPost]
-        public IActionResult Logout()
+
+
+        [HttpGet]
+        public IActionResult Logout(string? returnUrl)
         {
             HttpContext.Session.Clear();
+
+            // ✅ Nếu có returnUrl và là URL nội bộ thì quay lại trang đó
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+
+            // ✅ Nếu không thì về Home
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
 using X.PagedList.Extensions;
 
 namespace Gallery_Art_System.Controllers
@@ -86,7 +88,83 @@ namespace Gallery_Art_System.Controllers
 
             return View(pagedArtworks);
         }
+        [HttpGet]
+        public IActionResult Contact()
+        {
+            return View(new Contact());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Contact(Contact contact)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Message = "⚠️ Vui lòng nhập đầy đủ thông tin!";
+                return View(contact);
+            }
 
+            try
+            {
+                contact.SentAt = DateTime.Now;
+                _context.Contacts.Add(contact);
+                _context.SaveChanges();
+
+                string adminEmail = "nhung1379nvc@gmail.com"; // Gmail chính của bạn
+                string fromEmail = adminEmail;                // Cũng là Gmail này
+                string appPassword = "piyp biqc gpsi uxuq";   // App Password bạn tạo
+
+                // Gửi email đến bạn
+                string subjectAdmin = $"Liên hệ mới từ {contact.Name}";
+                string bodyAdmin = $@"
+            <h3>Bạn có liên hệ mới từ trang web Gallery:</h3>
+            <p><b>Tên:</b> {contact.Name}</p>
+            <p><b>Email:</b> {contact.Email}</p>
+            <p><b>Chủ đề:</b> {contact.Subject}</p>
+            <p><b>Nội dung:</b> {contact.Message}</p>
+            <hr/>
+            <p><i>Gửi lúc:</i> {contact.SentAt}</p>";
+
+                // Gửi email cảm ơn lại cho người gửi
+                string subjectUser = "Cảm ơn bạn đã liên hệ với Gallery 🎨";
+                string bodyUser = $@"
+            <p>Chào {contact.Name},</p>
+            <p>Cảm ơn bạn đã gửi tin nhắn cho <b>Gallery</b>. Chúng tôi đã nhận được thông tin của bạn và sẽ phản hồi sớm nhất có thể.</p>
+            <hr/>
+            <p><i>Thân mến,</i><br>Đội ngũ Gallery</p>";
+
+                using (var smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.EnableSsl = true;
+                    smtp.Credentials = new NetworkCredential(fromEmail, appPassword);
+
+                    // Gửi mail cho admin
+                    var mailToAdmin = new MailMessage(fromEmail, adminEmail, subjectAdmin, bodyAdmin);
+                    mailToAdmin.IsBodyHtml = true;
+                    smtp.Send(mailToAdmin);
+
+                    // Gửi mail phản hồi cho người gửi
+                    if (!string.IsNullOrEmpty(contact.Email))
+                    {
+                        var mailToUser = new MailMessage(fromEmail, contact.Email, subjectUser, bodyUser);
+                        mailToUser.IsBodyHtml = true;
+                        smtp.Send(mailToUser);
+                    }
+                }
+
+                ViewBag.Message = "✅ Thank you! Your message has been sent successfully.";
+                ModelState.Clear();
+                return View(new Contact());
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "❌ Có lỗi xảy ra: " + ex.Message;
+                return View(contact);
+            }
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

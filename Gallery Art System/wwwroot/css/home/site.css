@@ -1,22 +1,27 @@
 ﻿html {
     font-size: 14px;
 }
-.pb-3{
+
+.pb-3 {
     padding-bottom: 0px !important;
 }
-.mt-5{
+
+.mt-5 {
     margin-top: 0px !important;
 }
-.me-4 span{
+
+.me-4 span {
     margin-left: 10px;
 }
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
 }
-.container-fluid{
-    padding:0;
+
+.container-fluid {
+    padding: 0;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -40,7 +45,7 @@ html {
     .top-info-bar i {
         color: #b8b8a9;
         font-size: 12px;
-    margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .top-info-bar .right-info div {
@@ -236,7 +241,7 @@ html {
     line-height: 1.6;
 }
 
-.logo-footer img{
+.logo-footer img {
     width: 30%;
     display: block;
     margin: 0 auto
@@ -732,6 +737,7 @@ html {
         margin-top: 10px;
     }
 }
+
 .newsletter-section {
     background-image: url('/images/homes/img4.jpg'); /* ảnh nền */
     background-size: cover;
@@ -820,3 +826,63 @@ html {
     .agree-check input {
         margin-right: 5px;
     }
+
+/* Container chính */
+.menu-user {
+    position: relative;
+    display: inline-block;
+    padding: 0 25px;
+}
+
+    /* Tên người dùng (giống menu item) */
+    .menu-user .dropdown-toggle {
+        font-family: 'Arial', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: #f3eed9;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .menu-user .dropdown-toggle:hover {
+            color: #ffffff;
+        }
+
+    /* Menu xổ xuống */
+    .menu-user .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(40, 36, 27, 0.97); /* nền tối nhưng hòa hơn với nền chữ */
+        min-width: 90%;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        z-index: 1000;
+        padding: 4px 0;
+        border: 1px solid rgba(243, 238, 217, 0.08); /* viền nhẹ cùng tông fullname */
+    }
+
+        /* Link trong dropdown */
+        .menu-user .dropdown-menu a {
+            display: block;
+            padding: 10px 16px;
+            font-size: 13px;
+            color: #f3eed9; /* cùng màu với fullname */
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+            .menu-user .dropdown-menu a:hover {
+                background-color: rgba(70, 64, 50, 0.8);
+                color: #ffffff;
+            }
+
+    /* Hover vào tên thì hiện menu */
+    .menu-user:hover .dropdown-menu {
+        display: block;
+    }
+

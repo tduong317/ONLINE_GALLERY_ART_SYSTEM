@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P1SG5Yo2fkU=",
+  "dgSpecHash": "Na7dDCksy5s=",
   "success": true,
-  "projectFilePath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+  "projectFilePath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Duong\\.nuget\\packages\\bcrypt\\1.0.0\\bcrypt.1.0.0.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
@@ -36,6 +36,7 @@
     "C:\\Users\\Duong\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Duong\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\sixlabors.imagesharp\\3.1.5\\sixlabors.imagesharp.3.1.5.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Duong\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
@@ -60,9 +61,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'BCrypt 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "projectPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+      "projectPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+      "filePath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
       "libraryId": "BCrypt",
       "targetGraphs": [
         "net8.0"

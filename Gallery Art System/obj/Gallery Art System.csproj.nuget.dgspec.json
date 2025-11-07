@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj": {}
+    "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj": {}
   },
   "projects": {
-    "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj": {
+    "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+        "projectUniqueName": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
         "projectName": "Gallery Art System",
-        "projectPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\Gallery Art System.csproj",
+        "projectPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Gallery Art System.csproj",
         "packagesPath": "C:\\Users\\Duong\\.nuget\\packages\\",
-        "outputPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM-duong\\Gallery Art System\\obj\\",
+        "outputPath": "D:\\ASP.net\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -71,6 +71,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.28, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
             },
             "X.PagedList.Mvc.Core": {
               "target": "Package",

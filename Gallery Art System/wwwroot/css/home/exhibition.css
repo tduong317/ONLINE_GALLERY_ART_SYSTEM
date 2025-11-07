@@ -1,9 +1,10 @@
 ﻿body {
     overflow-x: hidden;
 }
+
 .banner-ex {
-    height: 500px;
-    background-image: url('/images/homes/img4.jpg');
+    height: 400px;
+    background-image: url('/images/homes/img7.jpg');
     background-size: cover;
     background-position: center;
     display: flex; /* bật flexbox */
@@ -29,13 +30,15 @@
 
     .banner-ex a {
         color: #fff;
-        text-decoration: none;
+        text-decoration: none !important;
         font-family: 'Lora', serif;
     }
 
         .banner-ex a:hover {
             text-decoration: underline;
+            color: #C9A050;
         }
+
     .banner-ex::before {
         content: "";
         position: absolute;
@@ -76,16 +79,16 @@
 }
 
 /* --- SEARCH SECTION --- */
-.search{
+.search {
     display: flex;
     justify-content: space-around;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+
 .search-section {
     display: flex;
     align-items: center;
     gap: 8px;
-
 }
 
 .search-input {
@@ -178,10 +181,12 @@
         justify-content: center;
     }
 }
+
 .events-list {
     padding: 10px;
     background-color: #f7f6ec;
 }
+
 .events {
     max-width: 1100px;
     width: 100%; /* thêm dòng này */
@@ -323,8 +328,8 @@
         width: 100%;
         height: auto;
     }
-
 }
+
 .pagination-container {
     border-top: 1px solid #c9c8bf;
     max-width: 1100px;

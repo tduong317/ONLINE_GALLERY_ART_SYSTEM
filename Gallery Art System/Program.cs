@@ -10,7 +10,7 @@ builder.Services.AddHttpContextAccessor();
 // Cấu hình Session
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session hết hạn sau 30 phút
+    options.IdleTimeout = TimeSpan.FromMinutes(60); // Session hết hạn sau 30 phút
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });

@@ -338,8 +338,11 @@ wwwroot\ckeditor\skins\v2\skin.js
 wwwroot\ckeditor\skins\v2\templates.css
 wwwroot\ckeditor\themes\default\theme.js
 wwwroot\css\css_admin.css
+wwwroot\css\home\about.css
 wwwroot\css\home\artwork.css
+wwwroot\css\home\cart.css
 wwwroot\css\home\exhibition.css
+wwwroot\css\home\login.css
 wwwroot\css\home\site.css
 wwwroot\css\login.css
 wwwroot\css\logon.css
@@ -534,6 +537,7 @@ wwwroot\files\Where Art Meets Elegance.png
 wwwroot\files\z7190689223760_02fd57c205bfdf6480ec5ed6780293bd.jpg
 wwwroot\images\artworks\0da16a68-48cf-44a3-b72d-13b5db6a459c.jfif
 wwwroot\images\artworks\135b7ce8-03d7-44b3-a2ae-bf22cb33c2f5.jfif
+wwwroot\images\artworks\1b3bb192-1739-4f0e-8cbe-58cbca7312a4.jpg
 wwwroot\images\artworks\49c254a7-2201-4293-af54-33dc5735f84b.jfif
 wwwroot\images\artworks\629e486d-b9d8-4e4f-99b4-5c87d0b90583.jfif
 wwwroot\images\artworks\82fe3afe-d3e7-4e3b-9ec8-1ea42eb25e28.jfif
@@ -546,6 +550,7 @@ wwwroot\images\artworks\dfbb2a66-757b-42cd-bf4b-97de418a3b4e.jfif
 wwwroot\images\artworks\e80829ab-30d8-4842-8241-1be53e1d571a.jfif
 wwwroot\images\artworks\f03aee37-4056-44bf-8596-f666cc7bcb88.jfif
 wwwroot\images\artworks\fccb5dbf-530a-4266-a447-0d290692f78f.jfif
+wwwroot\images\duongg.jpg
 wwwroot\images\exhibitions\b91d5f98-b8ed-44a1-9265-4756bbff5ab1.jpg
 wwwroot\images\homes\img1.webp
 wwwroot\images\homes\img2.jfif
@@ -553,8 +558,12 @@ wwwroot\images\homes\img3.jpg
 wwwroot\images\homes\img4.jpg
 wwwroot\images\homes\img5.jpg
 wwwroot\images\homes\img6.jpg
+wwwroot\images\homes\img7.jpg
 wwwroot\images\left-img.jpg
 wwwroot\images\logo.png
+wwwroot\images\nen.jpg
+wwwroot\images\nhungbeo.jpg
+wwwroot\images\thaoo.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

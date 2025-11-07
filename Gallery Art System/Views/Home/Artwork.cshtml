@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "Artwork";
 }
-<div class="banner-art">
+<div class="banner-ex">
     <h1>Artworks</h1>
-    <p><a>Home </a>/<a> Artworks</a></p>
+    <p><a href="/">Home </a>/<a asp-controller="Home" asp-action="Artwork"> Artworks</a></p>
 </div>
 <div class="container art-content">
     <aside class="art-filter">
@@ -61,11 +61,11 @@
             <div class="art-item">
                     <div class="art-img-wrapper">
                         <img src="@art.ImageUrl" alt="@art.Title">
-                        <span class="discount-badge">-20%</span>
+                        <span class="discount-badge">-@art.SaleType</span>
 
                         <!-- overlay xuất hiện khi hover -->
                         <div class="art-overlay">
-                            <a href="#">Add to Cart</a>
+                            <a href="javascript:void(0)" onclick="addToCart(@art.ArtworkId)">Add to Cart</a>
                         </div>
                     </div>
                 <div class="art-info">
@@ -81,3 +81,18 @@
         </div>
     </section>
 </div>
+@section Scripts {
+    <script>
+        function addToCart(artworkId) {
+            $.post('/Cart/AddToCart', { artworkId: artworkId }, function (res) {
+                if (res.count !== undefined) {
+                    $('#cartCount').text(res.count);
+                }
+            });
+        }
+        $(document).ready(function () {
+            refreshCartCount();
+        });
+    </script>
+}
+

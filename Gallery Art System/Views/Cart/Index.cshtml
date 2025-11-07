@@ -1,0 +1,112 @@
+﻿@model List<Gallery_Art_System.Models.Order>
+
+@{
+    ViewData["Title"] = "Cart";
+    decimal subtotal = Model.Sum(i => i.TotalAmount ?? 0);
+    decimal total = subtotal;
+}
+
+<div class="banner-ex">
+    <h1>Cart</h1>
+    <p><a href="/">Home</a> / <a asp-controller="Home" asp-action="Artwork">Shop</a> / Cart</p>
+</div>
+
+<div class="cart-container">
+    @if (!Model.Any())
+    {
+        <p style="text-align:center; font-size:1.2em; margin:40px;">Your cart is empty 🛒</p>
+    }
+    else
+    {
+        <form asp-action="UpdateCart" asp-controller="Cart" method="post" id="update-cart-form">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var price = item.Artwork.Price ?? 0;
+                        var subtotalItem = item.TotalAmount ?? 0;
+                        int qty = (int)(subtotalItem / price);
+
+                        <tr class="product-row">
+                            <td class="remove-item">
+                                <button type="button" class="remove-btn" data-id="@item.ArtworkId" style="border:none; background:none; cursor:pointer; font-size:1.3em; color:#c54b4b;">×</button>
+                            </td>
+                            <td class="product-info">
+                                <img src="@item.Artwork.ImageUrl" alt="@item.Artwork.Title" class="product-image" />
+                                @item.Artwork.Title
+                            </td>
+                            <td class="product-price">$@price.ToString("N2")</td>
+                            <td class="product-quantity">
+                                <input type="number" name="quantities[@item.ArtworkId]" value="@qty" min="1" class="quantity-input" />
+                            </td>
+                            <td class="product-subtotal">$@subtotalItem.ToString("N2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="cart-actions">
+                <div class="coupon-section">
+                </div>
+                <button type="submit" class="update-cart-btn">Update Cart</button>
+            </div>
+        </form>
+
+        <div class="cart-totals">
+            <h3>Cart totals</h3>
+            <table class="totals-table">
+
+                <tr>
+                    <td class="label">Subtotal</td>
+                    <td class="value">$@subtotal.ToString("N2")</td>
+                </tr>
+
+                <tr>
+                    <td class="label">Shipping</td>
+                    <td class="value">
+                        @if (ViewBag.Address != null)
+                        {
+                            <p class="shipping-address">Shipping to: @ViewBag.Address</p>
+                        }
+                        else
+                        {
+                            <p>You are not logged in.</p>
+                        }
+                    </td>
+                </tr>
+                <tr class="total-row">
+                    <td class="label">Total</td>
+                    <td class="value">$@total.ToString("N2")</td>
+                </tr>
+
+            </table>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const id = this.getAttribute("data-id");
+                fetch('/Cart/RemoveItem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `artworkId=${id}`
+                }).then(() => window.location.reload());
+            });
+        });
+    </script>
+}

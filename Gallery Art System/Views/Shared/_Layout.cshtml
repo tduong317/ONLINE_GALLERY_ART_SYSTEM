@@ -14,6 +14,8 @@
           rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="~/css/home/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/cart.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/about.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/artwork.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/exhibition.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Art_Gallery_System_FE.styles.css" asp-append-version="true" />
@@ -46,6 +48,33 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @section Scripts {
+        <script>
+            // 🛒 Hàm cập nhật số lượng giỏ hàng trên icon
+            function refreshCartCount() {
+                $.get('/Cart/GetCartCount', function (res) {
+                    if (res.count !== undefined) {
+                        $('#cartCount').text(res.count);
+                    }
+                });
+            }
+
+            // 🛍️ Hàm thêm sản phẩm vào giỏ
+            function addToCart(artworkId) {
+                $.post('/Cart/AddToCart', { artworkId: artworkId }, function (res) {
+                    if (res.count !== undefined) {
+                        $('#cartCount').text(res.count);
+                    }
+                });
+            }
+
+            // 🔄 Gọi khi trang load
+            $(document).ready(function () {
+                refreshCartCount();
+            });
+        </script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
