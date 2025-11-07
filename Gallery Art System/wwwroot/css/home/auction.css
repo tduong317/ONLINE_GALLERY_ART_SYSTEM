@@ -1,0 +1,350 @@
+﻿/* ======= BANNER ======= */
+.banner-auc {
+    height: 500px;
+    background: url('/images/homes/img4.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+    .banner-auc::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .banner-auc > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .banner-auc h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .banner-auc p {
+        font-size: 20px;
+    }
+
+    .banner-auc a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: 0.3s;
+    }
+
+        .banner-auc a:hover {
+            text-decoration: underline;
+        }
+
+        /*content*/
+.auc-content {
+    display: flex;
+    gap: 40px;
+    margin: 60px auto;
+    font-family: 'Poppins', sans-serif;
+}
+.auc-list-section {
+    flex: 1;
+    background: #f7f6ec;
+    padding: 50px;
+    border-radius: 8px;
+}
+/* ======= GRID ======= */
+.auc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+}
+/* ======= SIDEBAR ======= */
+.auc-filter {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.categories-box {
+    background: #eeede0;
+    padding: 25px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.categories-box h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 20px;
+    }
+/* ======= CATEGORY LIST ======= */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .category-list li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        color: #111;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .category-list li:hover {
+            color: #c8a96a;
+        }
+
+    .category-list a {
+        color: #000;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .category-list li:hover a {
+        color: #b89256;
+    }
+
+.dash {
+    width: 10px;
+    height: 2px;
+    background: #c8a96a;
+    margin-right: 8px;
+}
+
+/* ======= MAIN SECTION ======= */
+.auc-list-section {
+    flex: 1;
+    background: #f7f6ec;
+    padding: 50px;
+    border-radius: 8px;
+}
+
+/* Header trên cùng */
+.auc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    color: #444;
+    font-size: 14px;
+}
+
+.sort-dropdown select {
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+/* ======= auc ITEM ======= */
+.auc-item {
+    text-align: center;
+    position: relative;
+}
+
+.auc-img-wrapper {
+    position: relative;
+    background-color: #eeede0;
+    width: 350px;
+    height: 400px; /* Chiều cao cố định cho tất cả ảnh */
+    padding: 15px;
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center; /* Căn giữa dọc */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+    .auc-img-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Giữ nguyên tỉ lệ, không bị méo */
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    /* Hiệu ứng hover nhẹ */
+    .auc-img-wrapper:hover {
+        transform: translateY(-5px);
+    }
+
+        .auc-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Khi hover: ảnh mờ sáng nhẹ */
+        .auc-img-wrapper:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.85); /* làm ảnh tối nhẹ, tinh tế */
+        }
+
+/* ===== OVERLAY NHẠT ===== */
+.auc-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.auc-img-wrapper:hover .auc-overlay {
+    opacity: 1;
+}
+
+/* ===== NÚT VIỀN TRẮNG (KHÔNG NỀN) ===== */
+/* Liên kết “Add to Cauc” */
+.auc-overlay a {
+    font-family: "Metropolis", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 23px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: white;
+}
+
+/* Hiệu ứng khi hover ảnh */
+.auc-img-wrapper:hover .auc-overlay a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Khi hover trực tiếp chữ */
+.auc-overlay a:hover {
+    color: #c8a96a; /* vàng nhạt sang trọng */
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #c89d64;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ======= INFO ======= */
+.auc-info {
+    margin-top: 15px;
+}
+
+.category {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.7em;
+    color: #6d6d65;
+    min-height: 18px;
+}
+
+.auc-title {
+    font-size: 1.5em;
+    line-height: 1.23em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    color: #13130d;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.new-price {
+    color: #13130d;
+}
+.new-time {
+    color: #13130d;
+}
+
+.bids {
+    position: relative;
+    padding: 11px 31px 11px 31px;
+    min-width: auto;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border: 1px solid #343334;
+    border-radius: 4px;
+    z-index: 1;
+    box-shadow: -1px 1px 16px 0 rgba(0, 0, 0, .07);
+    will-change: transform;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 30px
+}
+    .bids a {
+        color: #000;
+        text-decoration: none;
+    }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 992px) {
+    .auc-content {
+        flex-direction: column;
+    }
+
+    .auc-filter {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .auc-list-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-auc h1 {
+        font-size: 42px;
+    }
+
+    .banner-auc p {
+        font-size: 16px;
+    }
+
+    .auc-grid {
+        gap: 25px;
+    }
+
+    .auc-img-wrapper img {
+        height: 280px;
+    }
+}

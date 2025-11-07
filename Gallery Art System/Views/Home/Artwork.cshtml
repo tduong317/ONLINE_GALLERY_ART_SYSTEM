@@ -4,7 +4,7 @@
 }
 <div class="banner-art">
     <h1>Artworks</h1>
-    <p><a>Home </a>/<a> Artworks</a></p>
+    <p><a asp-action="Index" asp-controller="Home">Home </a>/<a> Artworks</a></p>
 </div>
 <div class="container art-content">
     <aside class="art-filter">
@@ -12,11 +12,13 @@
         <!-- FILTER SECTION -->
         <div class="filter-box">
             <h4>Filter</h4>
-            <div class="price-range">
-                <input type="range" min="10" max="35" value="20" class="range-slider" id="priceRange">
-                <p>Price: $10 — $35</p>
-                <button class="filter-btn">FILTER</button>
-            </div>
+            <form method="get" asp-controller="Home" asp-action="Artwork">
+                <div class="price-range">
+                    <input type="range" name="maxPrice" min="500000" max="5000000" step="10" value="@ViewBag.MaxPrice ?? 5000000" id="priceRange">
+                    <p>Up to $<span id="priceValue">@ViewBag.MaxPrice?? 5000000</span></p>
+                    <button type="submit" class="filter-btn">Filter</button>
+                </div>
+            </form>
         </div>
 
         <!-- CATEGORIES SECTION -->
@@ -72,12 +74,57 @@
                     <p class="category">@art.Category?.Name</p>
                     <h3 class="art-title">@art.Title</h3>
                     <p class="price">
-                    <span class="new-price">@art.Price?.ToString("N0") $</span>
+                    <span class="new-price">$ @art.Price?.ToString("N0")</span>
                     </p>
                 </div>
             </div>
 
             }
         </div>
+    <!-- Pagination -->
+    <div class="pagination">
+        <nav class="pagination-container">
+            <ul class="pagination">
+                @if (Model is X.PagedList.IPagedList<Gallery_Art_System.Models.Exhibition> pagedList)
+                {
+                    <!-- Nút Prev -->
+                    <li class="page-item @(pagedList.HasPreviousPage ? "" : "disabled")">
+                        <a href="@(pagedList.HasPreviousPage? Url.Action("Exhibition", new { page = pagedList.PageNumber - 1, query = ViewBag.Query }) : "#")" class="page-link">
+                            « Prev
+                        </a>
+                    </li>
+
+                    <!-- Danh sách số trang -->
+                    @for (int i = 1; i <= pagedList.PageCount; i++)
+                    {
+                        <li class="page-item @(i == pagedList.PageNumber ? "active" : "")">
+                            <a href="@Url.Action("Exhibition", new { page = i, query = ViewBag.Query })" class="page-link">@i</a>
+                        </li>
+                    }
+
+                    <!-- Nút Next -->
+                    <li class="page-item @(pagedList.HasNextPage ? "" : "disabled")">
+                        <a href="@(pagedList.HasNextPage? Url.Action("Exhibition", new { page = pagedList.PageNumber + 1, query = ViewBag.Query }) : "#")" class="page-link">
+                            Next »
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <!-- Nếu model không có phân trang -->
+                    <li class="page-item active">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
     </section>
 </div>
+<script>
+    const rangeInput = document.getElementById('priceRange');
+    const priceValue = document.getElementById('priceValue');
+    rangeInput.addEventListener('input', function () {
+        priceValue.textContent = this.value;
+    });
+</script>

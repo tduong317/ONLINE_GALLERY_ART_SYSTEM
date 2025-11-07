@@ -38,6 +38,7 @@
                     <th>Description</th>
                     <th>Start Time</th>
                     <th>Start Price</th>
+                    <th>WinnerId</th>
                     <th>Status</th>
                     <th>Approval Status</th>
                     <th>Function</th>
@@ -55,11 +56,21 @@
                             </span>
                         </td>
                         <td><img src="@auc.Artwork?.ImageUrl" width="100px" /></td>
-                        <td>@Html.Raw(auc.Artwork?.Description)</td>
-                        <td>@auc.StartTime</td>
-                        <td>@auc.StartPrice.ToString("N0") $</td>
                         <td>
-                            @if (auc.Status == true)
+                            @{
+                                var plainText = System.Text.RegularExpressions.Regex.Replace(auc.Artwork?.Description ?? "", "<.*?>", "");
+                                var shortText = plainText.Length > 30 ? plainText.Substring(0, 30) + "..." : plainText;
+                            }
+                        </td>
+                        <td>@auc.StartTime</td>
+                        <td>$ @auc.StartPrice.ToString("N0")</td>
+                        <td>@auc.UserId</td>
+                        <td>
+                            @if (auc.Status == "Upcoming")
+                            {
+                                <span class="badge bg-warning text-dark">Upcoming</span>
+                            }
+                            else if (auc.Status == "Active")
                             {
                                 <span class="badge bg-success">Active</span>
                             }
@@ -67,7 +78,11 @@
                             {
                                 <span class="badge bg-danger">Closed</span>
                             }
+
+
                         </td>
+
+
                         <td>
                             @if (auc.ApprovalStatus == "Pending")
                             {

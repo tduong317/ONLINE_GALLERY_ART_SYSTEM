@@ -11,7 +11,7 @@ namespace Gallery_Art_System.Controllers
     public class ArtworkController : Controller
     {
         private readonly ONLINE_GALLERY_ART_SYSTEMContext _context = new ONLINE_GALLERY_ART_SYSTEMContext();
-        public IActionResult Index(int? categoryId, int? UserId, int pageNumber = 1)
+        public IActionResult Index(int? categoryId, int? UserId, int pageNumber = 1, string? saleType=null)
         {
             if (pageNumber < 1)
                 pageNumber = 1;
@@ -35,7 +35,10 @@ namespace Gallery_Art_System.Controllers
             {
                 artworks = artworks.Where(a => a.UserId == UserId);
             }
-
+            if (!string.IsNullOrEmpty(saleType))
+            {
+                artworks = artworks.Where(a => a.SaleType == saleType);
+            }
             // Phân trang & sắp xếp
             var pagedArtworks = artworks
                 .OrderByDescending(a => a.CreatedAt)
@@ -44,6 +47,11 @@ namespace Gallery_Art_System.Controllers
             // ======= Gửi dữ liệu cho View =======
             ViewBag.CategoryList = _context.Categories.ToList();
             ViewBag.UserList = _context.Users.ToList();
+
+            ViewBag.SaleTypeList = _context.Artworks
+                    .Select(a => a.SaleType)
+                    .Distinct()
+                    .ToList();
 
             ViewBag.SelectedCategoryId = categoryId;
             ViewBag.SelectedUserId = UserId;
@@ -200,8 +208,10 @@ namespace Gallery_Art_System.Controllers
             art.CategoryId = artwork.CategoryId;
             art.SaleType = artwork.SaleType;
             art.Status = artwork.Status;
-            art.Artist = artwork.Artist;
+            art.Author = artwork.Author;
             art.UserId = artwork.UserId;
+            art.Size = artwork.Size;
+            art.Created = artwork.Created;
             art.CreatedAt = DateTime.Now;
 
             _context.Update(art);

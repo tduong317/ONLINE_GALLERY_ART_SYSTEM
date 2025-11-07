@@ -110,4 +110,32 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const artworkSelect = document.getElementById("ArtworkId");
+            const priceInput = document.getElementById("StartPrice");
+
+            artworkSelect.addEventListener("change", function () {
+                const artworkId = this.value;
+                if (artworkId) {
+                    fetch(`/Auction/GetArtworkPrice?id=${artworkId}`)
+                        .then(response => {
+                            if (!response.ok) throw new Error("Không tìm thấy Artwork.");
+                            return response.json();
+                        })
+                        .then(data => {
+                            priceInput.value = data.price; // gán giá vào input
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            priceInput.value = ""; // xóa nếu lỗi
+                        });
+                } else {
+                    priceInput.value = "";
+                }
+            });
+        });
+    </script>
+}
+
 }

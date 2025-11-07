@@ -37,6 +37,8 @@ namespace Gallery_Art_System.Models
         public DateTime? CreatedAt { get; set; }
 
         public virtual ICollection<Artwork> Artworks { get; set; }
+
+        public virtual ICollection<Auction> Auctions { get; set; }
         public virtual ICollection<Bid> Bids { get; set; }
         public virtual ICollection<ExhibitionRequest> ExhibitionRequests { get; set; }
         public virtual ICollection<Gallery> Galleries { get; set; }

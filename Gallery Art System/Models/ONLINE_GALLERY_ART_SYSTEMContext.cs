@@ -40,7 +40,7 @@ namespace Gallery_Art_System.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=ONLINE_GALLERY_ART_SYSTEM;uid=sa;password=123456;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=ONLINE_GALLERY_ART_SYSTEM;uid=sa;password=1234$;MultipleActiveResultSets=true;TrustServerCertificate=True;");
             }
         }
 
@@ -122,6 +122,8 @@ namespace Gallery_Art_System.Models
 
                 entity.Property(e => e.ArtworkId).HasColumnName("artwork_id");
 
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
                 entity.Property(e => e.CurrentPrice)
                     .HasColumnType("decimal(12, 2)")
                     .HasColumnName("current_price");
@@ -148,6 +150,12 @@ namespace Gallery_Art_System.Models
                     .HasForeignKey(d => d.ArtworkId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__auction__artwork__534D60F1");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Auctions)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Auction__User");
             });
 
             modelBuilder.Entity<Bid>(entity =>

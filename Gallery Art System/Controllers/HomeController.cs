@@ -1,6 +1,7 @@
 ﻿using Gallery_Art_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Diagnostics;
 using X.PagedList.Extensions;
 
@@ -61,30 +62,85 @@ namespace Gallery_Art_System.Controllers
 
             return View(pagedList);
         }
-        public IActionResult Artwork(int page = 1, int? categoryId = null)
+        public IActionResult Artwork(int page = 1, int? categoryId = null, decimal? minPrice = null, decimal? maxPrice = null)
         {
             int limit = 6;
 
             // Lấy danh sách category để hiển thị ở sidebar
             ViewBag.CategoryList = _context.Categories.ToList();
             ViewBag.SelectedCategoryId = categoryId;
+
+            // Lưu lại giá trị filter để hiển thị lại trên giao diện
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+
             // Lấy toàn bộ artworks (chưa phân trang)
             var artworks = _context.Artworks
-               .Include(a => a.Category)
-               .Where(a => a.SaleType == "For Sale") // 👈 lọc ngay từ đầu
-               .AsQueryable();
+                .Include(a => a.Category)
+                .Where(a => a.SaleType == "For Sale")
+                .AsQueryable();
 
-            // Nếu có categoryId thì lọc theo category đó
+            // Lọc theo category
             if (categoryId.HasValue && categoryId > 0)
             {
                 artworks = artworks.Where(a => a.CategoryId == categoryId);
-                ViewBag.SelectedCategoryId = categoryId; // để biết đang chọn category nào
             }
 
-            // Cuối cùng mới phân trang
+            // Lọc theo giá (nếu có)
+            if (minPrice.HasValue)
+            {
+                artworks = artworks.Where(a => a.Price >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                artworks = artworks.Where(a => a.Price <= maxPrice.Value);
+            }
+
+            // Phân trang
             var pagedArtworks = artworks.ToPagedList(page, limit);
 
             return View(pagedArtworks);
+        }
+
+        public IActionResult Auction( int? categoryId) {
+            ViewBag.CategoryList = _context.Categories.ToList();
+            ViewBag.SelectedCategoryId = categoryId;
+            var auctions = _context.Auctions
+                .Include(a=>a.Artwork)
+                .ToList();
+            foreach (var auc in auctions)
+            {
+                if (DateTime.Now < auc.StartTime)
+                    auc.Status = "Upcoming";
+                else if (DateTime.Now >= auc.StartTime && DateTime.Now <= auc.EndTime)
+                    auc.Status = "Active";
+                else
+                    auc.Status = "Closed";
+            }
+            _context.SaveChanges();
+
+            return View(auctions);
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var auction = await _context.Auctions
+                .Include(a => a.Artwork)
+                .Include(a => a.Bids)
+                .ThenInclude(b => b.User)
+                .FirstOrDefaultAsync(a => a.AuctionId == id);
+
+            if (auction == null)
+            {
+                return NotFound();
+            }
+
+            return View(auction);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

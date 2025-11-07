@@ -32,9 +32,9 @@
 
         <!-- Nghệ sĩ (Dropdown) -->
         <div class="col-md-3">
-            <label class="form-label fs-8 fw-bold">UserId</label>
+            <label class="form-label fs-8 fw-bold">Artist</label>
             <select name="artistId" class="form-select">
-                <option value="">-- Select UserId --</option>
+                <option value="">-- Select Artist --</option>
                 @if (ViewBag.UserList != null)
                 {
                     foreach (var user in ViewBag.UserList)
@@ -50,6 +50,24 @@
                     }
                 }
             </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fs-8 fw-bold">Sale Type</label>
+                <select name="saleType" class="form-select">
+                    <option value="">-- Select Sale Type --</option>
+                    @foreach (var type in ViewBag.SaleTypeList)
+                    {
+                        if (ViewBag.SelectedType != null)
+                        {
+                            <option value="@type" selected>type</option>
+                        }
+                        else
+                        {
+                            <option value="@type">@type</option>
+                        }
+                    }
+                </select>
+
         </div>
 
         <!-- Nút thao tác -->
@@ -103,7 +121,7 @@
                         </span>
                     </th>
                     <th>Category</th>
-                    <th>Artist</th>
+                    <th>Author</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Price</th>
@@ -126,13 +144,14 @@
                                 </span>
                             </td>
                             <td>@art.Category?.Name</td>
-                            <td>@art.Artist</td>
+                            <td>@art.Author</td>
                             <td>@art.Title</td>
-                            <td>
-                                @Html.Raw(art.Description?.Length > 30? art.Description.Substring(0, 30) + "...": art.Description)
-                            </td>
-
-                            <td>@(art.Price?.ToString("N0") ?? "0") $</td>
+                            @{
+                                var plainText = System.Text.RegularExpressions.Regex.Replace(art.Description ?? "", "<.*?>", "");
+                                var shortText = plainText.Length > 30 ? plainText.Substring(0, 30) + "..." : plainText;
+                            }
+                            <td>@shortText</td>
+                            <td>$ @(art.Price?.ToString("N0") ?? "0")</td>
                             <td>@art.SaleType</td>
                             <td>
                                 <img src="@art.ImageUrl" style="width:100px;" />

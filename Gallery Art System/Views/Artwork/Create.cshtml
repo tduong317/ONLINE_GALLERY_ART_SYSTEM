@@ -34,31 +34,46 @@
             </div>
 
             <div class="col-md-6 mb-3">
-                <label asp-for="UserId" class="form-label fw-bold">UserId</label>
+                <label asp-for="UserId" class="form-label fw-bold">Artist</label>
                 <select asp-for="UserId" class="form-select"
                         asp-items="@(new SelectList(ViewBag.UserList, "UserId", "FullName"))">
-                    <option value="">-- Select User --</option>
+                    <option value="">-- Select Artist --</option>
                 </select>
                 <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
         </div>
-        <div class="mb-3 mt-3">
-            <label for="" class="form-label fw-bold">Title</label>
-            <input type="text" class="form-control" asp-for="Title">
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
+        <div class="row">
+            <div class="col">
+                <label for="" class="form-label fw-bold">Title</label>
+                <input type="text" class="form-control" asp-for="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3 mt-3">
-            <label class="form-label">Artist</label>
-            <input type="text" class="form-control" asp-for="Artist" required
-                   oninvalid="this.setCustomValidity('Please enter artwork title')"
-                   oninput="this.setCustomValidity('')">
-            <span asp-validation-for="Artist" class="text-danger"></span>
+            <div class="col">
+                <label class="form-label">Author</label>
+                <input type="text" class="form-control" asp-for="Author" required
+                       oninvalid="this.setCustomValidity('Please enter artwork title')"
+                       oninput="this.setCustomValidity('')">
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
         </div>
 
         <div class="mb-3 mt-3">
             <label for="" class="form-label fw-bold" >Description</label>
             <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="" class="form-label fw-bold">Created</label>
+                <input type="text" class="form-control" asp-for="Created">
+                <span asp-validation-for="Created" class="text-danger"></span>
+            </div>
+
+            <div class="col">
+                <label class="form-label fw-bold">Size</label>
+                <input type="text" class="form-control" asp-for="Size" >
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
         </div>
         <div class="row">
             <div class="col">
@@ -82,7 +97,7 @@
                 <label asp-for="ImageUrl" class="form-label fw-bold">Image</label>
                 <!-- input text để elfinder ghi đường dẫn -->
                 <input asp-for="ImageUrl" class="form-label" id="Image" />
-                <button type="button" id="btnBrowse">Chọn ảnh</button>
+                <button type="button" id="btnBrowse">Select Image</button>
                 <div class="mt-2">
                     <img src="@Model.ImageUrl" id="PictureView" width="100px" />
                 </div>

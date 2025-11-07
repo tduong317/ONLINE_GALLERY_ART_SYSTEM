@@ -1,8 +1,10 @@
 ﻿using Gallery_Art_System.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using System.Runtime.Intrinsics.Arm;
 using X.PagedList.Extensions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gallery_Art_System.Controllers
 {
@@ -22,13 +24,11 @@ namespace Gallery_Art_System.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Category cate)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(cate);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cate);
+
+            cate.CreatedAt = DateTime.Now;
+            _context.Categories.Add(cate);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public async Task<IActionResult> Edit(int id)
         {
@@ -47,33 +47,14 @@ namespace Gallery_Art_System.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Category cate)
         {
-            cate.CreatedAt = DateTime.Now;
             if (id != cate.CategoryId)
-            {
                 return NotFound();
-            }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(cate);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Categories.Any(c => c.CategoryId== cate.CategoryId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cate);
+            if (!ModelState.IsValid)
+                return View(cate);
+            _context.Categories.Update(cate);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public async Task<IActionResult> Delete(int id)
         {

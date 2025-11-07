@@ -23,7 +23,7 @@ namespace Gallery_Art_System.Models
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
 
-        public string? Artist { get; set; }
+        public string? Author { get; set; }
         public int? CategoryId { get; set; }
         public decimal? Price { get; set; }
         public string? SaleType { get; set; }
@@ -32,6 +32,9 @@ namespace Gallery_Art_System.Models
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
 
+        public string? Created { get; set; }
+
+        public string? Size { get; set; }
         public DateTime? CreatedAt { get; set; }
         public bool? Status { get; set; }
 

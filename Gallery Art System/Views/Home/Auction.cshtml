@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Gallery_Art_System.Models.Auction>
+@{
+    ViewData["Title"] = "Auction";
+}
+<div class="banner-auc">
+    <h1>Auctions</h1>
+    <p>
+        <a asp-action="Index" asp-controller="Home">Home </a>/<a> Auctions</a>
+    </p>
+</div>
+<div class="container auc-content">
+    <aside class="auc-filter">
+        <div class="categories-box">
+            <h4>Categories</h4>
+            <ul class="category-list">
+                @if (ViewBag.CategoryList != null)
+                {
+                    foreach (var category in ViewBag.CategoryList)
+                    {
+                        <li>
+                            <span class="dash"></span><a asp-action="Artwork" asp-controller="Home" asp-route-categoryId="@category.CategoryId">@category.Name.ToUpper()</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li><em>No categories found.</em></li>
+                }
+            </ul>
+        </div>
+    </aside>
+
+    <section class="auc-list-section">
+        <div class="auc-grid">
+            @foreach (var auc in Model)
+            {
+
+                <div class="auc-item">
+                    <div class="auc-img-wrapper">
+                        <img src="@auc.Artwork?.ImageUrl" alt="@auc.Artwork?.Title">
+                        <span class="discount-badge"><i class="fa-regular fa-heart"></i></span>
+
+                        <!-- overlay xuất hiện khi hover -->
+                        <div class="auc-overlay">
+                            <a href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="auc-info">
+                        <p class="category">@auc.Artwork?.Category?.Name</p>
+                        <h3 class="auc-title">@auc.Artwork?.Title</h3>
+                        <p class="price">
+                            <span class="new-price">Starting Price: <span>$ @auc.StartPrice.ToString("N0")</span></span>
+                        </p>
+                        <p class="time">
+                            <span class="new-time">@auc.StartTime.ToString("dd/MM/yyyy")-<span>@auc.EndTime.ToString("dd/MM/yyyy")</span></span>
+                        </p>
+                        <p>
+                            <span class="status">
+                                @if (auc.Status == "Upcoming")
+                                {
+                                    <span class="badge bg-warning text-dark">Upcoming</span>
+                                }
+                                else if (auc.Status == "Active")
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Closed</span>
+                                }
+
+                            </span>
+                        </p>
+                    </div>
+                    <div class="bids">
+                        <a asp-action="Bid" asp-controller="Home" asp-route-id="@auc.AuctionId">Bid</a>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <!-- Pagination -->
+        <div class="pagination">
+            <nav class="pagination-container">
+                <ul class="pagination">
+                    @if (Model is X.PagedList.IPagedList<Gallery_Art_System.Models.Exhibition> pagedList)
+                    {
+                        <!-- Nút Prev -->
+                        <li class="page-item @(pagedList.HasPreviousPage ? "" : "disabled")">
+                            <a href="@(pagedList.HasPreviousPage? Url.Action("Exhibition", new { page = pagedList.PageNumber - 1, query = ViewBag.Query }) : "#")" class="page-link">
+                                « Prev
+                            </a>
+                        </li>
+
+                        <!-- Danh sách số trang -->
+                        @for (int i = 1; i <= pagedList.PageCount; i++)
+                        {
+                            <li class="page-item @(i == pagedList.PageNumber ? "active" : "")">
+                                <a href="@Url.Action("Exhibition", new { page = i, query = ViewBag.Query })" class="page-link">@i</a>
+                            </li>
+                        }
+
+                        <!-- Nút Next -->
+                        <li class="page-item @(pagedList.HasNextPage ? "" : "disabled")">
+                            <a href="@(pagedList.HasNextPage? Url.Action("Exhibition", new { page = pagedList.PageNumber + 1, query = ViewBag.Query }) : "#")" class="page-link">
+                                Next »
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- Nếu model không có phân trang -->
+                        <li class="page-item active">
+                            <a href="#" class="page-link">1</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </section>
+    </section>
+</div>
