@@ -1,0 +1,87 @@
+﻿@model Gallery_Art_System.Models.Artwork
+@{
+    ViewData["Title"] = @Model.Title;
+    var userId = Context.Session.GetInt32("UserId"); // nếu bạn dùng Session cho đăng nhập
+}
+
+<div class="banner-art">
+    <h1>@Model.Title</h1>
+    <p><a href="/">Home </a> / <a asp-controller="Auction" asp-action="Index">Artworks</a></p>
+</div>
+
+<div class="container content-artwork">
+    @* <a href="javascript:history.back()" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a> *@
+    <div class="detail">
+        <div class="item-img">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="item-text">
+
+            <span class="category">@Model.Category?.Name</span>
+            <h2 class="title">@Model.Title</h2>
+            <span class="author">@Model.Author</span>
+
+            <p class="price">Price: $@Model.Price?.ToString("N2")</p>
+
+            <div class="add-btn">
+                <a asp-action="Index" asp-controller="Cart" asp-route-id="@Model.ArtworkId">Buy now</a>
+            </div>
+            <hr />
+            <h4>Description</h4>
+            <div class="desc">@Html.Raw(Model.Description)</div>
+
+            <p class="created">
+                <strong>Created:</strong> @Model.Created
+            </p>
+            <p class="size">
+                <strong>Size:</strong> @Model.Size
+            </p>
+
+            <hr />
+        </div>
+    </div>
+    <section class="art-list-section">
+    <h2>Other Artworks</h2>
+    <hr />
+        @{
+            var related = ViewBag.relatedArtworks as IEnumerable<Gallery_Art_System.Models.Artwork>;
+        }
+
+        @if (related != null && related.Any())
+        {
+        <div class="art-grid">
+                @foreach (var art in (IEnumerable<Gallery_Art_System.Models.Artwork>)ViewBag.relatedArtworks)
+            {
+                <div class="art-item">
+                        <div class="art-img-wrapper">
+                            <a asp-action="DetailArtwork" asp-controller="Home" asp-route-id="@art.ArtworkId">
+                                <img src="@art.ImageUrl" alt="@art.Title" />
+                            </a>
+
+                            <!-- overlay xuất hiện khi hover -->
+                            <div class="art-overlay">
+                                <a href="javascript:void(0)" onclick="addToCart(@art.ArtworkId)">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="art-info">
+                            <p class="category">@art.Category?.Name</p>
+                            <a asp-action="DetailArtwork" asp-controller="Home" asp-route-id="@art.ArtworkId"><h3 class="art-title">@art.Title</h3></a>
+                            <p class="price">
+                                <span class="new-price">$ @art.Price?.ToString("N2")</span>
+                            </p>
+                        </div>
+                </div>
+
+            }
+        </div>
+        }
+        else
+        {
+            <p>No other auctions available.</p>
+        }
+    </section>
+</div>
+
+<!-- Countdown Script -->

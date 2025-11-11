@@ -151,7 +151,7 @@
                                 var shortText = plainText.Length > 30 ? plainText.Substring(0, 30) + "..." : plainText;
                             }
                             <td>@shortText</td>
-                            <td>$ @(art.Price?.ToString("N0") ?? "0")</td>
+                            <td>$ @(art.Price?.ToString("N2") ?? "0")</td>
                             <td>@art.SaleType</td>
                             <td>
                                 <img src="@art.ImageUrl" style="width:100px;" />

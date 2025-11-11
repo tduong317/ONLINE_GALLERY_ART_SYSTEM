@@ -1,0 +1,181 @@
+﻿.auth-page {
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center; /* Căn giữa dọc */
+    width: 100vw; /* Chiếm toàn bộ chiều ngang màn hình */
+    height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+    overflow: hidden; /* Ẩn mọi phần tràn ra */
+    padding: 0;
+}
+
+/* Ẩn thanh cuộn toàn trang */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Không cho cuộn */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ====== Container chính ====== */
+
+.container .auth-page {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+}
+/* ====== Cột form ====== */
+
+.auth-page-section {
+    background: #F7F6EC;
+    flex: 1;
+    max-width: 30%;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+}
+/* ====== Tiêu đề ====== */
+
+.auth-page-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #111;
+    border-bottom: 2px solid #111;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* ====== Nhãn và input ====== */
+
+.auth-page-label {
+    display: block;
+    margin-top: 15px;
+    margin: 15px auto 5px; /* trên 15px, dưới 5px để tách nhẹ */
+    width: 60%;
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+}
+
+.auth-page-input {
+    width: 60%;
+    padding: 15px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    background-color: #fff;
+    display: block;
+    margin: 0 auto;
+}
+
+    .auth-page-input:focus {
+        border-color: #000;
+        outline: none;
+    }
+/* ====== Nút bấm ====== */
+
+.auth-page-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    margin-top: 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+    .auth-page-btn:hover {
+        background-color: #333;
+    }
+/* ====== Footer nhỏ trong form ====== */
+
+.auth-page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.auth-page-forgot {
+    color: #333;
+    font-size: 13px;
+    text-decoration: underline;
+}
+/* ====== Notes ====== */
+
+.auth-page-note {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.auth-page-note-inline {
+    color: #777;
+    font-style: italic;
+}
+/* ====== Hàng 2 cột ====== */
+
+.auth-page-row {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-page-col {
+    flex: 1;
+}
+/* ====== Input điện thoại ====== */
+
+.auth-page-phone {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* ====== Responsive ====== */
+
+@media (max-width: 768px) {
+    .auth-page-container {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .auth-page-section {
+        max-width: 100%;
+    }
+}
+.auth-page-signin a{
+    text-align: center;
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.register {
+    border-bottom: 1px solid #DADDE1;
+    border: 1px solid none;
+    background: #42b72a;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    line-height: 48px;
+    padding: 0 16px;
+    display: block;
+    margin: 0 auto;
+}
+.register a{
+    font-size: 17px;
+    color: white;
+
+}

@@ -1,4 +1,228 @@
-﻿@model IEnumerable<Gallery_Art_System.Models.Auction>
+﻿@model Gallery_Art_System.Models.Auction
 @{
-    ViewData["Title"] = "Auction";
+    ViewData["Title"] = "Auction Detail";
+    var userId = Context.Session.GetInt32("UserId"); // nếu bạn dùng Session cho đăng nhập
 }
+
+<div class="banner-auc">
+    <h1>@Model.Artwork?.Title</h1>
+    <p><a href="/">Home </a> / <a asp-controller="Auction" asp-action="Index">Auctions</a></p>
+</div>
+
+<div class="container content-auction">
+    <div class="detail">
+        <div class="item-img">
+            <img src="@Model.Artwork?.ImageUrl" />
+        </div>
+        <div class="item-text">
+
+            <!-- Bộ đếm ngược -->
+            <div class="auction-timer">
+                <div id="countdown" class="countdown">Loading...</div>
+                <span id="endTime" hidden>@Model.EndTime.ToString("yyyy-MM-ddTHH:mm:ss")</span>
+            </div>
+
+            <span class="category">@Model.Artwork?.Category?.Name</span>
+            <h2 class="title">@Model.Artwork?.Title</h2>
+            <span class="author">@Model.Artwork?.Author</span>
+
+            <p class="price">Starting Price: $@Model.StartPrice.ToString("N2")</p>
+            <p class="current">Current Bid: $@(Model.CurrentPrice?.ToString("N2") ?? Model.StartPrice.ToString("N2"))</p>
+
+            <!-- Thông báo -->
+            @if (TempData["BidSuccess"] != null)
+            {
+                <div class="alert alert-success">@TempData["BidSuccess"]</div>
+            }
+            @if (TempData["BidError"] != null)
+            {
+                <div class="alert alert-danger">@TempData["BidError"]</div>
+            }
+
+            <!-- Form đấu giá -->
+            @if (userId != null)
+            {
+                <form asp-action="PlaceBid" method="post" class="bid-form">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="AuctionId" value="@Model.AuctionId" />
+                    <input type="hidden" name="returnUrl" value="@Context.Request.Path + Context.Request.QueryString" />
+                    <div class="bid-input-group">
+                        <input name="BidAmount"
+                               type="text"
+                               class="form-control price-input"
+                               required
+                               oninput="formatPrice(this)"
+                               placeholder="Enter your bid">
+                        <button type="submit" class="btn btn-dark">Bid</button>
+                    </div>
+                    <small id="bid-error" class="text-danger"></small>
+                </form>
+            }
+            else
+            {
+                <p style="color:red;">
+                    Please
+                    <a asp-controller="User" asp-action="Login"
+                       asp-route-returnUrl="@Context.Request.Path">
+                        Login
+                    </a>
+                    to place a bid.
+                </p>
+            }
+
+
+            <hr />
+            <h4>Description</h4>
+            <div class="desc">@Html.Raw(Model.Artwork?.Description)</div>
+
+            <p class="created">
+                <strong>Created:</strong> @Model.Artwork?.Created
+            </p>
+            <p class="size">
+                <strong>Size:</strong> @Model.Artwork?.Size
+            </p>
+
+            <div class="time">
+                <span><strong>Starting:</strong> @Model.StartTime.ToString("dd MMMM yyyy, HH:mm")</span><br />
+                <span><strong>Closed:</strong> @Model.EndTime.ToString("dd MMMM yyyy, HH:mm")</span>
+            </div>
+
+            <hr />
+            <div class="bid-list">
+                @foreach (var bid in Model.Bids.OrderByDescending(b => b.BidTime))
+                {
+                    <div class="bid-item">
+                        <p>
+                            <strong>@bid.User.FullName</strong> bided $@bid.Amount.ToString("N2")
+                            <small>(@bid.BidTime?.ToString("dd MMM yyyy HH:mm"))</small>
+                        </p>
+
+                        @if (userId == bid.UserId)
+                        {
+                            <form asp-action="CancelBid" method="post" style="display:inline;">
+                                <input type="hidden" name="BidId" value="@bid.BidId" />
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to cancel this bid?');">
+                                    Cancel
+                                </button>
+                            </form>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <section class="auc-list-section">
+    <h2>Other Auctions</h2>
+    <hr />
+        @{
+            var related = ViewBag.RelatedAuctions as IEnumerable<Gallery_Art_System.Models.Auction>;
+        }
+
+        @if (related != null && related.Any())
+        {
+        <div class="auc-grid">
+            @foreach (var auc in (IEnumerable<Gallery_Art_System.Models.Auction>)ViewBag.RelatedAuctions)
+            {
+                <div class="auc-item">
+                    <div class="auc-img-wrapper">
+                        <img src="@auc.Artwork?.ImageUrl" alt="@auc.Artwork?.Title">
+                        <span class="discount-badge"><i class="fa-regular fa-heart"></i></span>
+
+                        <!-- overlay xuất hiện khi hover -->
+                        <div class="auc-overlay">
+                            <a asp-action="DetailAuction" asp-controller="Home" asp-route-id="@auc.AuctionId">Bid</a>
+                        </div>
+                    </div>
+                    <div class="auc-info">
+                        <p class="category">@auc.Artwork?.Category?.Name</p>
+                        <h3 class="auc-title">@auc.Artwork?.Title</h3>
+                        <p class="price">
+                            <span class="new-price">Starting Price: <span>$ @auc.StartPrice.ToString("N2")</span></span>
+                        </p>
+                        <p class="time">
+                            <span class="new-time">@auc.StartTime.ToString("dd/MM/yyyy")-<span>@auc.EndTime.ToString("dd/MM/yyyy")</span></span>
+                        </p>
+                        <p>
+                            <span class="status">
+                                @if (auc.Status == "Upcoming")
+                                {
+                                    <span class="badge bg-warning text-dark">Upcoming</span>
+                                }
+                                else if (auc.Status == "Active")
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Closed</span>
+                                }
+
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+            }
+        </div>
+        }
+        else
+        {
+            <p>No other auctions available.</p>
+        }
+    </section>
+</div>
+
+<!-- Countdown Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const endTimeStr = document.getElementById("endTime").innerText;
+        const endTime = new Date(endTimeStr).getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            if (distance <= 0) {
+                countdownEl.innerHTML = "<span style='color:red;'>Bidding closed</span>";
+                clearInterval(timer);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            countdownEl.textContent = `${days}d ${hours}h ${minutes}m left to bid`;
+        }
+
+        const timer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    });
+
+    function formatPrice(input) {
+        let value = input.value.replace(/\D/g, '');
+        input.value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const bidForm = document.querySelector(".bid-form");
+        if (!bidForm) return;
+
+        bidForm.addEventListener("submit", function (e) {
+            const input = bidForm.querySelector(".price-input");
+            const enteredValue = parseFloat(input.value.replace(/,/g, '')) || 0;
+            const startPrice = @Model.StartPrice;
+            const currentPrice = @(Model.CurrentPrice ?? 0);
+            let minPrice = currentPrice > 0 ? currentPrice : startPrice;
+
+            if (enteredValue <= minPrice) {
+                e.preventDefault();
+                alert(`Please enter a price greater than $${minPrice.toLocaleString()}`);
+                input.focus();
+            }
+        });
+    });
+
+</script>

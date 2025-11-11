@@ -35,10 +35,10 @@
                             <div>@bid.Auction?.Artwork?.Title</div>
                         </td>
                         <td>@bid.User.FullName</td>
-                        <td>@bid.Amount.ToString("N0") $</td>
+                        <td>@bid.Amount.ToString("N2") $</td>
                         <td>@(bid.BidTime?.ToString("dd/MM/yyyy HH:mm") ?? "-")</td>
                         <td>@totalBidders</td>
-                        <td>@highestBid.ToString("N0") $</td>
+                        <td>@highestBid.ToString("N2") $</td>
                     </tr>
                 }
             </tbody>

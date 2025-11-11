@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-
-    <!-- Dấu chấm điều hướng -->
+<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- data-bs-interval="3000" => chuyển slide mỗi 3 giây -->
+    <!-- Indicators -->
     <div class="carousel-indicators">
         @{
             var banners = ViewBag.Banners as List<Gallery_Art_System.Models.Banner>;
@@ -22,12 +22,12 @@
         }
     </div>
 
-    <!-- Các ảnh banner -->
+    <!-- Carousel items -->
     <div class="carousel-inner">
         @{
             int index = 0;
         }
-        @foreach (var bn in ViewBag.Banners)
+        @foreach (var bn in banners)
         {
             var activeClass = index == 0 ? "active" : "";
             <div class="carousel-item @activeClass">
@@ -37,7 +37,7 @@
         }
     </div>
 
-    <!-- Nút điều hướng -->
+    <!-- Nút prev/next -->
     <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -47,6 +47,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 <div class="text-center" style="background-color: #f7f6ed;">
     <div class="about-us">
         <div class="container hero-content">
@@ -117,7 +118,7 @@
         <div class="container">
             <div class="header">
                 <h2>Artwork</h2>
-                <a href="#" class="view-all">
+                <a asp-controller="Home" asp-action="artwork" class="view-all">
                     View All Artwork <span>→</span>
                 </a>
             </div>

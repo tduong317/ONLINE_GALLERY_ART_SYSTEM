@@ -1,0 +1,82 @@
+﻿@model Gallery_Art_System.Models.User
+@{
+    ViewData["Title"] = "Profile";
+}
+<div class="banner-pro">
+    <h1>Profile</h1>
+    <p><a href="/">Home </a>/<a asp-controller="User" asp-action="Profile"> Profile</a></p>
+</div>
+<div class="container art-content">
+    <div class="row">
+        <!-- Thông tin cơ bản -->
+        <div class="col-md-4 text-center">
+            <img src="~/images/@Model.Avatar" class="rounded-circle img-fluid mb-3" alt="Avatar" style="width:150px; height:150px; object-fit:cover;">
+            <h3>@Model.FullName</h3>
+            <p>@Model.Email</p>
+        </div>
+
+        <!-- Thông tin chi tiết -->
+        <div class="col-md-8">
+            <h4>Thông tin tác phẩm</h4>
+            <div class="row">
+                @if (Model.Artworks != null && Model.Artworks.Any())
+                {
+                    foreach (var art in Model.Artworks)
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <img src="@art.ImageUrl" class="card-img-top" alt="@art.Title" style="height:200px; object-fit:cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@art.Title</h5>
+                                    <p class="card-text">Category: @art.Category?.Name</p>
+                                    <a asp-controller="Artwork" asp-action="Detail" asp-route-id="@art.ArtworkId" class="btn btn-primary btn-sm">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Người dùng chưa có tác phẩm nào.</p>
+                }
+            </div>
+
+            <hr />
+
+            <h4>Review đã viết</h4>
+            @if (Model.Reviews != null && Model.Reviews.Any())
+            {
+                foreach (var review in Model.Reviews.OrderByDescending(r => r.CreatedAt))
+                {
+                    <div class="mb-3 p-3 border rounded">
+                        <strong>@review.Artwork?.Title</strong>
+                        <span class="text-muted">(@review.CreatedAt?.ToString("dd/MM/yyyy"))</span>
+                        <p>@review.Comment</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Người dùng chưa viết review nào.</p>
+            }
+
+            <form asp-action="AddReview" method="post" class="mt-3">
+                <div class="mb-3">
+                    <label for="ArtworkId" class="form-label">Chọn tác phẩm</label>
+                    <select class="form-select" id="ArtworkId" name="ArtworkId">
+                        @foreach (var art in Model.Artworks)
+                        {
+                            <option value="@art.ArtworkId">@art.Title</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Content" class="form-label">Nội dung review</label>
+                    <textarea class="form-control" id="Content" name="Content" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Gửi review</button>
+            </form>
+
+        </div>
+    </div>
+</div>

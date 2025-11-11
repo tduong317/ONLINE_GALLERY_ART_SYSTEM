@@ -9,13 +9,9 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\images\banners\**" />
-    <Compile Remove="wwwroot\images\users\**" />
     <Content Remove="wwwroot\images\banners\**" />
-    <Content Remove="wwwroot\images\users\**" />
     <EmbeddedResource Remove="wwwroot\images\banners\**" />
-    <EmbeddedResource Remove="wwwroot\images\users\**" />
     <None Remove="wwwroot\images\banners\**" />
-    <None Remove="wwwroot\images\users\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +24,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.9" />
   </ItemGroup>
 

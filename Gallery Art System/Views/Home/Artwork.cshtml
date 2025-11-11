@@ -4,7 +4,7 @@
 }
 <div class="banner-art">
     <h1>Artworks</h1>
-    <p><a asp-action="Index" asp-controller="Home">Home </a>/<a> Artworks</a></p>
+    <p><a href="/">Home </a>/<a asp-controller="Home" asp-action="Artwork"> Artworks</a></p>
 </div>
 <div class="container art-content">
     <aside class="art-filter">
@@ -62,19 +62,25 @@
 
             <div class="art-item">
                     <div class="art-img-wrapper">
-                        <img src="@art.ImageUrl" alt="@art.Title">
-                        <span class="discount-badge">-20%</span>
+                        <!-- Icon heart -->
+                        <span class="heart-icon"><i class="fa-regular fa-heart"></i></span>
+
+                        <a asp-action="DetailArtwork" asp-controller="Home" asp-route-id="@art.ArtworkId">
+                            <img src="@art.ImageUrl" alt="@art.Title" />
+                        </a>
 
                         <!-- overlay xuất hiện khi hover -->
                         <div class="art-overlay">
-                            <a href="#">Add to Cart</a>
+                            <a href="javascript:void(0)" onclick="addToCart(@art.ArtworkId)">Add to Cart</a>
                         </div>
                     </div>
+
                 <div class="art-info">
-                    <p class="category">@art.Category?.Name</p>
-                    <h3 class="art-title">@art.Title</h3>
+                        <p class="category">@art.Category?.Name</p>
+                        <span style="text-align:right;"><i class="fa-regular fa-heart"></i></span>
+                    <a asp-action="DetailArtwork" asp-controller="Home" asp-route-id="@art.ArtworkId"><h3 class="art-title">@art.Title</h3></a>
                     <p class="price">
-                    <span class="new-price">$ @art.Price?.ToString("N0")</span>
+                    <span class="new-price">$ @art.Price?.ToString("N2")</span>
                     </p>
                 </div>
             </div>
@@ -128,3 +134,35 @@
         priceValue.textContent = this.value;
     });
 </script>
+@section Scripts {
+    <script>
+        function addToCart(artworkId) {
+            $.post('/Cart/AddToCart', { artworkId: artworkId }, function (res) {
+                if (res.count !== undefined) {
+                    $('#cartCount').text(res.count);
+                }
+            });
+        }
+        $(document).ready(function () {
+            refreshCartCount();
+        });
+                function addToCart(artworkId) {
+            fetch(`/Cart/AddToCart?artworkId=${artworkId}`, { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    // Cập nhật số lượng
+                    const cartCount = document.getElementById('cartCount');
+                    if(cartCount) cartCount.textContent = data.count;
+
+                    // Rung icon giỏ hàng
+                    const cartIcon = document.getElementById('cartIcon');
+                    cartIcon.classList.add('shake');
+                    setTimeout(() => cartIcon.classList.remove('shake'), 500);
+                })
+                .catch(err => console.error(err));
+        }
+
+    </script>
+
+}
+

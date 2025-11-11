@@ -1,0 +1,45 @@
+﻿.banner-pro {
+    height: 500px;
+    background: url('/images/homes/img4.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+}
+
+    .banner-pro::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .banner-pro > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .banner-pro h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .banner-pro p {
+        font-size: 20px;
+    }
+
+    .banner-pro a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 5px;
+        transition: 0.3s;
+    }
+
+        .banner-pro a:hover {
+            text-decoration: underline;
+        }

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+@model Gallery_Art_System.Models.User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/home/login.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container auth-page">
+            <!-- Sign In -->
+            <div class="auth-page-section auth-page-signin">
+                <h2 class="auth-page-title">Sign In</h2>
+                <form asp-controller="User" asp-action="Login" method="post">
+                    <label for="identifier" class="auth-page-label">Username or Email</label>
+                    <input type="text" id="identifier" name="identifier" class="auth-page-input" placeholder="Enter your username or email" required />
+
+                    <label class="auth-page-label">Password</label>
+                    <input type="password" asp-for="Password" class="auth-page-input" placeholder="Enter your password" required />
+                    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="text-danger" style="color: red; font-weight: bold;margin-top:20px">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+                    <div class="auth-page-footer">
+                        <button type="submit" class="auth-page-btn">LOG IN</button>
+                    </div>
+                        <a>Forgot password?</a>
+                </form>
+                <div class="register">
+                    <a asp-action="Register" asp-controller="User">Create new account</a>
+                </div>
+            </div>
+
+            <!-- Create Account -->
+        </div>
+    </div>
+</body>
+</html>

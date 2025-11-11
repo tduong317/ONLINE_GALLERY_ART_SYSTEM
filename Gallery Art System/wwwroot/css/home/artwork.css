@@ -240,6 +240,20 @@
             transform: scale(1.05);
             filter: brightness(0.85); /* làm ảnh tối nhẹ, tinh tế */
         }
+.heart-icon {
+    position: absolute;
+    top: 10px; /* cách trên 10px */
+    right: 10px; /* cách phải 10px */
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 3; /* cao hơn overlay */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+    .heart-icon:hover {
+        color: #13130d;
+        transform: scale(1.2);
+    }
 
 /* ===== OVERLAY NHẠT ===== */
         .art-overlay {
@@ -319,7 +333,10 @@
     padding: 0;
     color: #13130d;
 }
-
+.art-info a {
+    color: #13130d;
+    text-decoration: none;
+}
 .price {
     font-size: 16px;
     font-weight: 500;
@@ -363,3 +380,11 @@
         height: 280px;
     }
 }
+/* ✅ Sửa lỗi: overlay không chặn click vào ảnh */
+.art-overlay {
+    pointer-events: none; /* lớp overlay không nhận sự kiện chuột */
+}
+
+    .art-overlay a {
+        pointer-events: auto; /* nhưng nút Add to Cart vẫn click được */
+    }

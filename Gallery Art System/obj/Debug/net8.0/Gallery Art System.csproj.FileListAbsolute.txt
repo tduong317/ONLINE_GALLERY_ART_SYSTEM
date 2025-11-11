@@ -1,0 +1,77 @@
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\appsettings.Development.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\appsettings.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.staticwebassets.runtime.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.staticwebassets.endpoints.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.exe
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.deps.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.runtimeconfig.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Gallery Art System.pdb
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\DevOne.Security.Cryptography.BCrypt.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\BCrypt.Net-Next.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\elFinder.NetCore.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Humanizer.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Drawing.Common.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Runtime.Caching.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Security.Permissions.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\System.Windows.Extensions.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\X.PagedList.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.csproj.AssemblyReference.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.GeneratedMSBuildEditorConfig.editorconfig
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.AssemblyInfoInputs.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.AssemblyInfo.cs
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.csproj.CoreCompileInputs.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.MvcApplicationPartsAssemblyInfo.cs
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.MvcApplicationPartsAssemblyInfo.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.RazorAssemblyInfo.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.RazorAssemblyInfo.cs
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.sourcelink.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\rjimswa.dswa.cache.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\scopedcss\bundle\Gallery Art System.styles.css
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\scopedcss\projectbundle\Gallery Art System.bundle.scp.css
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\staticwebassets.build.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\staticwebassets.build.json.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\staticwebassets.development.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery .47D280C6.Up2Date
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\refint\Gallery Art System.dll
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.pdb
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\Gallery Art System.genruntimeconfig.cache
+E:\ONLINE_GALLERY_ART_SYSTEM\Gallery Art System\obj\Debug\net8.0\ref\Gallery Art System.dll

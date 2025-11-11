@@ -479,6 +479,8 @@ namespace Gallery_Art_System.Models
 
                 entity.Property(e => e.ReviewId).HasColumnName("review_id");
 
+                entity.Property(e => e.ExhibitionId).HasColumnName("exhibition_id");
+
                 entity.Property(e => e.ArtworkId).HasColumnName("artwork_id");
 
                 entity.Property(e => e.Comment)
@@ -505,6 +507,12 @@ namespace Gallery_Art_System.Models
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__review__user_id__6B24EA82");
+
+                entity.HasOne(d => d.Exhibition)
+                    .WithMany(p => p.Reviews)
+                    .HasForeignKey(d => d.ExhibitionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__review__exhibition_id");
             });
 
             modelBuilder.Entity<User>(entity =>

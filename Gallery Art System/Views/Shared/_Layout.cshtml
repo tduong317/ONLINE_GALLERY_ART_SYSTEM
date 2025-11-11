@@ -14,9 +14,15 @@
           rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="~/css/home/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/cart.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/about.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/artwork.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/exhibition.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/home/auction.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/detailAuction.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/detailArtwork.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/detailExh.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/profile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Art_Gallery_System_FE.styles.css" asp-append-version="true" />
     <link rel="icon" type="image/png" href="~/images/logo.png" />
 </head>
@@ -47,6 +53,46 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @section Scripts {
+        <script>
+            // 🛒 Hàm cập nhật số lượng giỏ hàng trên icon
+            function refreshCartCount() {
+                $.get('/Cart/GetCartCount', function (res) {
+                    if (res.count !== undefined) {
+                        $('#cartCount').text(res.count);
+                    }
+                });
+            }
+
+            // 🛍️ Hàm thêm sản phẩm vào giỏ
+            function addToCart(artworkId) {
+                $.post('/Cart/AddToCart', { artworkId: artworkId }, function (res) {
+                    if (res.count !== undefined) {
+                        $('#cartCount').text(res.count);
+                    }
+                });
+            }
+
+            // 🔄 Gọi khi trang load
+            $(document).ready(function () {
+                refreshCartCount();
+            });
+        </script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
+    <a href="#" id="scrollToTop" class="scroll-to-top" title="Scroll to top"><i class="fa-solid fa-arrow-up"></i></a>
+    <script>
+        const scrollBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        scrollBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

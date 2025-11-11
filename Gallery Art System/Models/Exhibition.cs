@@ -23,5 +23,8 @@ namespace Gallery_Art_System.Models
         public string? ImageUrl { get; set; }
 
         public virtual ICollection<ExhibitionRequest> ExhibitionRequests { get; set; }
+
+        public virtual ICollection<Review> Reviews { get; set; }
+
     }
 }

@@ -1,0 +1,193 @@
+﻿@model Gallery_Art_System.Models.Exhibition
+@{
+    ViewData["Title"] = "Exhibition";
+    var userId = Context.Session.GetInt32("UserId"); // nếu bạn dùng Session cho đăng nhập
+
+}
+<div class="banner-exh">
+    <h1>@Model.Name</h1>
+    <p><a href="/">Home </a> / <a asp-controller="Auction" asp-action="Index">Auctions</a></p>
+</div>
+<div class="container content-exh">
+@* <a href="javascript:history.back()" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a> *@
+    <div class="detail">
+        <div class="item-img">
+            <img src="@Model.ImageUrl" />
+        </div>
+        <div class="item-text">
+
+            <h2 class="title">@Model.Name</h2>
+
+            <hr />
+            <h4>Description</h4>
+            <div class="desc">@Html.Raw(Model.Description)</div>
+
+            <p class="created">
+                <strong>Opening:</strong> @Model.StartDate
+            </p>
+            <p class="size">
+                <strong>Closed:</strong> @Model.EndDate
+            </p>
+            <p class="address">
+                <strong>Address:</strong><a href="https://maps.app.goo.gl/8Z7DoACKCy8wj6NK7"> @Model.Location</a>
+            </p>
+        </div>
+    </div>
+    <div class="tab-container">
+        <div class="woocommerce-tabs wc-tabs-wrapper">
+            <ul class="tabs wc-tabs" role="tablist">
+                <li role="presentation" class="description_tab active" id="tab-title-description">
+                    <a href="#tab-description" role="tab" aria-controls="tab-description" aria-selected="true">
+                        Description
+                    </a>
+                </li>
+                <li role="presentation" class="additional_information_tab" id="tab-title-additional_information">
+                    <a href="#tab-additional_information" role="tab" aria-controls="tab-additional_information">
+                        Additional information
+                    </a>
+                </li>
+                <li role="presentation" class="reviews_tab" id="tab-title-reviews">
+                    <a href="#tab-reviews" role="tab" aria-controls="tab-reviews">
+                        Reviews (@Model.Reviews.Count)
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Description -->
+            <div class="woocommerce-Tabs-panel wc-tab active" id="tab-description" role="tabpanel">
+                <h2>Description</h2>
+                <p>@Html.Raw(Model.Description)</p>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="woocommerce-Tabs-panel wc-tab" id="tab-additional_information" role="tabpanel">
+                <h2>Additional information</h2>
+                <table class="woocommerce-product-attributes shop_attributes">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Age</th>
+                            <td>Adults, Seniors (55+), Students (12 and up)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Reviews -->
+            <div class="woocommerce-Tabs-panel wc-tab" id="tab-reviews" role="tabpanel">
+                <div class="review">
+
+                    <div class="list-review">
+                        <h2>Reviews (@Model.Reviews.Count)</h2>
+
+                        @if (Model.Reviews.Any())
+                        {
+                            foreach (var review in Model.Reviews)
+                            {
+                                <div class="review-item">
+                                    <strong>@(review.User != null ? review.User.FullName : review.Name)<span style="border-left: 1px solid #606060;margin-left: 10px;padding-left: 10px">@(review.User != null ? review.User.Email : review.Email)</span></strong>
+                                    <br />
+                                    <span>
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= review.Rating)
+                                            {
+                                                <i class="fa fa-star text-warning"></i> <!-- Sao vàng -->
+                                            }
+                                            else
+                                            {
+                                                <i class="fa fa-star text-secondary"></i> <!-- Sao xám -->
+                                            }
+                                        }
+                                    </span>
+                                    <br />
+                                    <span style="font-size: 12px">@review.CreatedAt?.ToString("yyyy/MM/dd HH:mm")</span>
+                                    <p>@review.Comment</p>
+                                    <hr />
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p>No reviews yet. Be the first to review!</p>
+                        }
+                    </div>
+                    <div class="form-review">
+                        <h3>Write a review</h3>
+                        <form asp-action="AddReview" asp-controller="Review" method="post" class="review-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="exhibitionId" value="@Model.ExhibitionId" />
+
+                            <label>Rating <span style="color: red">*</span></label>
+                            <div class="star-rating">
+                                <input type="hidden" name="rating" id="rating-value" value="0" />
+                                <i class="fa fa-star" data-value="1"></i>
+                                <i class="fa fa-star" data-value="2"></i>
+                                <i class="fa fa-star" data-value="3"></i>
+                                <i class="fa fa-star" data-value="4"></i>
+                                <i class="fa fa-star" data-value="5"></i>
+                            </div>
+
+                            <label>Your Review <span style="color: red">*</span></label>
+                            <textarea name="comment" rows="3" required class="form-control"></textarea>
+
+                            <button type="submit" class="btn btn-dark mt-2">Submit Review</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".woocommerce-tabs ul.tabs li");
+        const panels = document.querySelectorAll(".woocommerce-Tabs-panel");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function (e) {
+                e.preventDefault();
+                // Xóa active khỏi tất cả
+                tabs.forEach(t => t.classList.remove("active"));
+                panels.forEach(p => p.classList.remove("active"));
+
+                // Kích hoạt tab được chọn
+                this.classList.add("active");
+                const targetId = this.querySelector("a").getAttribute("href");
+                document.querySelector(targetId).classList.add("active");
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll(".star-rating .fa-star");
+        const ratingInput = document.getElementById("rating-value");
+
+        stars.forEach(star => {
+            star.addEventListener("mouseover", () => {
+                stars.forEach(s => s.classList.remove("hover"));
+                for (let i = 0; i < star.dataset.value; i++) {
+                    stars[i].classList.add("hover");
+                }
+            });
+
+            star.addEventListener("mouseout", () => {
+                stars.forEach(s => s.classList.remove("hover"));
+            });
+
+            star.addEventListener("click", () => {
+                ratingInput.value = star.dataset.value;
+                stars.forEach(s => s.classList.remove("selected"));
+                for (let i = 0; i < star.dataset.value; i++) {
+                    stars[i].classList.add("selected");
+                }
+            });
+        });
+    });
+</script>

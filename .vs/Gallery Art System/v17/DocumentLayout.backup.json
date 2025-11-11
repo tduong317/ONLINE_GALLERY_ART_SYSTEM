@@ -3,32 +3,52 @@
   "WorkspaceRootPath": "E:\\ONLINE_GALLERY_ART_SYSTEM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\auction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\auction\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\artwork\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\artwork\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\auctioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\artwork\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\artwork\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\home\\auction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\home\\auction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\home\\artwork.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\home\\artwork.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\models\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\models\\auction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\auction\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\auction\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\user\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\wwwroot\\css\\home\\artwork.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\wwwroot\\css\\home\\artwork.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\home\\detailexh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\home\\detailexh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\views\\home\\exhibition.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\views\\home\\exhibition.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|e:\\online_gallery_art_system\\gallery art system\\wwwroot\\css\\home\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2E2F62B9-767E-46B4-8280-22B8959EA655}|Gallery Art System\\Gallery Art System.csproj|solutionrelative:gallery art system\\wwwroot\\css\\home\\profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,88 +62,154 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Artwork\\Index.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Artwork\\Index.cshtml",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Artwork\\Index.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Artwork\\Index.cshtml",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAAAJcAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Artwork\\Create.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Artwork\\Create.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Artwork\\Create.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Artwork\\Create.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAKEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T17:47:29.829Z"
+              "WhenOpened": "2025-11-11T01:50:27.78Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Index.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAADQAAAA+AAAAAAAAAA==",
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\User\\Register.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\User\\Register.cshtml*",
+              "RelativeToolTip": "Gallery Art System\\Views\\User\\Register.cshtml*",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACUAAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T17:46:12.233Z",
+              "WhenOpened": "2025-11-11T01:50:21.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Auction.cs",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Models\\Auction.cs",
-              "RelativeDocumentMoniker": "Gallery Art System\\Models\\Auction.cs",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Models\\Auction.cs",
-              "RelativeToolTip": "Gallery Art System\\Models\\Auction.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
+              "Title": "ArtworkController.cs",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\ArtworkController.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\ArtworkController.cs",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\ArtworkController.cs",
+              "RelativeToolTip": "Gallery Art System\\Controllers\\ArtworkController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T17:41:22.617Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Auction\\Create.cshtml",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAswIkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T17:36:01.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuctionController.cs",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\AuctionController.cs",
-              "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\AuctionController.cs",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\AuctionController.cs",
-              "RelativeToolTip": "Gallery Art System\\Controllers\\AuctionController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBwAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T17:33:05.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\HomeController.cs",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Gallery Art System\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAIwHoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T17:32:08.632Z"
+              "WhenOpened": "2025-11-11T01:48:47.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Auction.cshtml",
-              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Auction.cshtml",
-              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Home\\Auction.cshtml",
-              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Auction.cshtml",
-              "RelativeToolTip": "Gallery Art System\\Views\\Home\\Auction.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Title": "Artwork.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Artwork.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Home\\Artwork.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Artwork.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Home\\Artwork.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-06T17:31:00.277Z"
+              "WhenOpened": "2025-11-10T16:51:50.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DetailExh.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\DetailExh.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Home\\DetailExh.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\DetailExh.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Home\\DetailExh.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAiwHgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-10T16:38:42.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Exhibition.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Exhibition.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\Home\\Exhibition.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\Home\\Exhibition.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\Home\\Exhibition.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-10T16:38:41.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\ReviewController.cs",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "Gallery Art System\\Controllers\\ReviewController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwAIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:37:36.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Gallery Art System\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAAAIgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:25:09.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "artwork.css",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\wwwroot\\css\\home\\artwork.css",
+              "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\home\\artwork.css",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\wwwroot\\css\\home\\artwork.css",
+              "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\home\\artwork.css",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAAP0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-10T16:23:40.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "profile.css",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\wwwroot\\css\\home\\profile.css",
+              "RelativeDocumentMoniker": "Gallery Art System\\wwwroot\\css\\home\\profile.css",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\wwwroot\\css\\home\\profile.css",
+              "RelativeToolTip": "Gallery Art System\\wwwroot\\css\\home\\profile.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-10T16:23:36.022Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\User\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Gallery Art System\\Views\\User\\Profile.cshtml",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Views\\User\\Profile.cshtml",
+              "RelativeToolTip": "Gallery Art System\\Views\\User\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-10T16:22:28.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Gallery Art System\\Models\\User.cs",
+              "ToolTip": "E:\\ONLINE_GALLERY_ART_SYSTEM\\Gallery Art System\\Models\\User.cs",
+              "RelativeToolTip": "Gallery Art System\\Models\\User.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAkwCMAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T16:16:51.281Z",
+              "EditorCaption": ""
             }
           ]
         },

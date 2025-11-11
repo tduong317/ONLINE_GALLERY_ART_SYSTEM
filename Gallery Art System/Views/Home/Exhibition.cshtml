@@ -5,7 +5,7 @@
 }
 <div class="banner-ex">
     <h1>Exhibitions</h1>
-    <p><a asp-action ="Index" asp-controller="Home">Home </a>/<a> Exhibitons</a></p>
+    <p><a href="/">Home </a>/<a asp-controller="Home" asp-action="Exhibition"> Exhibitions</a></p>
 </div>
 <section class="event-filter-bar">
     <div class="container event-filter-container">
@@ -36,14 +36,14 @@
             </div>
             <div class="event-info">
                 <div class="event-period">@exh.StartDate - @exh.EndDate</div>
-                <h2 class="event-title">@exh.Name</h2>
+                <a asp-action="DetailExh" asp-route-id="@exh.ExhibitionId"><h2 class="event-title">@exh.Name</h2></a>
                 <div class="event-location">@exh.Location</div>
                 <div class="event-desc">
                         <p>@Html.Raw(exh.Description)</p>
                 </div>
             </div>
             <div class="event-image">
-                <img src="@exh.ImageUrl" alt="Caravaggio Painting" />
+                <a asp-action="DetailExh" asp-route-id="@exh.ExhibitionId"><img src="@exh.ImageUrl" alt="Caravaggio Painting" /></a>
             </div>
         </div>
         }

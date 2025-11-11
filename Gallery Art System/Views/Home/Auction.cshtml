@@ -4,9 +4,7 @@
 }
 <div class="banner-auc">
     <h1>Auctions</h1>
-    <p>
-        <a asp-action="Index" asp-controller="Home">Home </a>/<a> Auctions</a>
-    </p>
+    <p><a href="/">Home </a>/<a asp-controller="Home" asp-action="Artwork"> Auctions</a></p>
 </div>
 <div class="container auc-content">
     <aside class="auc-filter">
@@ -18,7 +16,7 @@
                     foreach (var category in ViewBag.CategoryList)
                     {
                         <li>
-                            <span class="dash"></span><a asp-action="Artwork" asp-controller="Home" asp-route-categoryId="@category.CategoryId">@category.Name.ToUpper()</a>
+                            <span class="dash"></span><a asp-action="Auction" asp-controller="Home" asp-route-categoryId="@category.CategoryId">@category.Name.ToUpper()</a>
                         </li>
                     }
                 }
@@ -42,7 +40,7 @@
 
                         <!-- overlay xuất hiện khi hover -->
                         <div class="auc-overlay">
-                            <a href="#">Add to Cart</a>
+                            <a asp-action="DetailAuction" asp-controller="Home" asp-route-id="@auc.AuctionId">Bid</a>
                         </div>
                     </div>
                     <div class="auc-info">
@@ -73,7 +71,7 @@
                         </p>
                     </div>
                     <div class="bids">
-                        <a asp-action="Bid" asp-controller="Home" asp-route-id="@auc.AuctionId">Bid</a>
+                        <a asp-action="DetailAuction" asp-controller="Home" asp-route-id="@auc.AuctionId">Bid</a>
                     </div>
                 </div>
 
@@ -117,6 +115,5 @@
                 </ul>
             </nav>
         </div>
-    </section>
     </section>
 </div>

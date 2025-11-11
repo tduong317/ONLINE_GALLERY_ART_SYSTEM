@@ -1,0 +1,181 @@
+﻿body {
+    background-color: #f7f5ee; /* Màu nền nhẹ */
+    font-family: sans-serif;
+}
+
+.cart-container {
+    max-width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Bảng sản phẩm */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+    .product-table th, .product-table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    .product-table th {
+        background-color: #333; /* Màu header đen */
+        color: white;
+    }
+
+.product-row {
+    background-color: #fcfbf8; /* Màu hàng sản phẩm */
+    border-bottom: 1px solid #eee;
+}
+
+.remove-item {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #999;
+    width: 30px;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border: 1px solid #eee;
+}
+
+/* Input số lượng */
+.quantity-input {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Phần coupon và cập nhật giỏ hàng */
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.coupon-section {
+    display: flex;
+}
+
+.coupon-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+/* ======= NÚT ======= */
+.apply-coupon-btn,
+.update-cart-btn,
+.checkout-btn {
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Thêm border */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 40px;
+}
+
+.apply-coupon-btn {
+    background-color: #b5955b;
+    color: white;
+    border-color: #b5955b;
+}
+
+.update-cart-btn {
+    background-color: #C9A050;
+    color: white;
+    border-color: #C9A050;
+    border-radius: 40px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #b5955b;
+    background-color: #b5955b;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+    /* Hiệu ứng hover chuyển màu đen */
+    .apply-coupon-btn:hover,
+    .update-cart-btn:hover,
+    .checkout-btn:hover {
+        background-color: #13130D;
+        border-color: #13130D;
+        color: white;
+    }
+
+/* Phần Tổng cộng giỏ hàng (Cart totals) */
+.cart-totals {
+    max-width: 450px; /* Độ rộng cột bên phải */
+    float: right;
+    width: 100%;
+}
+
+    .cart-totals h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: #333;
+        color: white;
+    }
+
+.totals-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .totals-table td {
+        padding: 15px 15px;
+        border: 1px solid #eee;
+    }
+
+    .totals-table .label {
+        font-weight: bold;
+        background-color: #f7f5ee; /* Màu nền nhẹ cho label */
+    }
+
+.total-row .label, .total-row .value {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #333;
+    color: white;
+}
+
+.shipping-address, .shipping-flat-rate {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.change-address-link {
+    color: #b5955b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Clear float */
+.cart-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
