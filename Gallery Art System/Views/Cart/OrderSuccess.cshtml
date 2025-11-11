@@ -1,0 +1,49 @@
+﻿
+
+@{
+    ViewData["Title"] = "Thanh toán thành công";
+}
+<div class="banner-ex">
+    <h1>Checkout</h1>
+    <p><a href="/">Home </a>/<a asp-controller="Cart" asp-action="Checkout"> Checkout</a></p>
+</div>
+<div class="order-success">
+    <h2>🎉 Cảm ơn bạn đã mua hàng!</h2>
+    <p>@TempData["SuccessMessage"]</p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-success">Quay lại trang chủ</a>
+</div>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .order-success {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* canh dọc */
+        align-items: center; /* canh ngang */
+        height: 30vh; /* chiếm toàn màn hình */
+        text-align: center;
+        background-color: #f8f9fa; /* nền nhạt dễ nhìn */
+    }
+
+        .order-success h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .order-success p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .order-success .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+</style>
+

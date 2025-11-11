@@ -1,6 +1,8 @@
 ﻿using Gallery_Art_System.Models;
-using Newtonsoft.Json;
+using Gallery_Art_System.Models.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Gallery_Art_System.Controllers
 {
@@ -87,7 +89,7 @@ namespace Gallery_Art_System.Controllers
                         {
                             // Tính lại tổng tiền cho sản phẩm
                             item.TotalAmount = (artwork.Price ?? 0) * newQty;
-                            item.Artwork = artwork; 
+                            item.Artwork = artwork;
                         }
                     }
                 }
@@ -122,7 +124,6 @@ namespace Gallery_Art_System.Controllers
             var cart = GetCart();
             return Json(new { count = cart.Count });
         }
-
         // ✅ Trang giỏ hàng
         public IActionResult Index()
         {
@@ -137,6 +138,94 @@ namespace Gallery_Art_System.Controllers
                 }
             }
             return View(cart);
+        }
+        [Authentication]  // đảm bảo phải đăng nhập
+        public IActionResult Checkout()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            var cart = GetCart();
+            if (cart.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            // ✅ Lấy thông tin người dùng
+            var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            if (user != null)
+            {
+                ViewBag.Username = user.Username;
+                ViewBag.FullName = user.FullName;
+                ViewBag.Address = user.Address;
+                ViewBag.Phone = user.Phone;
+                ViewBag.Email = user.Email;
+            }
+
+            // Không lưu đơn hàng ở đây, chỉ hiển thị form xác nhận
+            return View(cart);
+        }
+        [HttpPost]
+        [Authentication]
+        public IActionResult PlaceOrder([FromForm] string PaymentMethod, [FromForm] string order_notes)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+                return RedirectToAction("Login", "User");
+
+            var cart = GetCart();
+            if (cart.Count == 0)
+                return RedirectToAction("Index");
+
+            // Map PaymentMethod từ form sang giá trị hợp lệ trong DB
+            var methodMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    {
+        { "bacs", "NET_BANKING" },   // Chuyển khoản ngân hàng
+        { "cod", "DEBIT_CARD" }      // COD
+    };
+
+            string dbPaymentMethod = methodMap.ContainsKey(PaymentMethod) ? methodMap[PaymentMethod] : "NET_BANKING";
+
+            foreach (var item in cart)
+            {
+                // Tạo Order cho mỗi sản phẩm
+                var order = new Order
+                {
+                    UserId = userId.Value,
+                    ArtworkId = item.ArtworkId,
+                    OrderDate = DateTime.Now,
+                    Status = dbPaymentMethod == "DEBIT_CARD" ? "PENDING" : "PAID",
+                    TotalAmount = item.TotalAmount,
+                    Note = order_notes,
+                };
+                _context.Orders.Add(order);
+                _context.SaveChanges();
+
+                // Tạo Payment cho Order
+                var payment = new Payment
+                {
+                    OrderId = order.OrderId,
+                    Method = dbPaymentMethod,
+                    PaymentDate = DateTime.Now,
+                    Amount = item.TotalAmount,
+                    Status = dbPaymentMethod == "DEBIT_CARD" ? "PENDING" : "SUCCESS"
+                };
+                _context.Payments.Add(payment);
+                _context.SaveChanges();
+            }
+
+            // Xóa giỏ hàng
+            HttpContext.Session.Remove("CART_SESSION");
+
+            TempData["SuccessMessage"] = "Đơn hàng của bạn đã được đặt thành công!";
+            return RedirectToAction("OrderSuccess");
+        }
+        public IActionResult OrderSuccess()
+        {
+            return View();
         }
     }
 }

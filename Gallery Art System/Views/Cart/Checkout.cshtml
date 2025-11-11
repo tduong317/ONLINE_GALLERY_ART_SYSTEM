@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!-- Banner -->
+<div class="banner-ex">
+    <h1>Cart</h1>
+    <p><a href="/">Home</a> / <a asp-controller="Home" asp-action="Artwork">Shop</a> / Checkout</p>
+</div>
+<div class="vneco-container">
+    <form method="post" asp-action="PlaceOrder">
+        <h1 class="vneco-header-title">Billing</h1> <div class="vneco-checkout-layout">
+
+            <div class="vneco-billing-details">
+                <h2 class="vneco-section-title">
+                    Billing details
+                </h2>
+                <div class="vneco-form-row vneco-two-fields">
+                    <div class="vneco-field-wrapper">
+                        <label for="vneco_first_name">Username</label>
+                        <input type="text" id="vneco_first_name" name="first_name"
+                               value="@ViewBag.Username" readonly>
+                    </div>
+                    <div class="vneco-field-wrapper">
+                        <label for="vneco_last_name">FullName</label>
+                        <input type="text" id="vneco_last_name" name="last_name"
+                               value="@ViewBag.FullName" required>
+                    </div>
+                </div>
+                <div class="vneco-form-row">
+                    <label for="vneco_address">Address</label>
+                    <input type="text" id="vneco_address" name="address"
+                           value="@ViewBag.Address" required>
+                </div>
+                <div class="vneco-form-row">
+                    <label for="vneco_phone">Phone</label>
+                    <input type="text" id="vneco_phone" name="phone"
+                           value="@ViewBag.Phone" required>
+                </div>
+                <div class="vneco-form-row">
+                    <label for="vneco_email">Email</label>
+                    <input type="email" id="vneco_email" name="email"
+                           value="@ViewBag.Email" required>
+                </div>
+                <div class="vneco-form-row">
+                    <label for="vneco_order_notes">Note</label>
+                    <textarea id="vneco_order_notes" name="order_notes" rows="3">@ViewBag.Note</textarea>
+                </div>
+            </div>
+
+            <div class="vneco-order-review-section">
+                <h2 class="vneco-section-title">Đơn hàng của bạn</h2>
+
+                <table class="vneco-order-review-table">
+                    <thead>
+                        <tr>
+                            <th>Artwork</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Artwork?.Title</td>
+                                    <td>@string.Format("{0:N0}$", item.TotalAmount ?? 0) </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="2" class="text-center">Giỏ hàng trống</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    <tfoot>
+                        @{
+                            var orders = Model as List<Gallery_Art_System.Models.Order>;
+                            decimal subtotal = orders?.Sum(i => i.TotalAmount ?? 0) ?? 0;
+                        }
+                        <tr>
+                            <th>Total Amount</th>
+                            <td><strong>@string.Format("{0:N0}$", subtotal)</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="vneco-payment-methods">
+                    <h3>Phương thức thanh toán</h3>
+                    <ul>
+                        <li>
+                            <input type="radio" id="vneco-cod" name="PaymentMethod" value="cod" required>
+                            <label for="vneco-cod">Cash On Delivery</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="vneco-internet-banking" name="PaymentMethod" value="internet-banking" required>
+                            <label for="vneco-internet-banking">Internet Banking</label>
+                        </li>
+                        <div id="internet-banking-info" style="display:none; margin-top:10px; padding:10px; border:1px solid #ccc; border-radius:5px; background:#f9f9f9;">
+                            <p>Vui lòng chuyển khoản vào tài khoản sau:</p>
+                            <ul>
+                                <li>Ngân hàng: Tp Bank</li>
+                                <li>Chủ tài khoản: Trần Tùng Dương</li>
+                                <li>Số tài khoản: 44662368888</li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+
+                <button type="submit" class="vneco-place-order-button">PLACE ORDER</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    const radios = document.querySelectorAll('input[name="PaymentMethod"]');
+    const ibInfo = document.getElementById('internet-banking-info');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if(radio.value === 'internet-banking' && radio.checked) {
+                ibInfo.style.display = 'block';
+            } else if(radio.checked) {
+                ibInfo.style.display = 'none';
+            }
+        });
+    });
+
+    // Hiển thị nếu page load mà radio Internet Banking đang chọn
+    window.addEventListener('DOMContentLoaded', () => {
+        const checkedRadio = document.querySelector('input[name="PaymentMethod"]:checked');
+        if(checkedRadio && checkedRadio.value === 'internet-banking') {
+            ibInfo.style.display = 'block';
+        }
+    });
+</script>
+

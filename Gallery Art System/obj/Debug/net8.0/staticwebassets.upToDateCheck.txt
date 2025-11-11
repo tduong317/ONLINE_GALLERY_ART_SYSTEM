@@ -342,6 +342,7 @@ wwwroot\css\home\about.css
 wwwroot\css\home\artwork.css
 wwwroot\css\home\auction.css
 wwwroot\css\home\cart.css
+wwwroot\css\home\checkout.css
 wwwroot\css\home\detailArtwork.css
 wwwroot\css\home\detailAuction.css
 wwwroot\css\home\detailExh.css

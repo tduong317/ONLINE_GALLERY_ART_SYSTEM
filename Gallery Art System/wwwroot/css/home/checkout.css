@@ -1,0 +1,144 @@
+﻿
+.vneco-container {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.vneco-header-title {
+    font-size: 2em; /* Tăng kích thước H1 lên 2em */
+    margin-bottom: 30px;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.vneco-section-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Bố cục chính: Hai cột */
+.vneco-checkout-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.vneco-billing-details, .vneco-order-review-section {
+    flex: 1 1 45%; /* Chiếm khoảng 45% chiều rộng mỗi cột */
+    min-width: 300px;
+}
+
+/* Styling cho Form */
+.vneco-form-row {
+    margin-bottom: 15px;
+}
+
+    .vneco-form-row label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .vneco-form-row input[type="text"],
+    .vneco-form-row input[type="email"],
+    .vneco-form-row input[type="tel"],
+    .vneco-form-row select,
+    .vneco-form-row textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box; /* Quan trọng để padding không làm tăng chiều rộng */
+        font-size: 1em;
+    }
+
+    /* Bố cục hai trường trên một hàng (First/Last Name) */
+    .vneco-form-row.vneco-two-fields {
+        display: flex;
+        gap: 20px;
+    }
+
+        .vneco-form-row.vneco-two-fields .vneco-field-wrapper {
+            flex: 1;
+        }
+
+/* Styling cho Tóm tắt Đơn hàng */
+.vneco-order-review-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.vneco-order-review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .vneco-order-review-table th, .vneco-order-review-table td {
+        padding: 10px 0;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .vneco-order-review-table tfoot th, .vneco-order-review-table tfoot td {
+        border-top: 2px solid #333;
+        font-weight: 700;
+    }
+
+/* Phương thức Thanh toán */
+.vneco-payment-methods {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+    .vneco-payment-methods ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .vneco-payment-methods li {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+    }
+
+        .vneco-payment-methods li:hover {
+            background-color: #f1f1f1;
+        }
+
+.vneco-payment-box {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 3px solid #007bff;
+}
+
+/* Nút Đặt hàng */
+.vneco-place-order-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #B5955B; /* Màu xanh dương hoặc màu chủ đạo của trang */
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+    .vneco-place-order-button:hover {
+        background-color: #13130D;
+    }
